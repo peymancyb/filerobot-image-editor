@@ -15,7 +15,7 @@ export default class extends Component {
     const { applyByDefault } = watermark;
     const canvas = getCanvasNode();
     const canvasRect = canvas && canvas.getBoundingClientRect() || {};
-    
+
     return (
       <PreviewImgBox
         id="preview-img-box"

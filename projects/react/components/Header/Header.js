@@ -13,10 +13,11 @@ export default class extends Component {
       activeTab, onRevert, apply, onClose, processWithCloudService, processWithFilerobot,
       handleSave, activeBody, t, config
     } = this.props;
-    const { tools, showGoBackBtn } = config;
+    const { tools, showGoBackBtn, hideCancelButton } = config;
     const isOneTool = tools.length === 1;
     const filteredName = activeTab === 'rotate' ? 'orientation' : activeTab;
     const onFinishButtonLabel = (!processWithCloudService && !processWithFilerobot) ? t['toolbar.download'] : t['toolbar.save'];
+    const showCancelBtn = hideCancelButton.indexOf(activeTab) === -1;
     const applyAndSave = () => { apply(handleSave); };
 
     return (
@@ -30,9 +31,9 @@ export default class extends Component {
         <ToolbarWrapper overlayYHidden={activeTab !== 'watermark'}>
           <ActionsWrapper>
             <LeftActions>
-              <CancelBtn hide={!activeTab} onClick={isOneTool ? onClose : onRevert} sm default fullSize>
+              {showCancelBtn && (<CancelBtn hide={!activeTab} onClick={isOneTool ? onClose : onRevert} sm default fullSize>
                 {t[`toolbar.cancel`]}
-              </CancelBtn>
+              </CancelBtn>)}
               {showGoBackBtn &&
               <CancelBtn onClick={onClose} sm default fullSize>{t[`toolbar.go_back`]}</CancelBtn>}
             </LeftActions>

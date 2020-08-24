@@ -23,11 +23,12 @@ export default class extends Component {
 
     return (
       <Footer>
-        <ResetBtn
+        {/* DISABLE RESET BUTTON */}
+        {/* <ResetBtn
           muted={activeBody !== 'preview'}
           onClick={() => { activeBody === 'preview' && resetOperations(); }}
           title={t['footer.reset']}
-        />
+        /> */}
 
         <PreviousBtn
           onClick={() => { !isPrevForbidden && redoOperation({

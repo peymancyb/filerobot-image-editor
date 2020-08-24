@@ -21,6 +21,13 @@ const App = () => {
         onOpen={() => console.log('Editor is opened.')}
         onComplete={(props) => { console.log(props) }}
         onBeforeComplete={(props) => { console.log(props); return false; }}
+        config={{
+          activeTab: 'crop',
+          tools: ['crop', 'adjust', 'effects', 'filters', 'rotate'],
+          cropPresets: [],
+          hideTools: ['crop'],
+          hideCancelButton: ['crop']
+        }}
       />
     </div>
   )

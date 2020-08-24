@@ -1,31 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { debounce } from "throttle-debounce";
 import {
-  CropWrapper, CustomLabel, FieldSet, FieldLabel, FieldInput, BlockRatioWrapper, BlockRatioBtn, BlockRatioIcon,
-  CropBox, CropBoxInner, CropShape, CropLabel, CropShapeWrapper, ShapeAligner, PresetsWrapper
-} from '../../styledComponents';
-
-
+  CropWrapper,
+  CustomLabel,
+  FieldSet,
+  FieldLabel,
+  FieldInput,
+  BlockRatioWrapper,
+  BlockRatioBtn,
+  BlockRatioIcon,
+  CropBox,
+  CropBoxInner,
+  CropShape,
+  CropLabel,
+  CropShapeWrapper,
+  ShapeAligner,
+  PresetsWrapper,
+} from "../../styledComponents";
 
 export default class extends Component {
-  state = {
-    aspectRatio: NaN,
-    activeRatio: 'custom'
+  constructor(props) {
+    super(props);
+    this.state = {
+      aspectRatio: NaN,
+      activeRatio: "custom",
+    };
+
+    this.handleOnResize = this.handleOnResize.bind(this);
   }
 
-  componentDidMount() { }
+  componentDidMount() {
+    window.addEventListener("resize", this.handleOnResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleOnResize);
+  }
+
+  handleOnResize = debounce(250, () => {
+    if (window.scaleflexPlugins && window.scaleflexPlugins.cropperjs) {
+      window.scaleflexPlugins.cropperjs.setAspectRatio(1);
+    }
+  });
 
   changeWidth = (event) => {
     const { initialZoom } = this.props;
 
-    window.scaleflexPlugins.cropperjs.setCropBoxData({ width: +event.target.value / initialZoom / window.scaleflexPlugins.zoom  });
-  }
-
+    window.scaleflexPlugins.cropperjs.setCropBoxData({
+      width: +event.target.value / initialZoom / window.scaleflexPlugins.zoom,
+    });
+  };
 
   changeHeight = (event) => {
     const { initialZoom } = this.props;
 
-    window.scaleflexPlugins.cropperjs.setCropBoxData({ height: +event.target.value / initialZoom / window.scaleflexPlugins.zoom  });
-  }
+    window.scaleflexPlugins.cropperjs.setCropBoxData({
+      height: +event.target.value / initialZoom / window.scaleflexPlugins.zoom,
+    });
+  };
 
   toggleRatio = (event) => {
     event.preventDefault();
@@ -38,28 +70,31 @@ export default class extends Component {
     window.scaleflexPlugins.cropperjs.setAspectRatio(aspectRatio);
     window.scaleflexPlugins.cropperjs.setCropBoxData({
       width: width / window.scaleflexPlugins.zoom,
-      height: height / window.scaleflexPlugins.zoom
+      height: height / window.scaleflexPlugins.zoom,
     });
     this.setState({ aspectRatio });
-  }
+  };
 
-  getCanvasNode = () => document.getElementById('preview-img-box');
+  getCanvasNode = () => document.getElementById("preview-img-box");
 
   changeRatio = (box) => {
     const { aspectRatio } = this.state;
-    const { original: { width = 1, height = 1 }, updateState } = this.props;
+    const {
+      original: { width = 1, height = 1 },
+      updateState,
+    } = this.props;
     let value;
 
-    if (box.name === 'custom' && !aspectRatio) {
+    if (box.name === "custom" && !aspectRatio) {
       this.setState({ activeRatio: box.name });
       return;
     }
 
-    updateState({ roundCrop: box.name === 'round' || box.radius === 50 });
-    value = box.name === 'original' ? width / height : box.value;
+    updateState({ roundCrop: box.name === "round" || box.radius === 50 });
+    value = box.name === "original" ? width / height : box.value;
     window.scaleflexPlugins.cropperjs.setAspectRatio(value);
     this.setState({ activeRatio: box.name, aspectRatio: value });
-  }
+  };
 
   render() {
     const { aspectRatio, activeRatio } = this.state;
@@ -68,7 +103,8 @@ export default class extends Component {
 
     return (
       <CropWrapper>
-        <CropBox active={activeRatio === 'custom'}>
+        {/* DISABLING THE CUSTOM CROPBOX */}
+        {/* <CropBox active={activeRatio === 'custom'}>
           <FieldSet>
             <FieldLabel>{t['common.width']}</FieldLabel>
             <FieldInput
@@ -93,28 +129,31 @@ export default class extends Component {
             />
           </FieldSet>
           <CustomLabel>{t['common.custom']}</CustomLabel>
-        </CropBox>
+        </CropBox> */}
 
         <PresetsWrapper>
-          {cropPresets.map(box => (
+          {cropPresets.map((box) => (
             <CropBox
               active={activeRatio === box.name}
-              onClick={() => { this.changeRatio(box); }}
+              onClick={() => {
+                this.changeRatio(box);
+              }}
               key={box.name}
             >
               <CropBoxInner>
                 <CropShapeWrapper>
-                  <ShapeAligner/>
-                  <CropShape ratio={box.value || original.width / original.height} radius={box.radius} />
+                  <ShapeAligner />
+                  <CropShape
+                    ratio={box.value || original.width / original.height}
+                    radius={box.radius}
+                  />
                 </CropShapeWrapper>
-                <CropLabel>
-                  {t[`common.${box.name}`] || box.name}
-                </CropLabel>
+                <CropLabel>{t[`common.${box.name}`] || box.name}</CropLabel>
               </CropBoxInner>
             </CropBox>
           ))}
         </PresetsWrapper>
       </CropWrapper>
-    )
+    );
   }
 }

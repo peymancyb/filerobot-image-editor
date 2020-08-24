@@ -11,6 +11,10 @@ import light from './assets/theme/light';
 import { isServerSide } from './utils/is-server-side';
 
 
+function getActiveTab(tools = [], activeTab) {
+  return tools.find(tool => tool === activeTab);
+}
+
 class ImageEditorWrapper extends Component {
   _isMounted = false;
 
@@ -24,7 +28,10 @@ class ImageEditorWrapper extends Component {
     config.theme.fonts = config.theme.fonts || {};
     config.colorScheme = config.colorScheme || 'dark';
     config.platform = config.platform || 'filerobot';
-
+    config.activeTab = getActiveTab(config.tools, config.activeTab);
+    config.hideTools = config.hideTools || [];
+    config.hideCancelButton = config.hideCancelButton || [];
+    
     this.state = {
       isVisible: show,
       src,
@@ -58,7 +65,7 @@ class ImageEditorWrapper extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.show !== prevProps.show) {
       if (this.props.show) { this.open(this.props.src); } else { this.close(); }
-    }    
+    }
   }
 
   processConfig = (config) => {

@@ -17,11 +17,17 @@ import Text from './Text';
 export default class extends Component {
   render() {
     const { activeTab, isShowSpinner, activeBody, config } = this.props;
-    const { tools } = config;
+    const { tools, hideTools } = config;
 
     return (
       <Toolbar overlayYHidden={activeTab !== 'watermark'}>
-        {!activeTab && tools.map(name => <Tool name={name} key={name} {...this.props}/>)}
+        {!activeTab && tools.map(name => {
+          const showTool = hideTools.indexOf(name) === -1;
+          if (showTool) {
+            return <Tool name={name} key={name} {...this.props} />;
+          }
+          return null;
+        })}
         {activeTab === 'adjust' && <Adjust {...this.props}/>}
         {activeTab === 'effects' && <Effects {...this.props}/>}
         {activeTab === 'filters' && <Filters {...this.props}/>}

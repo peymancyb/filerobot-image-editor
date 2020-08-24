@@ -85,7 +85,7 @@ export default class extends Component {
   loadImage = () => {
     let { src } = this.props;
     const { reduceBeforeEdit: { mode, widthLimit, heightLimit } = {}, watermark } = this.state;
-    
+
     if (src instanceof Blob) { src = URL.createObjectURL(src); }
 
     const splittedSrc = src.split('/');
@@ -147,16 +147,13 @@ export default class extends Component {
         }
       } else {
         const { config } = this.props;
-        const { tools } = config;
-        const isOneTool = tools.length === 1;
-        let activeTab;
-
-        if (isOneTool) {
-          activeTab = tools[0];
-        }
+        const { activeTab } = config;
 
         this.setState({ ...propsOnApply, activeBody: 'preview', isPreResize: false }, () => {
-          this.setState({ activeTab });
+          // TODO: chaning the "activeTab" causes the canvas not to have the proper size (BUG).
+          setTimeout(() => {
+            this.setState({ activeTab });
+          }, 1000)
         });
       }
     }
@@ -319,13 +316,7 @@ export default class extends Component {
 
   onPreResize = (value) => {
     const { config } = this.props;
-    const { tools } = config;
-    const isOneTool = tools.length === 1;
-    let activeTab;
-
-    if (isOneTool) {
-      activeTab = tools[0];
-    }
+    const { activeTab } = config;
 
     switch (value) {
       case 'keep':
