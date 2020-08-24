@@ -174,20 +174,10 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
             }));
           }
         } else {
-          var config = _this.props.config;
-          var activeTab = config.activeTab;
-
           _this.setState(_objectSpread(_objectSpread({}, propsOnApply), {}, {
             activeBody: 'preview',
             isPreResize: false
-          }), function () {
-            // TODO: chaning the "activeTab" causes the canvas not to have the proper size (BUG).
-            setTimeout(function () {
-              _this.setState({
-                activeTab: activeTab
-              });
-            }, 1000);
-          });
+          }));
         }
       };
     });
@@ -408,19 +398,12 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "onPreResize", function (value) {
-      var config = _this.props.config;
-      var activeTab = config.activeTab;
-
       switch (value) {
         case 'keep':
           _this.setState({
             canvasDimensions: {},
             isPreResize: false,
             activeBody: 'preview'
-          }, function () {
-            _this.setState({
-              activeTab: activeTab
-            });
           });
 
           break;
@@ -432,10 +415,6 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
             preCanvasDimensions: canvasDimensions,
             isPreResize: true,
             activeBody: 'preview'
-          }, function () {
-            _this.setState({
-              activeTab: activeTab
-            });
           });
 
           break;
@@ -450,7 +429,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         reduceBeforeEdit = _props$config.reduceBeforeEdit,
         cropBeforeEdit = _props$config.cropBeforeEdit,
         _watermark = _props$config.watermark,
-        imageSealing = _props$config.imageSealing;
+        imageSealing = _props$config.imageSealing,
+        initialTab = _props$config.initialTab;
     _this.state = _objectSpread(_objectSpread({
       isShowSpinner: true,
       isHideCanvas: false,
@@ -479,7 +459,7 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
       roundCrop: false,
       imageSealing: _objectSpread({
         enabled: false,
-        salt: '',
+        salt: "",
         char_count: 10,
         include_params: null
         /* include all by default */
@@ -500,7 +480,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
       },
       shapes: [],
       selectedShape: {},
-      availableShapes: []
+      availableShapes: [],
+      initialTab: initialTab
     });
     return _this;
   }
@@ -565,7 +546,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
           shapes = _this$state8.shapes,
           shapeOperations = _this$state8.shapeOperations,
           selectedShape = _this$state8.selectedShape,
-          availableShapes = _this$state8.availableShapes;
+          availableShapes = _this$state8.availableShapes,
+          initialTab = _this$state8.initialTab;
       var _this$props = this.props,
           src = _this$props.src,
           config = _this$props.config,
@@ -628,7 +610,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         shapes: shapes,
         shapeOperations: shapeOperations,
         selectedShape: selectedShape,
-        availableShapes: availableShapes
+        availableShapes: availableShapes,
+        initialTab: initialTab
       });
 
       var previewProps = _objectSpread(_objectSpread({
@@ -677,7 +660,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         focusPoint: focusPoint,
         shapes: shapes,
         shapeOperations: shapeOperations,
-        selectedShape: selectedShape
+        selectedShape: selectedShape,
+        initialTab: initialTab
       });
 
       var footerProps = {

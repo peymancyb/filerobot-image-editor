@@ -56,10 +56,19 @@ export default class ImageManipulator extends Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.activeTab !== this.props.activeTab) {
+    const { updateState, activeTab, isShowSpinner, initialTab } = nextProps;
+
+    if (activeTab !== this.props.activeTab) {
       if (this.props.activeTab) this.destroyMode(this.props.activeTab);
 
-      this.changeTab(nextProps.activeTab);
+      this.changeTab(activeTab);
+    }
+
+    if (!isShowSpinner && initialTab && !initialTab.isUsed) {
+      updateState({
+        initialTab: { ...initialTab, isUsed: true },
+        activeTab: initialTab.name,
+      });
     }
 
     this.setState({ ...nextProps });

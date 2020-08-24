@@ -31,8 +31,15 @@ export default class extends Component {
     super();
 
     const {
-      processWithCloudimage, processWithFilerobot, processWithCloudService, uploadWithCloudimageLink, reduceBeforeEdit, cropBeforeEdit,
-      watermark, imageSealing
+      processWithCloudimage,
+      processWithFilerobot,
+      processWithCloudService,
+      uploadWithCloudimageLink,
+      reduceBeforeEdit,
+      cropBeforeEdit,
+      watermark,
+      imageSealing,
+      initialTab,
     } = props.config;
 
     this.state = {
@@ -51,7 +58,13 @@ export default class extends Component {
       reduceBeforeEdit,
       cropBeforeEdit,
       roundCrop: false,
-      imageSealing: { enabled: false, salt: '', char_count: 10, include_params: null/* include all by default */, ...imageSealing },
+      imageSealing: {
+        enabled: false,
+        salt: "",
+        char_count: 10,
+        include_params: null /* include all by default */,
+        ...imageSealing,
+      },
 
       operationsOriginal: [],
       operationsZoomed: [],
@@ -65,11 +78,13 @@ export default class extends Component {
 
       ...INITIAL_PARAMS,
       watermark: watermark || DEFAULT_WATERMARK,
-      focusPoint: {x: null, y: null},
+      focusPoint: { x: null, y: null },
       shapes: [],
       selectedShape: {},
-      availableShapes: []
-    }
+      availableShapes: [],
+
+      initialTab,
+    };
   }
 
   componentDidMount() {
@@ -146,15 +161,7 @@ export default class extends Component {
           });
         }
       } else {
-        const { config } = this.props;
-        const { activeTab } = config;
-
-        this.setState({ ...propsOnApply, activeBody: 'preview', isPreResize: false }, () => {
-          // TODO: chaning the "activeTab" causes the canvas not to have the proper size (BUG).
-          setTimeout(() => {
-            this.setState({ activeTab });
-          }, 1000)
-        });
+        this.setState({ ...propsOnApply, activeBody: 'preview', isPreResize: false });
       }
     }
   }
@@ -315,30 +322,47 @@ export default class extends Component {
   }
 
   onPreResize = (value) => {
-    const { config } = this.props;
-    const { activeTab } = config;
-
     switch (value) {
       case 'keep':
-        this.setState({ canvasDimensions: {}, isPreResize: false, activeBody: 'preview' }, () => {
-          this.setState({ activeTab });
-        });
+        this.setState({ canvasDimensions: {}, isPreResize: false, activeBody: 'preview' });
         break;
       case 'resize':
         const { canvasDimensions } = this.state;
-        this.setState({ preCanvasDimensions: canvasDimensions, isPreResize: true, activeBody: 'preview' }, () => {
-          this.setState({ activeTab });
-        });
+        this.setState({ preCanvasDimensions: canvasDimensions, isPreResize: true, activeBody: 'preview' });
         break;
     }
   }
 
   render() {
     const {
-      isShowSpinner, activeTab, operations, operationsOriginal, operationsZoomed, currentOperation, isHideCanvas,
-      cropDetails, original, canvasDimensions, processWithCloudimage, processWithFilerobot, processWithCloudService,
-      uploadCloudimageImage, imageMime, lastOperation, operationList, initialZoom, canvasZoomed, canvasOriginal,
-      reduceBeforeEdit, cropBeforeEdit, img, imageName, activeBody, isPreResize, preCanvasDimensions, logoImage,
+      isShowSpinner,
+      activeTab,
+      operations,
+      operationsOriginal,
+      operationsZoomed,
+      currentOperation,
+      isHideCanvas,
+      cropDetails,
+      original,
+      canvasDimensions,
+      processWithCloudimage,
+      processWithFilerobot,
+      processWithCloudService,
+      uploadCloudimageImage,
+      imageMime,
+      lastOperation,
+      operationList,
+      initialZoom,
+      canvasZoomed,
+      canvasOriginal,
+      reduceBeforeEdit,
+      cropBeforeEdit,
+      img,
+      imageName,
+      activeBody,
+      isPreResize,
+      preCanvasDimensions,
+      logoImage,
       imageSealing,
 
       effect,
@@ -356,7 +380,8 @@ export default class extends Component {
       shapes,
       shapeOperations,
       selectedShape,
-      availableShapes
+      availableShapes,
+      initialTab,
     } = this.state;
     const { src, config, onClose, onComplete, closeOnLoad = true, t = {}, theme } = this.props;
     const imageParams = { effect, filter, crop, resize, rotate, flipX, flipY, adjust, correctionDegree };
@@ -401,7 +426,8 @@ export default class extends Component {
       shapes,
       shapeOperations,
       selectedShape,
-      availableShapes
+      availableShapes,
+      initialTab,
     };
     const previewProps = {
       t,
@@ -450,7 +476,8 @@ export default class extends Component {
       focusPoint,
       shapes,
       shapeOperations,
-      selectedShape
+      selectedShape,
+      initialTab,
     };
     const footerProps = {
       logoImage,

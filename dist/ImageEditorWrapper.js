@@ -63,10 +63,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function getActiveTab() {
   var tools = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var activeTab = arguments.length > 1 ? arguments[1] : undefined;
-  return tools.find(function (tool) {
-    return tool === activeTab;
+  var tabName = arguments.length > 1 ? arguments[1] : undefined;
+  var initialTab = tools.find(function (tool) {
+    return tool === tabName;
   });
+
+  if (initialTab) {
+    return {
+      name: initialTab,
+      isUsed: false
+    };
+  }
+
+  return null;
 }
 
 var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
@@ -136,7 +145,7 @@ var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
     _config.theme.fonts = _config.theme.fonts || {};
     _config.colorScheme = _config.colorScheme || 'dark';
     _config.platform = _config.platform || 'filerobot';
-    _config.activeTab = getActiveTab(_config.tools, _config.activeTab);
+    _config.initialTab = getActiveTab(_config.tools, _config.initialTab);
     _config.hideTools = _config.hideTools || [];
     _config.hideCancelButton = _config.hideCancelButton || [];
     _this.state = {

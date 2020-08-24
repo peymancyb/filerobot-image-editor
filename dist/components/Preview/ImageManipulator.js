@@ -1554,9 +1554,24 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
   }, {
     key: "UNSAFE_componentWillReceiveProps",
     value: function UNSAFE_componentWillReceiveProps(nextProps) {
-      if (nextProps.activeTab !== this.props.activeTab) {
+      console.log("UNSAFE_componentWillReceiveProps: nextProps", nextProps);
+      var updateState = nextProps.updateState,
+          activeTab = nextProps.activeTab,
+          isShowSpinner = nextProps.isShowSpinner,
+          initialTab = nextProps.initialTab;
+
+      if (activeTab !== this.props.activeTab) {
         if (this.props.activeTab) this.destroyMode(this.props.activeTab);
-        this.changeTab(nextProps.activeTab);
+        this.changeTab(activeTab);
+      }
+
+      if (!isShowSpinner && initialTab && !initialTab.isUsed) {
+        updateState({
+          initialTab: _objectSpread(_objectSpread({}, initialTab), {}, {
+            isUsed: true
+          }),
+          activeTab: initialTab.name
+        });
       }
 
       this.setState(_objectSpread({}, nextProps));
