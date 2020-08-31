@@ -1,36 +1,41 @@
-import React, { Component } from 'react';
-import { DarkBtn, OrientationWrapper, RotateButton, RotateIcon, RotateWrapper, ButtonGroup } from '../../styledComponents';
-import Range from '../Range'
-
+import React, { Component } from "react";
+import {
+  DarkBtn,
+  OrientationWrapper,
+  RotateButton,
+  RotateIcon,
+  RotateWrapper,
+  ButtonGroup,
+} from "../../styledComponents";
+import Range from "../Range";
 
 export default class extends Component {
   leftRotate = () => {
     const { onRotate, correctionDegree, flipX, flipY } = this.props;
 
     onRotate(-90, parseInt(correctionDegree), flipX, flipY);
-  }
+  };
 
   rightRotate = () => {
     const { onRotate, correctionDegree, flipX, flipY } = this.props;
 
     onRotate(90, parseInt(correctionDegree), flipX, flipY);
-  }
+  };
 
   updateCorrectionDegree = (value) => {
     const { flipX, flipY } = this.props;
     this.setState({ correctionDegree: value });
 
     this.props.onRotate(0, parseFloat(value), flipX, flipY);
-
-  }
+  };
 
   onFlip = (val) => {
     const { flipX, flipY, correctionDegree } = this.props;
-    const nextFlipXValue = val === 'x' ? !flipX : flipX;
-    const nextFlipYValue = val === 'y' ? !flipY : flipY;
+    const nextFlipXValue = val === "x" ? !flipX : flipX;
+    const nextFlipYValue = val === "y" ? !flipY : flipY;
 
     this.props.onRotate(0, correctionDegree, nextFlipXValue, nextFlipYValue);
-  }
+  };
 
   render() {
     const { correctionDegree, t, config = {} } = this.props;
@@ -41,20 +46,37 @@ export default class extends Component {
         <RotateWrapper>
           <RotateButton>
             <ButtonGroup>
-              <DarkBtn onClick={this.leftRotate}><RotateIcon name="left-rotate"/> <span>{t['orientation.rotate_l']}</span></DarkBtn>
-              <DarkBtn onClick={this.rightRotate}><RotateIcon name="right-rotate"/>
-                <span>{t['orientation.rotate_r']}</span></DarkBtn>
+              <DarkBtn onClick={this.leftRotate}>
+                <RotateIcon name="left-rotate" />{" "}
+                <span>{t["orientation.rotate_l"]}</span>
+              </DarkBtn>
+              <DarkBtn onClick={this.rightRotate}>
+                <RotateIcon name="right-rotate" />
+                <span>{t["orientation.rotate_r"]}</span>
+              </DarkBtn>
 
               {!processWithCloudService && (
                 <>
-                  <DarkBtn onClick={() => { this.onFlip('x'); }}><RotateIcon name="flip-h"/>
-                    <span>{t['orientation.flip_h']}</span></DarkBtn>
-                  <DarkBtn onClick={() => { this.onFlip('y'); }}><RotateIcon name="flip-v"/>
-                    <span>{t['orientation.flip_v']}</span></DarkBtn>
+                  <DarkBtn
+                    onClick={() => {
+                      this.onFlip("x");
+                    }}
+                  >
+                    <RotateIcon name="flip-h" />
+                    <span>{t["orientation.flip_h"]}</span>
+                  </DarkBtn>
+                  <DarkBtn
+                    onClick={() => {
+                      this.onFlip("y");
+                    }}
+                  >
+                    <RotateIcon name="flip-v" />
+                    <span>{t["orientation.flip_v"]}</span>
+                  </DarkBtn>
                 </>
               )}
             </ButtonGroup>
-
+            {/*
             {!processWithCloudService && (
             <div>
               <Range min={-30} max={30} step={0.5} range={correctionDegree} updateRange={this.updateCorrectionDegree}/>
@@ -108,10 +130,10 @@ export default class extends Component {
                 <circle fill="currentColor" cx="37.15555555555555" cy="0" r="0.2" opacity="0.2"></circle>
               </svg>
             </div>
-            )}
+            )} */}
           </RotateButton>
         </RotateWrapper>
       </OrientationWrapper>
-    )
+    );
   }
 }
