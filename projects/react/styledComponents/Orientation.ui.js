@@ -1,57 +1,57 @@
-import styled from 'styled-components';
-import { getIconStyles, getIconByName } from './styleUtils';
-import { CancelBtn } from './Header.ui';
-
+import styled from "styled-components";
+import { getIconStyles, getIconByName } from "./styleUtils";
+import { CancelBtn } from "./Header.ui";
 
 const OrientationWrapper = styled.div`
-  color: ${props => props.theme.colors.text};
+  height: 100%;
+  color: ${(props) => props.theme.colors.text};
   text-align: center;
-  
+
   svg {
     margin-top: -7px;
     width: 750px;
-    
+
     text {
       font-size: 2px;
     }
   }
-  
+
   .image-editor-range-wrapper {
     width: 280px;
     padding: 0;
     margin: 12px auto 0;
-    
+
     input#range {
       background: none;
       width: 280px;
-      
+
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
         width: 9px;
         height: 18px;
         border-radius: 50%;
-        background: ${p => p.theme.colors.text};
+        background: ${(p) => p.theme.colors.text};
       }
-      
+
       &::-moz-range-thumb {
         border: none;
         width: 9px;
         height: 18px;
         border-radius: 50%;
-        background: ${p => p.theme.colors.text};
+        background: ${(p) => p.theme.colors.text};
         cursor: pointer;
       }
     }
-    
+
     label {
       display: none;
     }
-    
+
     :after {
       display: none;
     }
   }
-  
+
   @media (max-width: 768px) {
     svg {
       width: 100%;
@@ -60,33 +60,35 @@ const OrientationWrapper = styled.div`
 `;
 
 const RotateWrapper = styled.div`
-  display: inline-block;
+  display: flex;
   width: 100%;
-  //padding: 20px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
 `;
 
-const RotateLabel = styled.div`
-
-`;
+const RotateLabel = styled.div``;
 
 const RotateButton = styled.div`
   margin-top: 10px;
   width: 100%;
-  
+
   button {
     text-transform: none;
     font-size: 12px;
     min-width: 142px;
     margin-right: 5px;
   }
-  
-  button:focus,  button:active {
+
+  button:focus,
+  button:active {
     outline: none !important;
     box-shadow: none !important;
   }
 `;
 
-const ButtonGroup = styled('div')`
+const ButtonGroup = styled("div")`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
@@ -94,14 +96,14 @@ const ButtonGroup = styled('div')`
 `;
 
 const RotateIcon = styled.span`
-  ${props => getIconStyles(props)}
-  ${props => getIconByName(props.name)}
+  ${(props) => getIconStyles(props)}
+  ${(props) => getIconByName(props.name)}
   height: 16px;
   font-size: 16px;
   margin-top: -4px;
   display: inline-block;
   vertical-align: middle;
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   margin-right: 5px;
 `;
 
@@ -112,4 +114,12 @@ const DarkBtn = styled(CancelBtn)`
   }
 `;
 
-export { OrientationWrapper, RotateWrapper, RotateButton, RotateLabel, RotateIcon, ButtonGroup, DarkBtn }
+export {
+  OrientationWrapper,
+  RotateWrapper,
+  RotateButton,
+  RotateLabel,
+  RotateIcon,
+  ButtonGroup,
+  DarkBtn,
+};
