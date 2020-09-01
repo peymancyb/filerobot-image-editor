@@ -101,6 +101,14 @@ export default class extends Component {
     const { cropDetails, original, initialZoom, t, config } = this.props;
     const { cropPresets = [] } = config;
 
+    const onZoomIn = () => {
+      window.scaleflexPlugins.cropperjs.zoom(0.1);
+    };
+
+    const onZoomOut = () => {
+      window.scaleflexPlugins.cropperjs.zoom(-0.1);
+    };
+
     return (
       <CropWrapper>
         {/* DISABLING THE CUSTOM CROPBOX */}
@@ -130,8 +138,29 @@ export default class extends Component {
           </FieldSet>
           <CustomLabel>{t['common.custom']}</CustomLabel>
         </CropBox> */}
-
-        <PresetsWrapper>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <p>Zoom</p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <button onClick={onZoomOut}>-</button>
+            <button onClick={onZoomIn}>+</button>
+          </div>
+        </div>
+        {/* DISABLE OTHER CROP PRESETS */}
+        {/* <PresetsWrapper>
           {cropPresets.map((box) => (
             <CropBox
               active={activeRatio === box.name}
@@ -152,7 +181,7 @@ export default class extends Component {
               </CropBoxInner>
             </CropBox>
           ))}
-        </PresetsWrapper>
+        </PresetsWrapper> */}
       </CropWrapper>
     );
   }

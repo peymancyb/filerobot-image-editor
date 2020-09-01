@@ -4,24 +4,26 @@ import { getIconStyles, getIconByName } from './styleUtils';
 
 
 const CropWrapper = styled.div`
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   display: flex;
-  
+  height: 100%;
+  justify-content: center;
+  align-items: center;
   ::-webkit-scrollbar {
     height: 10px !important;
   }
-   
+
   ::-webkit-scrollbar-thumb {
     background: #3b4d54;
     border-radius: 5px;
   }
-  
-  @media (min-widthL 768px) {
+
+  @media (min-widthl 768px) {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
   }
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -71,15 +73,15 @@ const FieldInput = styled.input.attrs(props => ({
   vertical-align: middle;
   border: 0px solid transparent;
   font-family: Roboto, sans-serif;
-  
+
   ${p => p.type === 'number' && `::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }`}
-  
+
   :hover {
     outline: none;
   }
-  
+
   :focus {
     border: 1px solid ${props => props.theme.colors.secondaryBg};
     outline: none;
@@ -104,11 +106,11 @@ const FileInput = styled('input').attrs(props => ({
   vertical-align: middle;
   border: 0px solid transparent;
   font-family: Roboto, sans-serif;
-  
+
   :hover {
     outline: none;
   }
-  
+
   :focus {
     border: 1px solid ${props => props.theme.colors.secondaryBg};
     outline: none;
@@ -123,7 +125,7 @@ const BlockRatioWrapper = styled.div`
 
 const BlockRatioBtn = styled(Button)`
   padding: 0;
-  
+
   > span {
     color: ${props => props.active ? props.theme.colors.text : props.theme.colors.textMute} !important;
    }
@@ -137,7 +139,7 @@ const BlockRatioIcon = styled.span`
 
   ${props => getIconStyles(props)}
   ${props => getIconByName(props.active ? 'ratio' : 'no-ratio')}
-  
+
   color: ${props => props.theme.textMuted}
 `
 

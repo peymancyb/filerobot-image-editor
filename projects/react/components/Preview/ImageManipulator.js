@@ -820,7 +820,7 @@ export default class ImageManipulator extends Component {
         background: false,
         rotatable: false,
         scalable: false,
-        zoomable: false,
+        zoomable: true,
         movable: false,
         autoCropArea: beginCropArea,
         dragCrop: false,
@@ -829,6 +829,12 @@ export default class ImageManipulator extends Component {
         crop: (event) => {
           this.props.updateState({ cropDetails: event.detail });
         },
+        zoom: (event) => {
+          if (event.detail.ratio > 1) {
+            event.preventDefault();
+            window.scaleflexPlugins.cropperjs.zoomTo(1);
+          }
+        }
       });
 
       window.scaleflexPlugins = window.scaleflexPlugins || {};
