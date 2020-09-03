@@ -44,7 +44,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  margin-top: 10px;\n  width: 100%;\n  \n  button {\n    text-transform: none;\n    font-size: 12px;\n    min-width: 142px;\n    margin-right: 5px;\n  }\n  \n  button:focus,  button:active {\n    outline: none !important;\n    box-shadow: none !important;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  margin-top: 10px;\n  width: 100%;\n\n  button {\n    text-transform: none;\n    font-size: 12px;\n    min-width: 142px;\n    margin-right: 5px;\n  }\n\n  button:focus,\n  button:active {\n    outline: none !important;\n    box-shadow: none !important;\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -54,7 +54,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n\n"]);
+  var data = _taggedTemplateLiteral([""]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -64,7 +64,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  display: inline-block;\n  width: 100%;\n  //padding: 20px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  width: 100%;\n  justify-content: center;\n  align-items: center;\n  flex: 1;\n  height: 100%;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -74,7 +74,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  color: ", ";\n  text-align: center;\n  \n  svg {\n    margin-top: -7px;\n    width: 750px;\n    \n    text {\n      font-size: 2px;\n    }\n  }\n  \n  .image-editor-range-wrapper {\n    width: 280px;\n    padding: 0;\n    margin: 12px auto 0;\n    \n    input#range {\n      background: none;\n      width: 280px;\n      \n      &::-webkit-slider-thumb {\n        -webkit-appearance: none;\n        width: 9px;\n        height: 18px;\n        border-radius: 50%;\n        background: ", ";\n      }\n      \n      &::-moz-range-thumb {\n        border: none;\n        width: 9px;\n        height: 18px;\n        border-radius: 50%;\n        background: ", ";\n        cursor: pointer;\n      }\n    }\n    \n    label {\n      display: none;\n    }\n    \n    :after {\n      display: none;\n    }\n  }\n  \n  @media (max-width: 768px) {\n    svg {\n      width: 100%;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  height: 100%;\n  color: ", ";\n  text-align: center;\n\n  svg {\n    margin-top: -7px;\n    width: 750px;\n\n    text {\n      font-size: 2px;\n    }\n  }\n\n  .image-editor-range-wrapper {\n    width: 280px;\n    padding: 0;\n    margin: 12px auto 0;\n\n    input#range {\n      background: none;\n      width: 280px;\n\n      &::-webkit-slider-thumb {\n        -webkit-appearance: none;\n        width: 9px;\n        height: 18px;\n        border-radius: 50%;\n        background: ", ";\n      }\n\n      &::-moz-range-thumb {\n        border: none;\n        width: 9px;\n        height: 18px;\n        border-radius: 50%;\n        background: ", ";\n        cursor: pointer;\n      }\n    }\n\n    label {\n      display: none;\n    }\n\n    :after {\n      display: none;\n    }\n  }\n\n  @media (max-width: 768px) {\n    svg {\n      width: 100%;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -106,7 +106,7 @@ exports.RotateLabel = RotateLabel;
 var RotateButton = _styledComponents.default.div(_templateObject4());
 
 exports.RotateButton = RotateButton;
-var ButtonGroup = (0, _styledComponents.default)('div')(_templateObject5());
+var ButtonGroup = (0, _styledComponents.default)("div")(_templateObject5());
 exports.ButtonGroup = ButtonGroup;
 
 var RotateIcon = _styledComponents.default.span(_templateObject6(), function (props) {

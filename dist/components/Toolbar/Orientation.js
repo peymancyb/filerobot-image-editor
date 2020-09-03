@@ -94,8 +94,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
           flipX = _this$props4.flipX,
           flipY = _this$props4.flipY,
           correctionDegree = _this$props4.correctionDegree;
-      var nextFlipXValue = val === 'x' ? !flipX : flipX;
-      var nextFlipYValue = val === 'y' ? !flipY : flipY;
+      var nextFlipXValue = val === "x" ? !flipX : flipX;
+      var nextFlipYValue = val === "y" ? !flipY : flipY;
 
       _this.props.onRotate(0, correctionDegree, nextFlipXValue, nextFlipYValue);
     });
@@ -118,265 +118,23 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         onClick: this.leftRotate
       }, /*#__PURE__*/_react.default.createElement(_styledComponents.RotateIcon, {
         name: "left-rotate"
-      }), " ", /*#__PURE__*/_react.default.createElement("span", null, t['orientation.rotate_l'])), /*#__PURE__*/_react.default.createElement(_styledComponents.DarkBtn, {
+      }), " ", /*#__PURE__*/_react.default.createElement("span", null, t["orientation.rotate_l"])), /*#__PURE__*/_react.default.createElement(_styledComponents.DarkBtn, {
         onClick: this.rightRotate
       }, /*#__PURE__*/_react.default.createElement(_styledComponents.RotateIcon, {
         name: "right-rotate"
-      }), /*#__PURE__*/_react.default.createElement("span", null, t['orientation.rotate_r'])), !processWithCloudService && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styledComponents.DarkBtn, {
+      }), /*#__PURE__*/_react.default.createElement("span", null, t["orientation.rotate_r"])), !processWithCloudService && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styledComponents.DarkBtn, {
         onClick: function onClick() {
-          _this2.onFlip('x');
+          _this2.onFlip("x");
         }
       }, /*#__PURE__*/_react.default.createElement(_styledComponents.RotateIcon, {
         name: "flip-h"
-      }), /*#__PURE__*/_react.default.createElement("span", null, t['orientation.flip_h'])), /*#__PURE__*/_react.default.createElement(_styledComponents.DarkBtn, {
+      }), /*#__PURE__*/_react.default.createElement("span", null, t["orientation.flip_h"])), /*#__PURE__*/_react.default.createElement(_styledComponents.DarkBtn, {
         onClick: function onClick() {
-          _this2.onFlip('y');
+          _this2.onFlip("y");
         }
       }, /*#__PURE__*/_react.default.createElement(_styledComponents.RotateIcon, {
         name: "flip-v"
-      }), /*#__PURE__*/_react.default.createElement("span", null, t['orientation.flip_v'])))), !processWithCloudService && /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Range.default, {
-        min: -30,
-        max: 30,
-        step: 0.5,
-        range: correctionDegree,
-        updateRange: this.updateCorrectionDegree
-      }), /*#__PURE__*/_react.default.createElement("svg", {
-        viewBox: "-90 -5 180 10",
-        xmlns: "http://www.w3.org/2000/svg",
-        "aria-hidden": "true",
-        focusable: "false"
-      }, /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-37.15555555555556",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.8"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-35.2",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.6"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-33.24444444444445",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.4"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-31.28888888888889",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-29.333333333333336",
-        cy: "0",
-        r: "0.5"
-      }), /*#__PURE__*/_react.default.createElement("text", {
-        fill: "currentColor",
-        x: "-31.583333333333336",
-        y: "3.5"
-      }, "-30\xB0"), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-27.37777777777778",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-25.422222222222224",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-23.46666666666667",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-21.51111111111112",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-19.555555555555557",
-        cy: "0",
-        r: "0.5"
-      }), /*#__PURE__*/_react.default.createElement("text", {
-        fill: "currentColor",
-        x: "-21.805555555555557",
-        y: "3.5"
-      }, "-20\xB0"), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-17.60000000000001",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-15.644444444444446",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-13.688888888888897",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-11.733333333333334",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-9.777777777777786",
-        cy: "0",
-        r: "0.5"
-      }), /*#__PURE__*/_react.default.createElement("text", {
-        fill: "currentColor",
-        x: "-12.027777777777786",
-        y: "3.5"
-      }, "-10\xB0"), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-7.822222222222223",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-5.866666666666674",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-3.9111111111111114",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "-1.9555555555555628",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "0",
-        cy: "0",
-        r: "0.5"
-      }), /*#__PURE__*/_react.default.createElement("text", {
-        fill: "currentColor",
-        x: "-0.75",
-        y: "3.5"
-      }, "0\xB0"), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "1.9555555555555486",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "3.9111111111111114",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "5.86666666666666",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "7.822222222222223",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "9.777777777777771",
-        cy: "0",
-        r: "0.5"
-      }), /*#__PURE__*/_react.default.createElement("text", {
-        fill: "currentColor",
-        x: "8.277777777777771",
-        y: "3.5"
-      }, "10\xB0"), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "11.733333333333334",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "13.688888888888883",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "15.644444444444446",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "17.599999999999994",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "19.555555555555557",
-        cy: "0",
-        r: "0.5"
-      }), /*#__PURE__*/_react.default.createElement("text", {
-        fill: "currentColor",
-        x: "18.055555555555557",
-        y: "3.5"
-      }, "20\xB0"), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "21.511111111111106",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "23.46666666666667",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "25.422222222222217",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "27.37777777777778",
-        cy: "0",
-        r: "0.2"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "29.33333333333333",
-        cy: "0",
-        r: "0.5"
-      }), /*#__PURE__*/_react.default.createElement("text", {
-        fill: "currentColor",
-        x: "27.83333333333333",
-        y: "3.5"
-      }, "30\xB0"), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "31.28888888888889",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.8"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "33.24444444444444",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.6"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "35.2",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.4"
-      }), /*#__PURE__*/_react.default.createElement("circle", {
-        fill: "currentColor",
-        cx: "37.15555555555555",
-        cy: "0",
-        r: "0.2",
-        opacity: "0.2"
-      }))))));
+      }), /*#__PURE__*/_react.default.createElement("span", null, t["orientation.flip_v"])))))));
     }
   }]);
 

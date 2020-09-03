@@ -743,7 +743,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           background: false,
           rotatable: false,
           scalable: false,
-          zoomable: false,
+          zoomable: true,
           movable: false,
           autoCropArea: beginCropArea,
           dragCrop: false,
@@ -753,6 +753,12 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
             _this.props.updateState({
               cropDetails: event.detail
             });
+          },
+          zoom: function zoom(event) {
+            if (event.detail.ratio > 1) {
+              event.preventDefault();
+              window.scaleflexPlugins.cropperjs.zoomTo(1);
+            }
           }
         });
         window.scaleflexPlugins = window.scaleflexPlugins || {};
@@ -1554,7 +1560,6 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
   }, {
     key: "UNSAFE_componentWillReceiveProps",
     value: function UNSAFE_componentWillReceiveProps(nextProps) {
-      console.log("UNSAFE_componentWillReceiveProps: nextProps", nextProps);
       var updateState = nextProps.updateState,
           activeTab = nextProps.activeTab,
           isShowSpinner = nextProps.isShowSpinner,

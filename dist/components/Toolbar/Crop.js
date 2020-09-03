@@ -148,8 +148,6 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var _this$state = this.state,
           aspectRatio = _this$state.aspectRatio,
           activeRatio = _this$state.activeRatio;
@@ -161,18 +159,32 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
           config = _this$props2.config;
       var _config$cropPresets = config.cropPresets,
           cropPresets = _config$cropPresets === void 0 ? [] : _config$cropPresets;
-      return /*#__PURE__*/_react.default.createElement(_styledComponents.CropWrapper, null, /*#__PURE__*/_react.default.createElement(_styledComponents.PresetsWrapper, null, cropPresets.map(function (box) {
-        return /*#__PURE__*/_react.default.createElement(_styledComponents.CropBox, {
-          active: activeRatio === box.name,
-          onClick: function onClick() {
-            _this2.changeRatio(box);
-          },
-          key: box.name
-        }, /*#__PURE__*/_react.default.createElement(_styledComponents.CropBoxInner, null, /*#__PURE__*/_react.default.createElement(_styledComponents.CropShapeWrapper, null, /*#__PURE__*/_react.default.createElement(_styledComponents.ShapeAligner, null), /*#__PURE__*/_react.default.createElement(_styledComponents.CropShape, {
-          ratio: box.value || original.width / original.height,
-          radius: box.radius
-        })), /*#__PURE__*/_react.default.createElement(_styledComponents.CropLabel, null, t["common.".concat(box.name)] || box.name)));
-      })));
+
+      var onZoomIn = function onZoomIn() {
+        window.scaleflexPlugins.cropperjs.zoom(0.1);
+      };
+
+      var onZoomOut = function onZoomOut() {
+        window.scaleflexPlugins.cropperjs.zoom(-0.1);
+      };
+
+      return /*#__PURE__*/_react.default.createElement(_styledComponents.CropWrapper, null, /*#__PURE__*/_react.default.createElement("div", {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }
+      }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Zoom")), /*#__PURE__*/_react.default.createElement("div", {
+        style: {
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between"
+        }
+      }, /*#__PURE__*/_react.default.createElement("button", {
+        onClick: onZoomOut
+      }, "-"), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: onZoomIn
+      }, "+"))));
     }
   }]);
 
