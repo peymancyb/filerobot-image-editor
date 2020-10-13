@@ -53,26 +53,27 @@
 
 ## <a name="table_of_contents"></a>Table of contents
 
-* [Features](#features)
-* [Standalone usage](#standalone_usage)
-    * [Installation](#installation)
-    * [Quick start](#quick_start)
-    * [Methods](#methods)
-* [React component usage](#react_component)
-    * [Installation](#installation_react)
-    * [Quick start](#quick_start_react)
-    * [Methods/Properties](#methods_react)
-* [Configuration](#configuration)
-* [Filerobot Integration](#filerobot_integration)
-* [Cloudimage Integration](#cloudimage_integration)
-* [Roadmap for the near future](#roadmap)
-* [Filerobot UI Family](#ui_family)
-* [Contributing](#contributing)
-* [License](#license)
+- [Features](#features)
+- [Standalone usage](#standalone_usage)
+  - [Installation](#installation)
+  - [Quick start](#quick_start)
+  - [Methods](#methods)
+- [React component usage](#react_component)
+  - [Installation](#installation_react)
+  - [Quick start](#quick_start_react)
+  - [Methods/Properties](#methods_react)
+- [Configuration](#configuration)
+- [Filerobot Integration](#filerobot_integration)
+- [Cloudimage Integration](#cloudimage_integration)
+- [Roadmap for the near future](#roadmap)
+- [Filerobot UI Family](#ui_family)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## <a name="features"></a>Features
 
 ### Adjust
+
 `brightness`, `contrast`, `exposure`, and `saturation`
 
 <img
@@ -81,6 +82,7 @@
     src="https://cdn.scaleflex.it/plugins/filerobot-image-editor/assets/demo/adjust.png?sanitize=true">
 
 ### Effects
+
 `edge enhance`, `emboss`, `grungy`, `hazy`, `lomo`, `radial blur`, `sin city`, `tilt shift`
 
 <img
@@ -89,6 +91,7 @@
     src="https://cdn.scaleflex.it/plugins/filerobot-image-editor/assets/demo/effects.png?sanitize=true">
 
 ### Filters
+
 `cross process`, `glow sun`, `jarques`, `love`, `old boot`, `orange peel`, `pin hole`, `sepia`, `sun rise`, `vintage`
 
 <img
@@ -97,6 +100,7 @@
     src="https://cdn.scaleflex.it/plugins/filerobot-image-editor/assets/demo/filters.png?sanitize=true">
 
 ### Orientation
+
 `rotate` and `flip` (mirror effect)
 
 <img
@@ -126,6 +130,7 @@
     src="https://cdn.scaleflex.it/demo/watermark.png?sanitize=true">
 
 ### Light theme
+
 or use your custom color scheme
 
 <img
@@ -149,11 +154,14 @@ We provide an easy way to integrate the image editor in your applications:
 
 ```html
 <script>
-    const ImageEditor = new FilerobotImageEditor();
+  const ImageEditor = new FilerobotImageEditor();
 
-    ImageEditor.open('https://scaleflex.airstore.io/demo/stephen-walker-unsplash.jpg');
+  ImageEditor.open(
+    "https://scaleflex.airstore.io/demo/stephen-walker-unsplash.jpg"
+  );
 </script>
 ```
+
 <a href="https://codesandbox.io/s/88jpkv2m09"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="edeit on codesandbox"/></a>
 
 ### <a name="methods"></a>Methods
@@ -174,7 +182,7 @@ Initialization of Filerobot Image Editor plugin.
 
 Open editor modal.
 
-* **`url`**: string (required) - the URL of the image to be edited
+- **`url`**: string (required) - the URL of the image to be edited
 
 #### `ImageEditor.close()`: function
 
@@ -197,33 +205,40 @@ $ npm install --save filerobot-image-editor
 We provide an easy way to integrate the image editor in your applications:
 
 ```javascript
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import FilerobotImageEditor from 'filerobot-image-editor';
-
+import React, { useState } from "react";
+import { render } from "react-dom";
+import FilerobotImageEditor from "filerobot-image-editor";
 
 const App = () => {
-  const src = 'https://scaleflex.airstore.io/demo/stephen-walker-unsplash.jpg';
+  const src = "https://scaleflex.airstore.io/demo/stephen-walker-unsplash.jpg";
   const [show, toggle] = useState(false);
-
 
   return (
     <div>
       <h1>Filerobot Image Editor</h1>
 
-      <img src={src} onClick={() => { toggle(true) }} alt="example image"/>
+      <img
+        src={src}
+        onClick={() => {
+          toggle(true);
+        }}
+        alt="example image"
+      />
 
       <FilerobotImageEditor
         show={show}
         src={src}
-        onClose={() => { toggle(false) }}
+        onClose={() => {
+          toggle(false);
+        }}
       />
     </div>
-  )
+  );
 };
 
-render(<App/>, document.getElementById('app'));
+render(<App />, document.getElementById("app"));
 ```
+
 <a href="https://codesandbox.io/s/k3q9vrk707"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="edeit on codesandbox"/></a>
 
 ### <a name="methods_react"></a>Methods/Properties
@@ -252,7 +267,7 @@ Callback, triggers on completing processing an image.
 
 ## <a name="configuration"></a>Configuration
 
-### `tools`: [string] 
+### `tools`: [string]
 
 **default**: ['adjust', 'effects', 'filters', 'rotate', 'crop', 'resize', 'watermark', 'shapes', 'image', 'text']
 
@@ -262,7 +277,7 @@ Filerobot Image Editor tools.
 config.tools = ['adjust', 'effects', 'filters', 'rotate'];
 ```
 
-### `isLowQualityPreview`: bool 
+### `isLowQualityPreview`: bool
 
 **default**: true
 
@@ -342,7 +357,6 @@ Add watermark on the image after applying image transformations.
 
 ##### `watermark.imageFilter`: function - default is null, pass a function that gets the image resource before draw and return a manipulated image (pass some fancy filter on the watermark)
 
-
 ```
 config.watermark = {
     url: 'https://jolipage002-global.api.airstore.io/v1/get/_/04e725a5-8605-57d5-bf9b-b161745e7720/6d3f41ddc2c1271cb4fede2b7cc8323bec97a3c69f89fd1dd881c5bb9460d9c6.png',
@@ -373,7 +387,7 @@ config.theme = {
     text: '#F9FAFB',
     textHover: '#fff',
     textMute: '#aaa',
-    textWarn: '#f7931e',
+    textWarn: '#ff8f57',
     secondaryBgOpacity: 'rgba(0, 0, 0, 0.75)',
 
     border: '#161e23',
@@ -391,9 +405,10 @@ Add custom crop templates. [See the example here](https://github.com/scaleflex/f
 Add custom resize templates. [See the example here](https://github.com/scaleflex/filerobot-image-editor/blob/master/projects/react/assets/templates/resizePresets.js)
 
 ### `beginCropArea`: number | [0-1] - default: 1 (image size)
+
 The crop area size shown/used automatically on starting crop.
 
-### `showGoBackBtn`: bool 
+### `showGoBackBtn`: bool
 
 **default**: false
 
@@ -462,6 +477,7 @@ Calculated hash (URL ci_seal parameter) length.
 URL parameters to be sealed. By default (when it's null), all parameters will be sealed. Alternatively, you can set a list of parameters, for example: ['wat_url']. This way, you can freely append additional transformations to the URL (the sealed parameters cannot be overwritten).
 
 ### <a name="sealing-configuration-example"></a>Example:
+
 ```
 config = {
   filerobot: {
@@ -480,39 +496,41 @@ config = {
 ## <a name="roadmap"></a>What's on the Roadmap for the near future
 
 Features
-* Control image brightness, contrast, exposure, and saturation _(done in v3.0.0)_
-* Bright theme, plus possibility to make your custom theme _(done in v3.0.0)_
-* Rounds the corners of images
-* Mirror images effect _(done in v3.0.0)_
-* New filters and effects
-* Load file objects and dataURLs
-* Transform input images to other image formats
-* Easily integrate with third party libraries
-* Compress JPEG images via Optipress
-* Set to preview mode to render on top of an existing image
-* Watermarking _(done in v3.0.0)_
-* Configurable resize/crop templates _(done in v3.0.0)_
-* Correct degree of an image _(done in v3.0.0)_
 
+- Control image brightness, contrast, exposure, and saturation _(done in v3.0.0)_
+- Bright theme, plus possibility to make your custom theme _(done in v3.0.0)_
+- Rounds the corners of images
+- Mirror images effect _(done in v3.0.0)_
+- New filters and effects
+- Load file objects and dataURLs
+- Transform input images to other image formats
+- Easily integrate with third party libraries
+- Compress JPEG images via Optipress
+- Set to preview mode to render on top of an existing image
+- Watermarking _(done in v3.0.0)_
+- Configurable resize/crop templates _(done in v3.0.0)_
+- Correct degree of an image _(done in v3.0.0)_
 
 Adapters
-* Vanilla JS _(done)_
-* React _(done)_
-* Angular
-* Vue
-* Web Component
+
+- Vanilla JS _(done)_
+- React _(done)_
+- Angular
+- Vue
+- Web Component
 
 ## <a name="ui_family"></a>Filerobot UI Familiy
 
-* [Image Uploader](https://github.com/scaleflex/filerobot-uploader)
-* [JS Cloudimage Responsive](https://github.com/scaleflex/js-cloudimage-responsive)
-* [JS Cloudimage 360 view](https://github.com/scaleflex/js-cloudimage-360-view)
-* [React Cloudimage Responsive](https://github.com/scaleflex/react-cloudimage-responsive)
-* [Angular Cloudimage Responsive](https://github.com/scaleflex/ng-cloudimage-responsive)
+- [Image Uploader](https://github.com/scaleflex/filerobot-uploader)
+- [JS Cloudimage Responsive](https://github.com/scaleflex/js-cloudimage-responsive)
+- [JS Cloudimage 360 view](https://github.com/scaleflex/js-cloudimage-360-view)
+- [React Cloudimage Responsive](https://github.com/scaleflex/react-cloudimage-responsive)
+- [Angular Cloudimage Responsive](https://github.com/scaleflex/ng-cloudimage-responsive)
 
 ## <a name="contributing"></a>Contributing!
 
 All contributions are super welcome!
 
 ## <a name="license"></a>License
+
 Filerobot Image Editor is provided under the [MIT License](https://opensource.org/licenses/MIT)
