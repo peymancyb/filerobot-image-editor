@@ -124,7 +124,7 @@ export default class CustomizedCanvas extends Component {
 
     const { offsetX, offsetY } = event;
 
-    
+
     let foundShape = false;
 
     shapes.forEach(
@@ -206,7 +206,7 @@ export default class CustomizedCanvas extends Component {
     ) { return; }
 
     const oldHeight = height;
-    
+
     const { direction } = resizeControlTarget.dataset;
     const keepShapeRatio = (sameAxesIncSign) => {
       const ratio = width / height;
@@ -321,7 +321,7 @@ export default class CustomizedCanvas extends Component {
   startDragging = (event) => {
     const { selectedShape } = this.props;
     const { startEdgeOffset = {}, width, height, index } = selectedShape;
-    
+
     // event.offsetX - startEdgeOffset.x for the shape's X from its starting point not the exact mouse position.
     let newX = event.offsetX - startEdgeOffset.x;
     let newY = event.offsetY - startEdgeOffset.y;
@@ -364,7 +364,7 @@ export default class CustomizedCanvas extends Component {
     this._context.strokeStyle = stroke.color || 'transparent';
     this._context.lineWidth = stroke.width || 1;
     drawFn();
-    
+
     // Make the new canvas rounded if the crop is rounded style.
     // round is a manually written protoype method from canvas-round file in utils.
     if (this.props.round) { this._context.round() }
@@ -372,7 +372,7 @@ export default class CustomizedCanvas extends Component {
 
   redrawShape = (index = undefined) => {
     let { shapes } = this.props;
-    
+
     this.clearShape(0, 0, this._canvas.width, this._canvas.height);
 
     const shapesCount = shapes.length;
@@ -481,7 +481,7 @@ export default class CustomizedCanvas extends Component {
     if (others.key && this.replaceShapeIfExisted(others.key, allArgs)) { return; }
 
     this.drawRect(drawingArgs);
-    
+
     const index = this.pushShapeToShapes(allArgs);
 
     this.updateState({
@@ -500,7 +500,7 @@ export default class CustomizedCanvas extends Component {
     opacity = 1.0, tab = 'shapes', ...others } = {}) => {
     const [centerX, centerY] = this.getCanvasCenter(radius, radius);
     const widthAndHeight = radius * 2;
-    
+
     const drawingArgs = { x: x || centerX, y: y || centerY, radius, color, opacity, stroke,
       width: widthAndHeight, height: widthAndHeight };
     const allArgs = { ...this._initArgs, ...others, ...drawingArgs, tab, variant: SHAPES_VARIANTS.CIRCLE };
@@ -551,7 +551,7 @@ export default class CustomizedCanvas extends Component {
       if (typeof img === 'string') {
         img = this.makeImgElement(img, addIt);
       } else { addIt(); }
-      
+
     }
   }
 
@@ -641,7 +641,7 @@ export default class CustomizedCanvas extends Component {
 
   getShapesIndexByAnyProp = (propertyName, propertyValue) => {
     const { shapes } = this.props;
-    
+
     if (shapes && shapes.length === 0) { return []; }
 
     const shapesIndicies = [];
@@ -681,9 +681,9 @@ export default class CustomizedCanvas extends Component {
         (
           (!index && index !== 0) &&
           (!selectedShape || (!selectedShape.index && selectedShape.index !== 0))
-        ) 
+        )
       ) { return; }
-    
+
     if (typeof updatedData.img === 'string') {
       this.updateState({ selectedShape: { ...selectedShape, img: updatedData.img } });
       this.makeImgElement(updatedData.img, this.updateShape, updatedData, index, otherStatesToBeUpdated);
@@ -717,7 +717,7 @@ export default class CustomizedCanvas extends Component {
           updatedData.text = updates.selectedShape.text = updatedData.text || targetShape.text;
         }
       }
-      
+
       latestShapes[index] = { ...latestShapes[index], ...updatedData };
       this.updateState({ shapes: latestShapes, ...updates, ...otherStatesToBeUpdated }, () => {
         this.redrawShape(index);
@@ -736,12 +736,12 @@ export default class CustomizedCanvas extends Component {
 
     this._context.clearRect(clearFromX, clearFromY, clearWidth, clearHeight);
   }
-  
+
   eraseAndRemoveShapeFromArray = (index, shapes) => {
     if (Object.keys(this.targettedShape(index)).length === 0) { return; }
 
     this.clearShape(0, 0, this._canvas.width, this._canvas.height);
-    
+
     const newShapes = shapes.filter(shape => {
       if (shape.index === index) { return false; }
       if (shape.index > index) { shape.index -= 1; };
@@ -759,7 +759,7 @@ export default class CustomizedCanvas extends Component {
     if (!index && index !== 0 && !key) {
 
       if (!selectedShape) { return; }
-      
+
       index = selectedShape.index;
     }
 

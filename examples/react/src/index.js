@@ -42,7 +42,7 @@ const App = () => {
         }}
         config={{
           initialTab: "crop",
-          tools: ["crop", "adjust", "effects", "filters", "rotate"],
+          tools: ["crop", "adjust", "effects", "filters", "rotate", "text"],
           cropPresets: [],
           // hideTools: ['crop'],
           hideCancelButton: ["crop"],

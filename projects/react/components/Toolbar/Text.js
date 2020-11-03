@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AddWrapper, SettingsWrapper, FieldGroup, FieldCustomLabel } from '../../styledComponents/Shapes.ui';
 import { STANDARD_FONTS } from '../../config';
-import { FieldInput } from '../../styledComponents';
+import { FieldInput, Button } from '../../styledComponents';
 import Range from '../Range';
 import Select from '../Shared/Select';
 
@@ -12,11 +12,16 @@ export default class Text extends Component {
     shapeOperations.addText();
   }
 
+  addNewText = () => {
+    const { shapeOperations } = this.props;
+    shapeOperations.addText();
+  }
+
   updateOpacity = (newVal) => this.props.shapeOperations.updateShape({ opacity: newVal });
 
   updateStroke = (property, value) => {
     const { shapeOperations, selectedShape: { stroke = {} } } = this.props;
-    shapeOperations.updateShape({ stroke: { ...stroke, [property]: value }});
+    shapeOperations.updateShape({ stroke: { ...stroke, [property]: value } });
   }
 
   updatePropertyFromEvent = (e) => this.props.shapeOperations.updateShape({ [e.target.name]: e.target.value });
@@ -46,20 +51,31 @@ export default class Text extends Component {
             />
           </FieldGroup>
           <FieldGroup>
-            <FieldCustomLabel>Font family</FieldCustomLabel>
-            <Select
-                list={STANDARD_FONTS}
-                valueProp="value"
-                id="textFont"
-                value={textFont}
-                style={{ width: 111 }}
-                onChange={(value) => this.updatePropertyFromEvent({ target: { name: 'textFont', value }})}
-                color="text-font"
-                notRelativePosition
-              />
+            <FieldCustomLabel>Add New Text</FieldCustomLabel>
+            <Button
+              id="addText"
+              name="addText"
+              style={{ width: 30, background: 'transparent', color: '#fff', margin: '2px auto', padding: '3px 12px' }}
+              onClick={this.addNewText}
+            >
+              +
+              </Button>
           </FieldGroup>
           <FieldGroup>
-          <FieldCustomLabel>Font size</FieldCustomLabel>
+            <FieldCustomLabel>Font family</FieldCustomLabel>
+            <Select
+              list={STANDARD_FONTS}
+              valueProp="value"
+              id="textFont"
+              value={textFont}
+              style={{ width: 111 }}
+              onChange={(value) => this.updatePropertyFromEvent({ target: { name: 'textFont', value } })}
+              color="text-font"
+              notRelativePosition
+            />
+          </FieldGroup>
+          <FieldGroup>
+            <FieldCustomLabel>Font size</FieldCustomLabel>
             <FieldInput
               value={textSize}
               type="number"
