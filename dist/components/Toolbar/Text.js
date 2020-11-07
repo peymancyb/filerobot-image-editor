@@ -134,7 +134,6 @@ var Text = /*#__PURE__*/function (_Component) {
         id: "addText",
         name: "addText",
         style: {
-          width: 30,
           background: 'transparent',
           color: '#fff',
           margin: '2px auto',

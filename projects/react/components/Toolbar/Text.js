@@ -55,7 +55,7 @@ export default class Text extends Component {
             <Button
               id="addText"
               name="addText"
-              style={{ width: 30, background: 'transparent', color: '#fff', margin: '2px auto', padding: '3px 12px' }}
+              style={{ background: 'transparent', color: '#fff', margin: '2px auto', padding: '3px 12px' }}
               onClick={this.addNewText}
             >+</Button>
           </FieldGroup>
