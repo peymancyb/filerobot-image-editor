@@ -44,14 +44,3 @@ var FullscreenBtn = _styledComponents.default.span.attrs(function () {
 });
 
 exports.FullscreenBtn = FullscreenBtn;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(FullscreenBtn, "FullscreenBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/FullscreenBtn.js");
-}();
-
-;

@@ -8,12 +8,3 @@ Caman.Filter.register("orangePeel", function () {
   this.contrast(-5);
   return this.gamma(1.4);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

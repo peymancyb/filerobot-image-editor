@@ -36,16 +36,3 @@ var NoClickOverlay = _styledComponents.default.div(_templateObject());
 exports.NoClickOverlay = NoClickOverlay;
 var NoClickToolbar = (0, _styledComponents.default)('div')(_templateObject2());
 exports.NoClickToolbar = NoClickToolbar;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(NoClickOverlay, "NoClickOverlay", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Common.ui.js");
-
-  __REACT_HOT_LOADER__.register(NoClickToolbar, "NoClickToolbar", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Common.ui.js");
-}();
-
-;

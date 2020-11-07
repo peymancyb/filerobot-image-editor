@@ -17,8 +17,6 @@ require("./lib/caman");
 
 var _config = require("./config");
 
-var _temp;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -75,7 +73,7 @@ var INITIAL_PARAMS = {
   }
 };
 
-var _default = (_temp = /*#__PURE__*/function (_Component) {
+var _default = /*#__PURE__*/function (_Component) {
   _inherits(_default, _Component);
 
   var _super = _createSuper(_default);
@@ -278,7 +276,7 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
             canvas: canvas
           });
 
-          _this.props.onClose();
+          _this.props.onClose(_config.ON_CLOSE_STATUSES.IMAGE_DOWNLOADED);
         });
       } else {
         _this.props.onComplete({
@@ -286,7 +284,7 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
           canvas: canvas
         });
 
-        _this.props.onClose();
+        _this.props.onClose(_config.ON_CLOSE_STATUSES.IMAGE_EDITS_COMPLETED);
       }
     });
 
@@ -693,20 +691,6 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
   }]);
 
   return _default;
-}(_react.Component), _temp);
+}(_react.Component);
 
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp2 = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(INITIAL_PARAMS, "INITIAL_PARAMS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/ImageEditor.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/ImageEditor.js");
-}();
-
-;
+exports.default = _default;

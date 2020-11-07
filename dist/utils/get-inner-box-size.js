@@ -54,14 +54,3 @@ var getInnerBoxSize = function getInnerBoxSize(parentElem, originalImg) {
 };
 
 exports.getInnerBoxSize = getInnerBoxSize;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(getInnerBoxSize, "getInnerBoxSize", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-inner-box-size.js");
-}();
-
-;

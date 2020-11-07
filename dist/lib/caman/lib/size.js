@@ -66,12 +66,3 @@ Caman.Filter.register("crop", function () {
 Caman.Filter.register("resize", function () {
   return this.processPlugin("resize", Array.prototype.slice.call(arguments, 0));
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

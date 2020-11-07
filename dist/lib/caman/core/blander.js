@@ -47,18 +47,4 @@ var Blender = /*#__PURE__*/function () {
 
 Blender.initClass();
 var _default = Blender;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Blender, "Blender", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/blander.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/blander.js");
-}();
-
-;
+exports.default = _default;

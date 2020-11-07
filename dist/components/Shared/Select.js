@@ -48,7 +48,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  display: ", ";\n  list-style-type: none;\n  margin: 2px 0 0 0;\n  padding: 0;\n  position: absolute;\n  background: #fff;\n  width: ", ";\n  border: none;\n  color: ", ";\n  background: ", ";\n  box-shadow: inset 0 1px 1px rgba(0,0,0,0.5), 0 1px 0 rgba(82,104,109,.6);\n  border-radius: .25rem;\n  overflow: hidden;\n  overflow-y: auto;\n  max-height: ", ";\n  z-index: 101000000000000;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: ", ";\n  list-style-type: none;\n  margin: 2px 0 0 0;\n  padding: 0;\n  position: absolute;\n  background: #fff;\n  width: ", ";\n  border: none;\n  color: ", ";\n  background: ", ";\n  box-shadow: inset 0 1px 1px rgba(0,0,0,0.5), 0 1px 0 rgba(82,104,109,.6);\n  border-radius: .25rem;\n  overflow: hidden;\n  overflow-y: auto;\n  max-height: ", ";\n  z-index: 101000000000000;\n\n  @media (max-width: 600px) {\n    position: relative;\n    max-height: ", ";\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -146,10 +146,8 @@ var Select = /*#__PURE__*/function (_Component) {
       var nexVal = !_this.state.isOpened;
 
       if (nexVal) {
-        _this.onOutsideClick = function () {
-          var _this2;
-
-          return (_this2 = _this).__onOutsideClick__REACT_HOT_LOADER__.apply(_this2, arguments);
+        _this.onOutsideClick = function (e) {
+          if (e.keyCode === 27) _this.toggleMenu();
         };
 
         document.addEventListener('keyup', _this.onOutsideClick);
@@ -207,11 +205,6 @@ var Select = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Select, [{
-    key: "__onOutsideClick__REACT_HOT_LOADER__",
-    value: function __onOutsideClick__REACT_HOT_LOADER__(e) {
-      if (e.keyCode === 27) this.toggleMenu();
-    }
-  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       document.removeEventListener('keyup', this.onOutsideClick);
@@ -223,7 +216,7 @@ var Select = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var isOpened = this.state.isOpened;
       var _this$props4 = this.props,
@@ -267,14 +260,14 @@ var Select = /*#__PURE__*/function (_Component) {
         notSelected: !value,
         onClick: this.toggleMenu,
         ref: function ref(node) {
-          _this3.selectedItem = node;
+          _this2.selectedItem = node;
         },
         relativePosition: notRelativePosition
       }, this.getValue(value), " ", labelDescription ? "(".concat(labelDescription, ")") : ''), /*#__PURE__*/_react.default.createElement(SelectDropdown, {
         size: size,
         show: isOpened && this.filterList(list).length,
         ref: function ref(node) {
-          _this3.dropdown = node;
+          _this2.dropdown = node;
         },
         limitedWidth: notRelativePosition
       }, this.filterList(list).map(function (item) {
@@ -282,7 +275,7 @@ var Select = /*#__PURE__*/function (_Component) {
           size: size,
           key: item[valueProp],
           onClick: function onClick(event) {
-            _this3.onItemClick(event, item[valueProp]);
+            _this2.onItemClick(event, item[valueProp]);
           }
         }, item.color && /*#__PURE__*/_react.default.createElement(ItemIcon, {
           color: item.color
@@ -320,6 +313,8 @@ var SelectDropdown = _styledComponents.default.ul(_templateObject3(), function (
   return p.theme.colors.primaryBg;
 }, function (p) {
   return p.size === 'sm' ? '250px' : '200px';
+}, function (p) {
+  return p.show ? '120px' : '0';
 });
 
 var SelectDropdownItem = _styledComponents.default.li(_templateObject4(), function (p) {
@@ -348,32 +343,4 @@ var ItemIcon = _styledComponents.default.span(_templateObject6(), function (p) {
 });
 
 var _default = Select;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Select, "Select", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(SelectWrapper, "SelectWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(SelectedItem, "SelectedItem", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(SelectDropdown, "SelectDropdown", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(SelectDropdownItem, "SelectDropdownItem", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(getItemStyles, "getItemStyles", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(ItemName, "ItemName", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(ItemIcon, "ItemIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
-}();
-
-;
+exports.default = _default;

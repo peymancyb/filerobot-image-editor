@@ -31,12 +31,3 @@ Caman.Filter.register("herMajesty", function () {
   });
   return this;
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

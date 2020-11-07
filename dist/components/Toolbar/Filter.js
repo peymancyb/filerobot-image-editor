@@ -67,16 +67,4 @@ var _default = /*#__PURE__*/function (_Component) {
   return _default;
 }(_react.Component);
 
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Filter.js");
-}();
-
-;
+exports.default = _default;

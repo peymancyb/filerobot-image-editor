@@ -127,13 +127,17 @@ var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "close", function () {
+      var closingStatus = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _config2.ON_CLOSE_STATUSES.CLOSE_BTN_CLICKED;
       var onClose = _this.props.onClose;
+      var status = _typeof(closingStatus) === 'object' ? _config2.ON_CLOSE_STATUSES.CLOSE_BTN_CLICKED : closingStatus;
 
       if (_this._isMounted) {
         _this.setState({
           isVisible: false
         }, function () {
-          if (onClose) onClose();
+          if (onClose) onClose({
+            status: status
+          });
         });
       }
     });
@@ -142,7 +146,7 @@ var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
     _config.language = _config.translations[_config.language] || _i18n.default[_config.language] ? _config.language : 'en';
     _config.theme = _config.theme || {};
     _config.theme.colors = _config.theme.colors || {};
-    _config.theme.fonts = _config.theme.fonts || {};
+    _config.theme.fonts = _config.theme.fonts || _config2.STANDARD_FONTS;
     _config.colorScheme = _config.colorScheme || 'dark';
     _config.platform = _config.platform || 'filerobot';
     _config.initialTab = getActiveTab(_config.tools, _config.initialTab);
@@ -156,7 +160,7 @@ var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
       colorScheme: _config.colorScheme || 'dark',
       theme: {
         colors: _objectSpread(_objectSpread({}, (_config.colorScheme === 'light' ? _light.default : _dark.default).colors), _config.theme.colors),
-        fonts: _objectSpread(_objectSpread({}, (_config.colorScheme === 'light' ? _light.default : _dark.default).fonts), _config.theme.fonts)
+        fonts: _config.theme.fonts
       }
     };
     return _this;
@@ -196,9 +200,9 @@ var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
           _this$props$onComplet = _this$props.onComplete,
           onComplete = _this$props$onComplet === void 0 ? function () {} : _this$props$onComplet,
           onBeforeComplete = _this$props.onBeforeComplete,
-          closeOnLoad = _this$props.closeOnLoad,
-          _this$props$showInMod = _this$props.showInModal,
-          showInModal = _this$props$showInMod === void 0 ? true : _this$props$showInMod;
+          closeOnLoad = _this$props.closeOnLoad;
+      var _config$showInModal = config.showInModal,
+          showInModal = _config$showInModal === void 0 ? true : _config$showInModal;
       if (!src || !isVisible || _isServerSide.isServerSide) return null;
       if (src instanceof Blob && config.processWithCloudimage) return null;
 
@@ -221,7 +225,8 @@ var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
         style: {
           borderRadius: 5
         },
-        onClose: this.close
+        onClose: this.close,
+        configModalId: config.elementId
       }, Inner) : Inner);
     }
   }]);
@@ -230,20 +235,4 @@ var ImageEditorWrapper = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 var _default = ImageEditorWrapper;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(getActiveTab, "getActiveTab", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/ImageEditorWrapper.js");
-
-  __REACT_HOT_LOADER__.register(ImageEditorWrapper, "ImageEditorWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/ImageEditorWrapper.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/ImageEditorWrapper.js");
-}();
-
-;
+exports.default = _default;

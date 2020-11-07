@@ -220,18 +220,3 @@ Caman.Plugin.register("stackBlur", function (radius) {
 Caman.Filter.register("stackBlur", function (radius) {
   return this.processPlugin("stackBlur", [radius]);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(BlurStack, "BlurStack", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
-
-  __REACT_HOT_LOADER__.register(mul_table, "mul_table", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
-
-  __REACT_HOT_LOADER__.register(shg_table, "shg_table", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
-}();
-
-;

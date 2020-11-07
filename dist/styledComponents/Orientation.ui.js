@@ -120,26 +120,3 @@ var RotateIcon = _styledComponents.default.span(_templateObject6(), function (pr
 exports.RotateIcon = RotateIcon;
 var DarkBtn = (0, _styledComponents.default)(_Header.CancelBtn)(_templateObject7());
 exports.DarkBtn = DarkBtn;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(OrientationWrapper, "OrientationWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
-
-  __REACT_HOT_LOADER__.register(RotateWrapper, "RotateWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
-
-  __REACT_HOT_LOADER__.register(RotateLabel, "RotateLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
-
-  __REACT_HOT_LOADER__.register(RotateButton, "RotateButton", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
-
-  __REACT_HOT_LOADER__.register(ButtonGroup, "ButtonGroup", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
-
-  __REACT_HOT_LOADER__.register(RotateIcon, "RotateIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
-
-  __REACT_HOT_LOADER__.register(DarkBtn, "DarkBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
-}();
-
-;

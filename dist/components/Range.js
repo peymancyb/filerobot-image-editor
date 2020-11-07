@@ -18,7 +18,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  position: relative;\n  width: 190px;\n  padding: 25px 5px 20px 5px;\n  \n  label {\n    display: inline-block;\n    width: 100%;\n    text-align: center;\n    padding-top: ", ";\n  }\n  \n  :after {\n    content: ", ";\n    display: inline-block;\n    position: absolute;\n    background: ", ";\n    height: 5px;\n    width: 2px;\n    top: 45px;\n    left: calc(50% - 1px);\n  }\n\n  /* CHROME */\n  #range {\n    -webkit-appearance: none;\n    display: block;\n    outline: none;\n    background: ", ";\n    height: 6px;\n    width: 180px;\n    border-radius: 5px;\n    margin-bottom: 5px;\n    \n    &::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      width: 18px;\n      height: 18px;\n      border-radius: 50%;\n      background: ", ";\n    }\n  }\n  \n  /* FIREFOX */\n  #range::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: ", ";\n    cursor: pointer;\n  }\n  \n  #range::-moz-range-track {\n    width: 100%;\n    height: 3px;\n    cursor: pointer;\n    background: ", ";\n    border-radius: 5px;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: relative;\n  width: 175px;\n  padding: 25px 5px 20px 5px;\n  \n  label {\n    display: inline-block;\n    width: 100%;\n    text-align: center;\n    padding-top: ", ";\n  }\n  \n  :after {\n    content: ", ";\n    display: inline-block;\n    position: absolute;\n    background: ", ";\n    height: 5px;\n    width: 2px;\n    top: 45px;\n    left: calc(50% - 1px);\n  }\n\n  /* CHROME */\n  #range {\n    -webkit-appearance: none;\n    display: block;\n    outline: none;\n    background: ", ";\n    height: 6px;\n    width: 180px;\n    border-radius: 5px;\n    margin-bottom: 5px;\n    \n    &::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      width: 18px;\n      height: 18px;\n      border-radius: 50%;\n      background: ", ";\n    }\n  }\n  \n  /* FIREFOX */\n  #range::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: ", ";\n    cursor: pointer;\n  }\n  \n  #range::-moz-range-track {\n    width: 100%;\n    height: 3px;\n    cursor: pointer;\n    background: ", ";\n    border-radius: 5px;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -135,8 +135,7 @@ var Range = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 var _default = Range;
-var _default2 = _default;
-exports.default = _default2;
+exports.default = _default;
 var Wrapper = (0, _styledComponents.default)('div').attrs(function () {
   return {
     className: 'image-editor-range'
@@ -156,18 +155,3 @@ var Wrapper = (0, _styledComponents.default)('div').attrs(function () {
 }, function (p) {
   return p.theme.colors.text;
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Range, "Range", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Range.js");
-
-  __REACT_HOT_LOADER__.register(Wrapper, "Wrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Range.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Range.js");
-}();
-
-;

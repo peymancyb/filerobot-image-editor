@@ -8,12 +8,3 @@ Caman.Filter.register("grungy", function () {
   this.noise(5);
   return this.vignette("50%", 30);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

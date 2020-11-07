@@ -1,7 +1,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true,
+  value: true
 });
 exports.colorSchemes = exports.default = void 0;
 var _default = {
@@ -10,12 +10,12 @@ var _default = {
       base: "#F9FAFB",
       dark: "#F4F6F8",
       mute: "#aaa",
-      light: "#fff",
+      light: "#fff"
     },
     dark: {
       base: "#1e262c",
       light: "#454F5B",
-      lighter: "#637381",
+      lighter: "#637381"
     },
     primary: {
       base: "#181830",
@@ -23,7 +23,7 @@ var _default = {
       lighter: "#34444c",
       dark: "#101021",
       darker: "#090912",
-      text: "#F9FAFB",
+      text: "#F9FAFB"
     },
     secondary: {
       base: "#4eb1ba",
@@ -31,8 +31,8 @@ var _default = {
       lighter: "#008D99",
       dark: "#00616D",
       darker: "#005662",
-      text: "#F9FAFB",
-    },
+      text: "#F9FAFB"
+    }
   },
   textFontSize: "14px",
   borderColor: "#70777f",
@@ -40,10 +40,9 @@ var _default = {
   textColor: "#e7f1f4",
   textColorHover: "#fff",
   textMuted: "#70777f",
-  fieldWidth: "120px",
+  fieldWidth: "120px"
 };
-var _default2 = _default;
-exports.default = _default2;
+exports.default = _default;
 var colorSchemes = {
   default: {
     mainBackground: "#f5f5f5",
@@ -61,7 +60,7 @@ var colorSchemes = {
     tabTextColor: "#c0c1c1",
     activeTabTextColor: "#fff",
     buttonTextColor: "#fff",
-    border: "#d8d8d8",
+    border: "#d8d8d8"
   },
   test: {
     mainBackground: "",
@@ -75,24 +74,7 @@ var colorSchemes = {
     inputTextColor: "grey",
     tabTextColor: "green",
     activeTabTextColor: "yellow",
-    buttonTextColor: "black",
-  },
+    buttonTextColor: "black"
+  }
 };
 exports.colorSchemes = colorSchemes;
-var _temp = (function () {
-  if (typeof __REACT_HOT_LOADER__ === "undefined") {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(
-    colorSchemes,
-    "colorSchemes",
-    "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/assets/styles/colorScheme.js"
-  );
-
-  __REACT_HOT_LOADER__.register(
-    _default,
-    "default",
-    "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/assets/styles/colorScheme.js"
-  );
-})();

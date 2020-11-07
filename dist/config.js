@@ -3,14 +3,18 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DEFAULT_IMG_URL = exports.SHAPES_VARIANTS = exports.WATERMARK_CLOUDIMAGE_FONTS = exports.STANDARD_FONTS = exports.WATERMARK_POSITIONS_PRESET = exports.WATERMARK_UNIQUE_KEY = exports.WATERMARK_POSITIONS = exports.CLOUDIMAGE_OPERATIONS = exports.UPLOADER = exports.FILTERS = exports.EFFECTS = exports.TOOLS = exports.PREVIEW_CANVAS_ID = exports.MODAL_ID = exports.DEFAULT_WATERMARK = void 0;
+exports.ORIGINAL_CANVAS_ID = exports.CANVAS_ID = exports.ON_CLOSE_STATUSES = exports.DEFAULT_IMG_URL = exports.SHAPES_VARIANTS = exports.WATERMARK_CLOUDIMAGE_FONTS = exports.STANDARD_FONTS = exports.WATERMARK_POSITIONS_PRESET = exports.WATERMARK_UNIQUE_KEY = exports.WATERMARK_POSITIONS = exports.CLOUDIMAGE_OPERATIONS = exports.UPLOADER = exports.FILTERS = exports.EFFECTS = exports.TOOLS = exports.PREVIEW_CANVAS_ID = exports.MODAL_ID = exports.DEFAULT_WATERMARK = void 0;
 // The library modal ID.
-var MODAL_ID = 'filerobot-image-editor'; // ID for preview canvas (canvas contains watermark, shapes...etc).
+var MODAL_ID = 'filerobot-image-editor-modal'; // ID for preview canvas (canvas contains watermark, shapes...etc).
 
 exports.MODAL_ID = MODAL_ID;
-var PREVIEW_CANVAS_ID = 'scaleflex-filerobot-shapes-edit-box'; // 'effects', 'filters', 'adjust', 'crop', 'resize', 'rotate'
-
+var PREVIEW_CANVAS_ID = 'filerobot-shapes-edit-box';
 exports.PREVIEW_CANVAS_ID = PREVIEW_CANVAS_ID;
+var CANVAS_ID = 'filerobot-image-edit-box';
+exports.CANVAS_ID = CANVAS_ID;
+var ORIGINAL_CANVAS_ID = 'filerobot-image-edit-box-original'; // 'effects', 'filters', 'adjust', 'crop', 'resize', 'rotate'
+
+exports.ORIGINAL_CANVAS_ID = ORIGINAL_CANVAS_ID;
 var TOOLS = ['adjust', 'effects', 'filters', 'rotate', 'crop', 'resize', 'watermark', 'shapes', 'image', 'text']; // 'clarity', 'edge_enhance', 'emboss', 'grungy', 'hazy', 'lomo', 'noise', 'old_paper', 'posterize', 'radial_blur',
 //   'sin_city', 'tilt_shift'
 
@@ -274,46 +278,15 @@ var UPLOADER = {
   resizePresets: resizePresets
 };
 exports.UPLOADER = UPLOADER;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(MODAL_ID, "MODAL_ID", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(PREVIEW_CANVAS_ID, "PREVIEW_CANVAS_ID", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(TOOLS, "TOOLS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(EFFECTS, "EFFECTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(FILTERS, "FILTERS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(CLOUDIMAGE_OPERATIONS, "CLOUDIMAGE_OPERATIONS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(WATERMARK_POSITIONS, "WATERMARK_POSITIONS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(WATERMARK_POSITIONS_PRESET, "WATERMARK_POSITIONS_PRESET", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(DEFAULT_WATERMARK, "DEFAULT_WATERMARK", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(WATERMARK_UNIQUE_KEY, "WATERMARK_UNIQUE_KEY", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(cropPresets, "cropPresets", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(resizePresets, "resizePresets", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(STANDARD_FONTS, "STANDARD_FONTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(WATERMARK_CLOUDIMAGE_FONTS, "WATERMARK_CLOUDIMAGE_FONTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(SHAPES_VARIANTS, "SHAPES_VARIANTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(DEFAULT_IMG_URL, "DEFAULT_IMG_URL", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-
-  __REACT_HOT_LOADER__.register(UPLOADER, "UPLOADER", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
-}();
-
-;
+var ON_CLOSE_STATUSES = {
+  CLOSE_BTN_CLICKED: 'close-button-clicked',
+  TOOLBAR_CANCEL_BTN_CLICKED: 'toolbar-cancel-button-clicked',
+  ESC_KEY_PRESSED: 'esc-key-pressed',
+  MODAL_OVERLAY_CLICKED: 'modal-overlay-clicked',
+  IMAGE_EDITS_COMPLETED: 'image-edits-completed',
+  IMAGE_DOWNLOADED: 'image-downloaded',
+  IMAGE_UPLOADED_FILEROBOT: 'image-uploaded-filerobot',
+  IMAGE_UPLOADED_CLOUDIMAGE: 'image-uploaded-cloudimage',
+  IMAGE_UPLOADING_FAIL_FILEROBOT: 'image-uploading-fail-filerobot'
+};
+exports.ON_CLOSE_STATUSES = ON_CLOSE_STATUSES;

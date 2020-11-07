@@ -11,8 +11,6 @@ var _throttleDebounce = require("throttle-debounce");
 
 var _styledComponents = require("../../styledComponents");
 
-var _temp;
-
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -41,7 +39,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _default = (_temp = /*#__PURE__*/function (_Component) {
+var _default = /*#__PURE__*/function (_Component) {
   _inherits(_default, _Component);
 
   var _super = _createSuper(_default);
@@ -90,10 +88,6 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
       _this.setState({
         aspectRatio: aspectRatio
       });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "getCanvasNode", function () {
-      return document.getElementById("preview-img-box");
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeRatio", function (box) {
@@ -189,18 +183,6 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
   }]);
 
   return _default;
-}(_react.Component), _temp);
+}(_react.Component);
 
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp2 = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Crop.js");
-}();
-
-;
+exports.default = _default;

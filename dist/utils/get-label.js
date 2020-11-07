@@ -11,14 +11,3 @@ var getLabel = function getLabel() {
 };
 
 exports.getLabel = getLabel;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(getLabel, "getLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-label.js");
-}();
-
-;

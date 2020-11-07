@@ -35,12 +35,3 @@ Caman.Filter.register("vignette", function (size, strength) {
     return rgba;
   });
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

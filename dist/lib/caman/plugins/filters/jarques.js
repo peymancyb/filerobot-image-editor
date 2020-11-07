@@ -8,12 +8,3 @@ Caman.Filter.register("jarques", function () {
   this.curves('rgb', [0, 0], [120, 100], [128, 140], [255, 255]);
   return this.sharpen(20);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

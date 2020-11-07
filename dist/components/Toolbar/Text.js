@@ -9,8 +9,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Shapes = require("../../styledComponents/Shapes.ui");
 
-var _config = require("../../config");
-
 var _styledComponents = require("../../styledComponents");
 
 var _Range = _interopRequireDefault(require("../Range"));
@@ -67,6 +65,11 @@ var Text = /*#__PURE__*/function (_Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
+    _defineProperty(_assertThisInitialized(_this), "addNewText", function () {
+      var shapeOperations = _this.props.shapeOperations;
+      shapeOperations.addText();
+    });
+
     _defineProperty(_assertThisInitialized(_this), "updateOpacity", function (newVal) {
       return _this.props.shapeOperations.updateShape({
         opacity: newVal
@@ -104,7 +107,8 @@ var Text = /*#__PURE__*/function (_Component) {
       var _this$props2 = this.props,
           t = _this$props2.t,
           _this$props2$selected = _this$props2.selectedShape,
-          selectedShape = _this$props2$selected === void 0 ? {} : _this$props2$selected;
+          selectedShape = _this$props2$selected === void 0 ? {} : _this$props2$selected,
+          theme = _this$props2.config.theme;
       var _selectedShape$text = selectedShape.text,
           text = _selectedShape$text === void 0 ? '' : _selectedShape$text,
           _selectedShape$textFo = selectedShape.textFont,
@@ -125,8 +129,19 @@ var Text = /*#__PURE__*/function (_Component) {
           minWidth: 111
         },
         onChange: this.updatePropertyFromEvent
-      })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Font family"), /*#__PURE__*/_react.default.createElement(_Select.default, {
-        list: _config.STANDARD_FONTS,
+      })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Add New Text"), /*#__PURE__*/_react.default.createElement(Button, {
+        id: "addText",
+        name: "addText",
+        style: {
+          width: 30,
+          background: 'transparent',
+          color: '#fff',
+          margin: '2px auto',
+          padding: '3px 12px'
+        },
+        onClick: this.addNewText
+      }, "+")), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Font family"), /*#__PURE__*/_react.default.createElement(_Select.default, {
+        list: theme.fonts,
         valueProp: "value",
         id: "textFont",
         value: textFont,
@@ -206,14 +221,3 @@ var Text = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 exports.default = Text;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Text, "Text", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Text.js");
-}();
-
-;

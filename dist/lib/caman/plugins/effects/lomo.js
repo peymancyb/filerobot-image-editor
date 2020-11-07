@@ -17,12 +17,3 @@ Caman.Filter.register("lomo", function (vignette) {
 
   return this.brightness(5);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

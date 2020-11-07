@@ -19,8 +19,6 @@ var _config = require("../../config");
 
 var _utils = require("../../utils");
 
-var _temp;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -67,7 +65,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _default = (_temp = /*#__PURE__*/function (_Component) {
+var _default = /*#__PURE__*/function (_Component) {
   _inherits(_default, _Component);
 
   var _super = _createSuper(_default);
@@ -96,15 +94,15 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         watermarkObjectData = data;
       }
 
-      var watermark = _this.getWatermarkLayer();
+      var watermark = _this.getWatermarkLayer() || {};
 
       _this.setState(data, function () {
         shapeOperations.addOrUpdate(_objectSpread(_objectSpread({}, shapeData), {}, {
           key: _config.WATERMARK_UNIQUE_KEY,
-          index: watermark.index
+          index: watermark.index,
+          tab: 'watermark'
         }), {
-          watermark: _objectSpread(_objectSpread({}, _this.props.watermark), watermarkObjectData),
-          selectedShape: _objectSpread(_objectSpread({}, _this.props.selectedShape), shapeData)
+          watermark: _objectSpread(_objectSpread({}, _this.props.watermark), watermarkObjectData)
         });
       });
     });
@@ -117,6 +115,7 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeURL", function (event) {
+      var shapeData = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var nextValue = event.target.value;
 
       if (_this.props.watermark.text) {
@@ -127,9 +126,9 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
 
       _this.updateWatermarkProperty({
         url: nextValue
-      }, {
+      }, _objectSpread({
         img: nextValue
-      }, {
+      }, shapeData), {
         url: '',
         text: false
       });
@@ -182,6 +181,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
             target: {
               value: e.target.result
             }
+          }, {
+            variant: _config.SHAPES_VARIANTS.IMAGE
           });
         };
 
@@ -194,7 +195,7 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
           width = _this$getWatermarkLay.width,
           height = _this$getWatermarkLay.height;
 
-      var _getWatermarkPosition = (0, _utils.getWatermarkPosition)(value, (0, _utils.getCanvasNode)(), width, height),
+      var _getWatermarkPosition = (0, _utils.getWatermarkPosition)(value, (0, _utils.getCanvasNode)(_this.props.config.elementId), width, height),
           _getWatermarkPosition2 = _slicedToArray(_getWatermarkPosition, 2),
           x = _getWatermarkPosition2[0],
           y = _getWatermarkPosition2[1];
@@ -268,6 +269,10 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         } else {
           logoImage.src = url;
         }
+      } else {
+        updateState({
+          isShowSpinner: false
+        });
       }
     }));
 
@@ -295,7 +300,9 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleInputTypeChange", function (_ref) {
       var target = _ref.target;
-      var updateState = _this.props.updateState;
+      var _this$props = _this.props,
+          updateState = _this$props.updateState,
+          config = _this$props.config;
       updateState({
         isShowSpinner: true
       });
@@ -308,7 +315,7 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         _this.changeTextProperty({
           target: {
             name: 'text',
-            value: 'Filerobot'
+            value: (config.watermark || {}).defaultText || 'Your text'
           }
         });
 
@@ -381,7 +388,7 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
       opacity: _opacity || 0.7,
       handleOpacity: typeof handleOpacity === 'boolean' ? handleOpacity : true,
       position: activePosition,
-      url: _url || urls && urls.length > 1 ? urls[0] && urls[0].url : '',
+      url: _url || (urls && urls.length > 1 ? urls[0] && urls[0].url : ''),
       urls: urls || [],
       activePositions: setActivePositions,
       isWatermarkList: urls && urls.length > 1,
@@ -392,20 +399,21 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
       color: '#000000',
       textSize: 62,
       textFont: 'Arial',
-      fonts: fonts || _config.STANDARD_FONTS
+      fonts: fonts || _this.props.config.theme.fonts
     };
     return _this;
   }
 
   _createClass(_default, [{
-    key: "UNSAFE_componentWillReceiveProps",
-    value: function UNSAFE_componentWillReceiveProps(nextProps) {
-      // check if position has ben modified and update
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var nextProps = this.props; // check if position has ben modified and update
+
       if (nextProps.watermark.position !== this.state.position) {
         this.onPositionChange(this.state.position);
       }
 
-      if (nextProps.watermark.applyByDefault !== this.props.watermark.applyByDefault) {
+      if (nextProps.watermark.applyByDefault !== prevProps.watermark.applyByDefault) {
         if (this.getWatermarkLayer()) {
           this.updateWatermarkProperty({
             applyByDefault: false
@@ -501,8 +509,6 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
           width: 'calc(100% - 120px)'
         },
         onChange: function onChange(url) {
-          console.log('chosen', url);
-
           _this2.changeURL({
             target: {
               value: url
@@ -532,7 +538,8 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
         id: "text",
         value: text,
         style: {
-          width: 'calc(65% - 135px)'
+          width: 'calc(65% - 135px)',
+          minWidth: 120
         },
         name: "text",
         onChange: this.changeTextProperty
@@ -578,7 +585,10 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
       }))), /*#__PURE__*/_react.default.createElement(_styledComponents.WrapperForControls, {
         switcherPosition: handleOpacity ? 'right' : 'left'
       }, handleOpacity && /*#__PURE__*/_react.default.createElement(_styledComponents.WrapperForOpacity, null, /*#__PURE__*/_react.default.createElement("label", {
-        htmlFor: "opacity"
+        htmlFor: "opacity",
+        style: {
+          minWidth: 80
+        }
       }, "Opacity"), /*#__PURE__*/_react.default.createElement(_Range.default, {
         label: t['common.opacity'],
         min: 0,
@@ -611,18 +621,6 @@ var _default = (_temp = /*#__PURE__*/function (_Component) {
   }]);
 
   return _default;
-}(_react.Component), _temp);
+}(_react.Component);
 
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp2 = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Watermark.js");
-}();
-
-;
+exports.default = _default;

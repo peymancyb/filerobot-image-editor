@@ -57,13 +57,15 @@ var _default = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this$props = this.props,
           onApplyEffects = _this$props.onApplyEffects,
-          effect = _this$props.effect;
+          effect = _this$props.effect,
+          noCapitalStrs = _this$props.noCapitalStrs;
       return /*#__PURE__*/_react.default.createElement(_styledComponents.EffectsWrapper, null, _config.EFFECTS.map(function (name) {
         return /*#__PURE__*/_react.default.createElement(_Effect.default, {
           active: effect,
           key: name,
           name: name,
-          onApplyEffects: onApplyEffects
+          onApplyEffects: onApplyEffects,
+          noCapitalStrs: noCapitalStrs
         });
       }));
     }
@@ -72,16 +74,4 @@ var _default = /*#__PURE__*/function (_Component) {
   return _default;
 }(_react.Component);
 
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Effects.js");
-}();
-
-;
+exports.default = _default;

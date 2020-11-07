@@ -14,12 +14,3 @@ Caman.Filter.register("sunrise", function () {
   this.gamma(1.2);
   return this.vignette("55%", 25);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

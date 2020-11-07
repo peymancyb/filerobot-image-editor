@@ -329,12 +329,3 @@ Caman.Filter.register("exposure", function (adjust) {
 
   return this.curves('rgb', [0, 0], ctrl1, ctrl2, [255, 255]);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

@@ -65,23 +65,3 @@ require("./plugins/rotate");
 require("./plugins/stackBlur");
 
 require("./plugins/flip");
-
-//import './core/analyze';
-//import './core/autoload';
-// Common
-// Effects
-// Filters
-//import './plugins/_other/clarity';
-//import './plugins/_other/herMajesty';
-//import './plugins/_other/nostalgia';
-//import './plugins/_other/hemingway';
-//import './plugins/_other/concentrate';
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

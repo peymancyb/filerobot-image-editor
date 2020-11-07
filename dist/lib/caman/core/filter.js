@@ -46,14 +46,3 @@ var Filter = /*#__PURE__*/function () {
 
 Filter.initClass();
 Caman.Filter = Filter;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Filter, "Filter", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/filter.js");
-}();
-
-;

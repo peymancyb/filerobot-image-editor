@@ -26,14 +26,3 @@ var AdjustWrapper = _styledComponents.default.div(_templateObject(), function (p
 });
 
 exports.AdjustWrapper = AdjustWrapper;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(AdjustWrapper, "AdjustWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Adjust.ui.js");
-}();
-
-;

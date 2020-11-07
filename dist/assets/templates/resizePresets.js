@@ -70,16 +70,4 @@ var _default = [{
   height: 120,
   ratio: 7.8
 }];
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/assets/templates/resizePresets.js");
-}();
-
-;
+exports.default = _default;

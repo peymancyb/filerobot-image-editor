@@ -38,14 +38,3 @@ var b64toBlob = function b64toBlob(b64Data, contentType, sliceSize) {
 };
 
 exports.b64toBlob = b64toBlob;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(b64toBlob, "b64toBlob", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/b64-to-blob.js");
-}();
-
-;

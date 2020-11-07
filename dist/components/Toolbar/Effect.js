@@ -54,29 +54,20 @@ var _default = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           active = _this$props.active,
           name = _this$props.name,
-          onApplyEffects = _this$props.onApplyEffects;
+          onApplyEffects = _this$props.onApplyEffects,
+          noCapitalStrs = _this$props.noCapitalStrs;
       return /*#__PURE__*/_react.default.createElement(_styledComponents.EffectWrapper, {
         active: active === name,
         onClick: onApplyEffects.bind(null, name)
       }, /*#__PURE__*/_react.default.createElement(_styledComponents.EffectIcon, {
         src: (0, _utils.getIcon)(name)
-      }), /*#__PURE__*/_react.default.createElement(_styledComponents.EffectLabel, null, (0, _utils.getLabel)(name)));
+      }), /*#__PURE__*/_react.default.createElement(_styledComponents.EffectLabel, {
+        noCapitalStrs: noCapitalStrs
+      }, (0, _utils.getLabel)(name)));
     }
   }]);
 
   return _default;
 }(_react.Component);
 
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Effect.js");
-}();
-
-;
+exports.default = _default;

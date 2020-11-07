@@ -8,12 +8,3 @@ Caman.Filter.register("love", function () {
   this.vibrance(50);
   return this.gamma(1.3);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

@@ -359,13 +359,3 @@ OTHER DEALINGS IN THE SOFTWARE.
     return this.processPlugin("compoundBlur", [gradient, opts.startRadius, opts.radiusFactor, opts.steps]);
   });
 })();
-
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

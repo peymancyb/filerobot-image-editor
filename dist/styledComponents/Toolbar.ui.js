@@ -12,7 +12,7 @@ var _styleUtils = require("./styleUtils");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  text-transform: capitalize;\n  height: 20px;\n  line-height: 20px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  text-transform: ", ";\n  height: 20px;\n  line-height: 20px;\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -108,7 +108,7 @@ exports.Toolbar = Toolbar;
 var ToolWrapper = _styledComponents.default.div(_templateObject2(), function (props) {
   return props.theme.colors.text;
 }, function (props) {
-  return props.tt || 'capitalize';
+  return props.noCapitalStrs ? 'none' : props.tt || 'capitalize';
 }, function (props) {
   return props.active ? props.theme.colors.secondaryBg : 'inherit';
 }, function (props) {
@@ -151,31 +151,8 @@ var EffectIcon = _styledComponents.default.div(_templateObject7(), function (pro
 
 exports.EffectIcon = EffectIcon;
 
-var EffectLabel = _styledComponents.default.div(_templateObject8());
+var EffectLabel = _styledComponents.default.div(_templateObject8(), function (p) {
+  return p.noCapitalStrs ? 'none' : 'capitalize';
+});
 
 exports.EffectLabel = EffectLabel;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Toolbar, "Toolbar", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-
-  __REACT_HOT_LOADER__.register(ToolWrapper, "ToolWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-
-  __REACT_HOT_LOADER__.register(ToolIcon, "ToolIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-
-  __REACT_HOT_LOADER__.register(ToolLabel, "ToolLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-
-  __REACT_HOT_LOADER__.register(EffectsWrapper, "EffectsWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-
-  __REACT_HOT_LOADER__.register(EffectWrapper, "EffectWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-
-  __REACT_HOT_LOADER__.register(EffectIcon, "EffectIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-
-  __REACT_HOT_LOADER__.register(EffectLabel, "EffectLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Toolbar.ui.js");
-}();
-
-;

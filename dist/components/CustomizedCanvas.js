@@ -91,6 +91,37 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "_allowedTabs", ['shapes', 'image', 'text', 'watermark']);
 
+    _defineProperty(_assertThisInitialized(_this), "prepareFinalCanvas", function () {
+      var shapes = _this.props.shapes;
+      var newCanvas = document.createElement('canvas');
+      var _this$state$originalC = _this.state.originalCanvasDimensions,
+          width = _this$state$originalC.width,
+          height = _this$state$originalC.height;
+      newCanvas.width = width;
+      newCanvas.height = height;
+
+      _this._canvas.parentNode.insertBefore(newCanvas, _this._canvas);
+
+      var oldCanvas = _this._canvas;
+      _this._canvas = newCanvas;
+      _this._context = newCanvas.getContext('2d');
+      shapes.map(function (shape) {
+        // Mapping both (X & WIDTH), (Y & HEIGHT) of shape from old to new canvas with final dimnesions.
+        shape.x = shape.x.mapNumber(0, oldCanvas.width, 0, width);
+        shape.y = shape.y.mapNumber(0, oldCanvas.height, 0, height);
+
+        if (shape.variant !== _config.SHAPES_VARIANTS.TEXT) {
+          shape.width = shape.width.mapNumber(0, oldCanvas.width, 0, width);
+          shape.height = shape.height.mapNumber(0, oldCanvas.height, 0, height);
+        } else {
+          shape.textSize = parseInt(shape.textSize).mapNumber(0, oldCanvas.width, 0, width);
+        }
+
+        _this.drawShapeThroughVariant(shape);
+      });
+      return _this._canvas;
+    });
+
     _defineProperty(_assertThisInitialized(_this), "updateState", function (data) {
       var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
       var updateState = _this.props.updateState;
@@ -147,7 +178,10 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
 
           _this._canvas.addEventListener('mousemove', _this.startDragging);
 
+          _this._canvas.addEventListener('touchmove', _this.startDragging);
+
           document.addEventListener('mouseup', _this.endDragging);
+          document.addEventListener('touchend', _this.endDragging);
         }
       }); // Remove the old event listeners incase clicked on no shapes after clicking on one before.
 
@@ -162,7 +196,10 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
 
         _this._canvas.removeEventListener('mousemove', _this.startDragging);
 
+        _this._canvas.removeEventListener('touchmove', _this.startDragging);
+
         document.removeEventListener('mouseup', _this.endDragging);
+        document.removeEventListener('touchend', _this.endDragging);
       }
     });
 
@@ -199,7 +236,9 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
       });
 
       document.addEventListener('mousemove', _this.handleShapeResizing);
+      document.addEventListener('touchmove', _this.handleShapeResizing);
       document.addEventListener('mouseup', _this.disableResizingActions);
+      document.addEventListener('touchend', _this.disableResizingActions);
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleShapeResizing", function (_ref3) {
@@ -390,6 +429,20 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "startDragging", function (event) {
+      if (event.targetTouches && event.targetTouches[0]) {
+        event.preventDefault();
+        var _event$targetTouches$ = event.targetTouches[0],
+            clientX = _event$targetTouches$.clientX,
+            clientY = _event$targetTouches$.clientY;
+
+        var _this$_canvas$getBoun = _this._canvas.getBoundingClientRect(),
+            x = _this$_canvas$getBoun.x,
+            y = _this$_canvas$getBoun.y;
+
+        event.offsetX = clientX - x;
+        event.offsetY = clientY - y;
+      }
+
       var selectedShape = _this.props.selectedShape;
       var _selectedShape$startE = selectedShape.startEdgeOffset,
           startEdgeOffset = _selectedShape$startE === void 0 ? {} : _selectedShape$startE,
@@ -774,8 +827,10 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
 
       if (img) {
         var addIt = function addIt() {
-          var width = img.width;
-          var height = img.height;
+          var _this$getSuitableImgD = _this.getSuitableImgDiemensions(img),
+              _this$getSuitableImgD2 = _slicedToArray(_this$getSuitableImgD, 2),
+              width = _this$getSuitableImgD2[0],
+              height = _this$getSuitableImgD2[1];
 
           var _this$getCanvasCenter5 = _this.getCanvasCenter(width / 2, height / 2),
               _this$getCanvasCenter6 = _slicedToArray(_this$getCanvasCenter5, 2),
@@ -846,7 +901,6 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
           otherStates = _ref15.otherStates,
           others = _objectWithoutProperties(_ref15, ["text", "textSize", "color", "textFont", "x", "y", "stroke", "opacity", "tab", "otherStates"]);
 
-      // Set text style here for measuring the text's widht & hegiht before drawing.
       var _this$getTextWidthAnd = _this.getTextWidthAndHeight({
         text: text,
         textSize: textSize,
@@ -854,7 +908,8 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
       }),
           _this$getTextWidthAnd2 = _slicedToArray(_this$getTextWidthAnd, 2),
           width = _this$getTextWidthAnd2[0],
-          height = _this$getTextWidthAnd2[1];
+          height = _this$getTextWidthAnd2[1]; // Set text style here for measuring the text's width & hegiht before drawing.
+
 
       var _this$getCanvasCenter7 = _this.getCanvasCenter(width / 2, height / 2),
           _this$getCanvasCenter8 = _slicedToArray(_this$getCanvasCenter7, 2),
@@ -940,6 +995,23 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
         default:
           return;
       }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getSuitableImgDiemensions", function (img) {
+      var width = img.width;
+      var height = img.height; // Scaling down the image if it's bigger than the canvas
+
+      if (width > _this._canvas.width) {
+        width = width / (width / _this._canvas.width);
+      }
+
+      if (height > _this._canvas.height) {
+        height = height / (height / _this._canvas.height);
+      }
+
+      width = _this.fromoriginalCanvasDimensionsValue(width, 'width');
+      height = _this.fromoriginalCanvasDimensionsValue(height, 'height');
+      return [width, height];
     });
 
     _defineProperty(_assertThisInitialized(_this), "getShapeByKeyOrIndex", function (_ref16) {
@@ -1091,6 +1163,13 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
             updatedData.width = updates.selectedShape.width = width;
             updatedData.height = updates.selectedShape.height = height;
             updatedData.text = updates.selectedShape.text = updatedData.text || targetShape.text;
+          }
+        } else {
+          if (updatedData.width && updatedData.height) {
+            updates.selectedShape = _objectSpread(_objectSpread({}, selectedShape), {}, {
+              width: updatedData.width,
+              height: updatedData.height
+            });
           }
         }
 
@@ -1253,11 +1332,22 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
       });
 
       var img = new Image();
-      img.setAttribute('crossOrigin', 'Anonymous');
-      img.src = src;
+      img.crossOrigin = 'Anonymous';
+      img.src = "".concat(src, "?v=").concat(Math.random());
 
       img.onload = function () {
-        dataObject ? fn.apply(void 0, [dataObject].concat(args)) : fn.apply(void 0, args);
+        if (dataObject) {
+          var _this$getSuitableImgD3 = _this.getSuitableImgDiemensions(img),
+              _this$getSuitableImgD4 = _slicedToArray(_this$getSuitableImgD3, 2),
+              width = _this$getSuitableImgD4[0],
+              height = _this$getSuitableImgD4[1];
+
+          dataObject.width = dataObject.originalWidth = width;
+          dataObject.height = dataObject.originalHeight = height;
+          fn.apply(void 0, [dataObject].concat(args));
+        } else {
+          fn.apply(void 0, args);
+        }
 
         _this.updateState({
           isShowSpinner: false
@@ -1279,10 +1369,20 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
       return img;
     });
 
+    _defineProperty(_assertThisInitialized(_this), "fromoriginalCanvasDimensionsValue", function (number, property) {
+      if (_this._canvas && _this.state.originalCanvasDimensions) {
+        // property = width/height
+        return number.mapNumber(0, _this.state.originalCanvasDimensions[property], 0, _this._canvas[property]);
+      }
+
+      return number;
+    });
+
     _this.canvasRef = /*#__PURE__*/(0, _react.createRef)();
     _this.shapeResizingBoxRef = /*#__PURE__*/(0, _react.createRef)();
     _this.state = {
-      resizeControlTarget: null
+      resizeControlTarget: null,
+      originalCanvasDimensions: null
     };
     return _this;
   }
@@ -1298,20 +1398,21 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
         this._canvas.addEventListener('mousedown', this.onSelect);
 
         this._context = this._canvas.getContext('2d');
+        var border = "1px solid ".concat(this.props.colorScheme === 'light' ? '#000' : '#fff');
         var availableShapes = [{
           label: 'Rectangle',
           variant: _config.SHAPES_VARIANTS.RECT,
           iconStyles: {
             height: 50,
             width: 100,
-            border: '1px solid #fff'
+            border: border
           },
           drawFn: this.addRect
         }, {
           label: 'Square',
           variant: _config.SHAPES_VARIANTS.SQUARE,
           iconStyles: {
-            border: '1px solid #fff'
+            border: border
           },
           drawFn: function drawFn(props) {
             return _this2.addSquare(_objectSpread({
@@ -1324,12 +1425,12 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
           label: 'Circle',
           variant: _config.SHAPES_VARIANTS.CIRCLE,
           iconStyles: {
-            border: '1px solid #fff',
+            border: border,
             borderRadius: '50%'
           },
           drawFn: this.addCircle // iconUrl: undefined,
 
-        }].concat(_toConsumableArray(this.props.expandShapes));
+        }];
         this.props.updateState({
           shapeOperations: {
             addImage: this.addImage,
@@ -1344,7 +1445,8 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
             deleteShapes: this.deleteAllShapesOrByTypeOrIndicies,
             setShapeVisibility: this.setShapeVisibilityByKeyOrIndex,
             getShape: this.getShapeByKeyOrIndex,
-            getShapesIndicies: this.getShapesIndexByAnyProp
+            getShapesIndicies: this.getShapesIndexByAnyProp,
+            prepareFinalCanvas: this.prepareFinalCanvas
           },
           availableShapes: availableShapes
         });
@@ -1378,7 +1480,8 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
           _this$props3$selected5 = _this$props3$selected.y,
           y = _this$props3$selected5 === void 0 ? 0 : _this$props3$selected5,
           _this$props3$selected6 = _this$props3$selected.resizingBox,
-          resizingBox = _this$props3$selected6 === void 0 ? false : _this$props3$selected6;
+          resizingBox = _this$props3$selected6 === void 0 ? false : _this$props3$selected6,
+          wrapperId = _this$props3.wrapperId;
       var resizingBoxLines = ['e', 'n', 'w', 's'];
       var resizingBoxPoints = ['e', 'n', 'w', 's', 'ne', 'nw', 'sw', 'se'];
       var left = (this._canvas ? this._canvas.offsetLeft : 0) + x;
@@ -1388,7 +1491,7 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
       };
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styledComponents.PreviewCanvas, {
         ref: this.canvasRef,
-        id: _config.PREVIEW_CANVAS_ID,
+        id: "".concat(wrapperId, "_").concat(_config.PREVIEW_CANVAS_ID),
         width: parentCanvasWidth,
         height: parentCanvasHeight,
         tabIndex: 1
@@ -1419,20 +1522,16 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
         });
       })));
     }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(props, state) {
+      return _objectSpread(_objectSpread({}, state), {}, {
+        originalCanvasDimensions: props.originalCanvasDimensions
+      });
+    }
   }]);
 
   return CustomizedCanvas;
 }(_react.Component);
 
 exports.default = CustomizedCanvas;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(CustomizedCanvas, "CustomizedCanvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/CustomizedCanvas.js");
-}();
-
-;

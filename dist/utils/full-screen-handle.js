@@ -7,10 +7,10 @@ exports.toggleModalFullscreen = void 0;
 
 var _config = require("../config");
 
-var toggleModalFullscreen = function toggleModalFullscreen() {
+var toggleModalFullscreen = function toggleModalFullscreen(configElementId) {
   document.fullscreenElement = document.fullscreenElement || document.mozFullscreenElement || document.msFullscreenElement || document.webkitFullscreenDocument;
   document.exitFullscreen = document.exitFullscreen || document.mozExitFullscreen || document.msExitFullscreen || document.webkitExitFullscreen;
-  var modal = document.getElementById(_config.MODAL_ID);
+  var modal = document.getElementById(configElementId || _config.MODAL_ID);
   modal.requestFullscreen = modal.requestFullscreen || modal.mozRequestFullscreen || modal.msRequestFullscreen || modal.webkitRequestFullscreen;
 
   if (!document.fullscreenElement) {
@@ -23,14 +23,3 @@ var toggleModalFullscreen = function toggleModalFullscreen() {
 };
 
 exports.toggleModalFullscreen = toggleModalFullscreen;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(toggleModalFullscreen, "toggleModalFullscreen", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/full-screen-handle.js");
-}();
-
-;

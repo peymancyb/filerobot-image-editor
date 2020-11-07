@@ -44,7 +44,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  background: ", ";\n  border-color: ", ";\n  color: ", ";\n  text-transform: capitalize;\n  \n  :hover {\n    background: ", ";\n    border-color: ", ";\n    color: ", ";  \n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  background: ", ";\n  border-color: ", ";\n  color: ", ";\n  text-transform: ", ";\n  \n  :hover {\n    background: ", ";\n    border-color: ", ";\n    color: ", ";  \n  }\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -74,7 +74,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  text-align: center;\n  text-transform: capitalize;\n  color: ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  text-align: center;\n  text-transform: ", ";\n  color: ", "\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -120,6 +120,8 @@ var HeaderTop = _styledComponents.default.div(_templateObject2(), function (prop
 exports.HeaderTop = HeaderTop;
 
 var Title = _styledComponents.default.div(_templateObject3(), function (props) {
+  return props.noCapitalStrs ? 'none' : 'capitalize';
+}, function (props) {
   return props.theme.colors.text;
 });
 
@@ -133,6 +135,8 @@ var CancelBtn = (0, _styledComponents.default)(_Button.Button)(_templateObject6(
   return props.theme.colors.primaryBg;
 }, function (props) {
   return props.theme.colors.text;
+}, function (props) {
+  return props.noCapitalStrs ? 'none' : 'capitalize';
 }, function (props) {
   return (0, _styleUtils.getHoverColor)(props.theme.colors.primaryBg);
 }, function (props) {
@@ -153,30 +157,3 @@ var ToolbarWrapper = _styledComponents.default.div(_templateObject9(), function 
 });
 
 exports.ToolbarWrapper = ToolbarWrapper;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(HeaderWrapper, "HeaderWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(HeaderTop, "HeaderTop", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(Title, "Title", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(ActionsWrapper, "ActionsWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(Actions, "Actions", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(CancelBtn, "CancelBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(LeftActions, "LeftActions", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(RightActions, "RightActions", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-
-  __REACT_HOT_LOADER__.register(ToolbarWrapper, "ToolbarWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
-}();
-
-;

@@ -70,11 +70,13 @@ var _default = /*#__PURE__*/function (_Component) {
           src = _this$props.src,
           shapes = _this$props.shapes,
           selectedShape = _this$props.selectedShape,
-          _this$props$config$ex = _this$props.config.expandShapes,
-          expandShapes = _this$props$config$ex === void 0 ? [] : _this$props$config$ex,
-          roundCrop = _this$props.roundCrop;
+          _this$props$config = _this$props.config,
+          colorScheme = _this$props$config.colorScheme,
+          editorWrapperId = _this$props$config.elementId,
+          roundCrop = _this$props.roundCrop,
+          canvasDimensions = _this$props.canvasDimensions;
       var applyByDefault = watermark.applyByDefault;
-      var canvas = (0, _utils.getCanvasNode)();
+      var canvas = (0, _utils.getCanvasNode)(editorWrapperId);
       var canvasRect = canvas && canvas.getBoundingClientRect() || {};
       return /*#__PURE__*/_react.default.createElement(_styledComponents.PreviewImgBox, {
         id: "preview-img-box",
@@ -86,9 +88,11 @@ var _default = /*#__PURE__*/function (_Component) {
         shapes: shapes,
         updateState: updateState,
         selectedShape: selectedShape,
-        expandShapes: expandShapes,
         activeTab: activeTab,
-        round: roundCrop
+        round: roundCrop,
+        originalCanvasDimensions: canvasDimensions,
+        colorScheme: colorScheme,
+        wrapperId: editorWrapperId
       }), activeTab === 'focus_point' && /*#__PURE__*/_react.default.createElement(_FocusPointPreview.default, {
         src: src,
         updateState: updateState,
@@ -101,16 +105,4 @@ var _default = /*#__PURE__*/function (_Component) {
   return _default;
 }(_react.Component);
 
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Preview/Preview.js");
-}();
-
-;
+exports.default = _default;

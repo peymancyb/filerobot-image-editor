@@ -118,20 +118,4 @@ var Module = /*#__PURE__*/function () {
 }();
 
 var _default = Module;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(moduleKeywords, "moduleKeywords", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/module.js");
-
-  __REACT_HOT_LOADER__.register(Module, "Module", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/module.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/module.js");
-}();
-
-;
+exports.default = _default;

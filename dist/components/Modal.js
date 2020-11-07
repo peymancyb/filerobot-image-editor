@@ -122,16 +122,12 @@ var Modal = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Modal);
 
-  function Modal() {
+  function Modal(props) {
     var _this;
 
     _classCallCheck(this, Modal);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "handleOutsideMouseClick", function (event) {
       var _this$props$onClose = _this.props.onClose,
@@ -139,26 +135,26 @@ var Modal = /*#__PURE__*/function (_Component) {
 
       if (event.keyCode === 27) {
         event.stopPropagation();
-        onClose();
+        onClose(_config.ON_CLOSE_STATUSES.ESC_KEY_PRESSED);
       }
     });
+
+    _this.root = document.createElement('div');
+
+    _this.root.classList.add('filerobot-image-editor-root');
+
+    document.body.appendChild(_this.root);
+    var _this$props$closeOnOu = _this.props.closeOnOutsideClick,
+        closeOnOutsideClick = _this$props$closeOnOu === void 0 ? true : _this$props$closeOnOu;
+
+    if (closeOnOutsideClick) {
+      document.addEventListener('keydown', _this.handleOutsideMouseClick);
+    }
 
     return _this;
   }
 
   _createClass(Modal, [{
-    key: "UNSAFE_componentWillMount",
-    value: function UNSAFE_componentWillMount() {
-      var _this$props$closeOnOu = this.props.closeOnOutsideClick,
-          closeOnOutsideClick = _this$props$closeOnOu === void 0 ? true : _this$props$closeOnOu;
-      this.root = document.createElement('div');
-      document.body.appendChild(this.root);
-
-      if (closeOnOutsideClick) {
-        document.addEventListener('keydown', this.handleOutsideMouseClick);
-      }
-    }
-  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       var _this$props$closeOnOu2 = this.props.closeOnOutsideClick,
@@ -177,12 +173,16 @@ var Modal = /*#__PURE__*/function (_Component) {
           _this$props$onClose2 = _this$props.onClose,
           onClose = _this$props$onClose2 === void 0 ? function () {} : _this$props$onClose2,
           isHideCloseBtn = _this$props.isHideCloseBtn,
-          otherProps = _objectWithoutProperties(_this$props, ["onClose", "isHideCloseBtn"]);
+          configModalId = _this$props.configModalId,
+          otherProps = _objectWithoutProperties(_this$props, ["onClose", "isHideCloseBtn", "configModalId"]);
 
       return /*#__PURE__*/(0, _reactDom.createPortal)( /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(ModalOverlay, {
-        onClick: onClose
+        className: "modal-overlay",
+        onClick: function onClick() {
+          return onClose(_config.ON_CLOSE_STATUSES.MODAL_OVERLAY_CLICKED);
+        }
       }), /*#__PURE__*/_react.default.createElement(ModalFullScreen, _extends({
-        id: _config.MODAL_ID
+        id: configModalId || _config.MODAL_ID
       }, this.props), !isHideCloseBtn && /*#__PURE__*/_react.default.createElement(_CloseBtn.CloseBtn, {
         onClick: onClose
       }), /*#__PURE__*/_react.default.createElement(ModalContent, _extends({
@@ -195,22 +195,3 @@ var Modal = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 exports.Modal = Modal;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(ModalOverlay, "ModalOverlay", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
-
-  __REACT_HOT_LOADER__.register(ModalContent, "ModalContent", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
-
-  __REACT_HOT_LOADER__.register(ModalFullScreen, "ModalFullScreen", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
-
-  __REACT_HOT_LOADER__.register(getSmallModalStyle, "getSmallModalStyle", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
-
-  __REACT_HOT_LOADER__.register(Modal, "Modal", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
-}();
-
-;

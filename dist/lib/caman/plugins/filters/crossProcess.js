@@ -13,12 +13,3 @@ Caman.Filter.register("crossProcess", function () {
   this.vibrance(75);
   return this.gamma(1.6);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

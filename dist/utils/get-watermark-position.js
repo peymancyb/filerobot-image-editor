@@ -40,14 +40,3 @@ var getWatermarkPosition = function getWatermarkPosition() {
 };
 
 exports.getWatermarkPosition = getWatermarkPosition;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(getWatermarkPosition, "getWatermarkPosition", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-watermark-position.js");
-}();
-
-;

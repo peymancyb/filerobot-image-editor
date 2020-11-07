@@ -105,6 +105,13 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this);
 
+    _defineProperty(_assertThisInitialized(_this), "getCanvas", function () {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var originalCanvas = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var editorWrapperId = _this.props.config.elementId;
+      return (0, _utils.getCanvasNode)(editorWrapperId, id, originalCanvas);
+    });
+
     _defineProperty(_assertThisInitialized(_this), "initializeCanvases", function (elem) {
       var that = _assertThisInitialized(_this);
 
@@ -116,8 +123,9 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var initialZoom = 1;
 
       if (isLowQualityPreview && elem.height > 1050) {
-        var canvasOriginal = (0, _utils.getCanvasNode)("scaleflex-image-edit-box-original");
-        var ctxOriginal = canvasOriginal.getContext("2d");
+        var canvasOriginal = _this.getCanvas(null, true);
+
+        var ctxOriginal = canvasOriginal.getContext('2d');
         canvasOriginal.width = elem.width;
         canvasOriginal.height = elem.height;
         ctxOriginal.drawImage(elem, 0, 0, elem.width, elem.height);
@@ -129,15 +137,16 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           canvasOriginal: that.cloneCanvas(canvasOriginal)
         });
         setTimeout(function () {
-          new window.Caman((0, _utils.getCanvasNode)("scaleflex-image-edit-box"), function () {
+          var getCanvas = _this.getCanvas;
+          new window.Caman(getCanvas(), function () {
             this.resize({
               width: zoomedWidth,
               height: zoomedHeight
             });
             this.render(function () {
-              var canvasZoomed = that.replaceWithNewCanvas("scaleflex-image-edit-box");
+              var canvasZoomed = that.replaceWithNewCanvas(_config.CANVAS_ID);
               that.CamanInstanceZoomed = new window.Caman(canvasZoomed, function () {
-                that.CamanInstanceOriginal = new window.Caman((0, _utils.getCanvasNode)("scaleflex-image-edit-box-original"), function () {});
+                that.CamanInstanceOriginal = new window.Caman(getCanvas(null, true), function () {});
                 updateState({
                   isShowSpinner: false,
                   canvasZoomed: that.cloneCanvas(canvasZoomed)
@@ -148,10 +157,12 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         });
       } else {
         setTimeout(function () {
-          that.CamanInstance = new window.Caman((0, _utils.getCanvasNode)("scaleflex-image-edit-box"), function () {
+          var getCanvas = _this.getCanvas();
+
+          that.CamanInstance = new window.Caman(getCanvas, function () {
             updateState({
               isShowSpinner: false,
-              canvasOriginal: that.cloneCanvas((0, _utils.getCanvasNode)("scaleflex-image-edit-box"))
+              canvasOriginal: that.cloneCanvas(getCanvas)
             });
           });
         });
@@ -159,16 +170,17 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "mergeCanvases", function (canvas) {
-      var tempCtx = canvas.getContext("2d");
-      var previewCanvas = document.getElementById(_config.PREVIEW_CANVAS_ID);
-      tempCtx.drawImage(previewCanvas, 0, 0, canvas.width, canvas.height);
+      var shapeOperations = _this.props.shapeOperations;
+      var tempCtx = canvas.getContext('2d');
+      var finalPreviewCanvas = shapeOperations.prepareFinalCanvas();
+      tempCtx.drawImage(finalPreviewCanvas, 0, 0);
       return canvas.toDataURL();
     });
 
     _defineProperty(_assertThisInitialized(_this), "cloneCanvas", function (oldCanvas) {
       //create a new canvas
-      var newCanvas = document.createElement("canvas");
-      var context = newCanvas.getContext("2d"); //set dimensions
+      var newCanvas = document.createElement('canvas');
+      var context = newCanvas.getContext('2d'); //set dimensions
 
       newCanvas.width = oldCanvas.width;
       newCanvas.height = oldCanvas.height; // set old id
@@ -182,18 +194,21 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "replaceWithNewCanvas", function (id) {
       var rounded = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       //create a new canvas
-      var oldCanvas = (0, _utils.getCanvasNode)(id);
+      var oldCanvas = _this.getCanvas(id);
+
       var width = oldCanvas.width,
           height = oldCanvas.height;
-      var newCanvas = document.createElement("canvas");
-      var context = newCanvas.getContext("2d");
+      var newCanvas = document.createElement('canvas');
+      var context = newCanvas.getContext('2d');
       var container = oldCanvas.parentElement;
       container.removeChild(oldCanvas); //set dimensions
 
       newCanvas.width = width;
       newCanvas.height = height;
-      newCanvas.id = id; //apply the old canvas to the new one
+      newCanvas.id = "".concat(_this.props.config.elementId, "_").concat(id);
+      newCanvas.className = oldCanvas.className; //apply the old canvas to the new one
 
       context.drawImage(oldCanvas, 0, 0); // Make the new canvas rounded if the crop is rounded style.
       // round is a manually written protoype method from canvas-round file in utils.
@@ -210,7 +225,8 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "replaceCanvas", function (newCanvas, id) {
       //create a new canvas
-      var oldCanvas = (0, _utils.getCanvasNode)(id);
+      var oldCanvas = _this.getCanvas(id);
+
       var container = oldCanvas.parentElement;
       container.removeChild(oldCanvas);
       container.appendChild(newCanvas); //return the new canvas
@@ -238,15 +254,17 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var _config$filerobot = config.filerobot,
           filerobot = _config$filerobot === void 0 ? {} : _config$filerobot,
           _config$platform = config.platform,
-          platform = _config$platform === void 0 ? "filerobot" : _config$platform;
+          platform = _config$platform === void 0 ? 'filerobot' : _config$platform;
 
-      var src = _this.props.src.split("?")[0];
+      var src = _this.props.src.split('?')[0];
 
-      var canvasID = initialZoom !== 1 ? "scaleflex-image-edit-box-original" : "scaleflex-image-edit-box";
-      var canvas = (0, _utils.getCanvasNode)(canvasID);
+      var canvasID = initialZoom !== 1 ? _config.ORIGINAL_CANVAS_ID : _config.CANVAS_ID;
+
+      var canvas = _this.getCanvas(canvasID);
+
       var baseAPI = (0, _utils.getBaseAPI)(filerobot.baseAPI, filerobot.container, platform);
       var uploadParams = filerobot.uploadParams || {};
-      var dir = uploadParams.dir || "image-editor";
+      var dir = uploadParams.dir || 'image-editor';
 
       var self = _assertThisInitialized(_this);
 
@@ -257,21 +275,21 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         var block = base64.split(";");
         var realData = block[1].split(",")[1];
         var blob = (0, _utils.b64toBlob)(realData, imageMime, null);
-        var splittedName = imageName.replace(/-version-.{6}/g, "").split(".");
+        var splittedName = imageName.replace(/-version-.{6}/g, '').split('.');
         var nameLength = splittedName.length;
-        var name = "";
+        var name = '';
 
         if (nameLength <= 1) {
-          name = "".concat(splittedName.join("."), "-version-").concat(((0, _v.default)() || "").slice(0, 6));
+          name = "".concat(splittedName.join('.'), "-version-").concat(((0, _v.default)() || '').slice(0, 6));
         } else {
-          name = [splittedName.slice(0, nameLength - 1).join("."), "-version-", ((0, _v.default)() || "").slice(0, 6), ".", splittedName[nameLength - 1]].join("");
+          name = [splittedName.slice(0, nameLength - 1).join('.'), '-version-', ((0, _v.default)() || '').slice(0, 6), '.', splittedName[nameLength - 1]].join('');
         }
 
         var formData = new FormData();
         var request = new XMLHttpRequest();
         request.addEventListener("load", self.onFileLoad);
-        formData.append("files[]", blob, name);
-        request.open("POST", [baseAPI, "upload?dir=".concat(dir)].join(""));
+        formData.append('files[]', blob, name);
+        request.open("POST", [baseAPI, "upload?dir=".concat(dir)].join(''));
         request.setRequestHeader((0, _utils.getSecretHeaderName)(platform), filerobot.uploadKey);
         request.send(formData);
       } else {
@@ -281,18 +299,18 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           return _config.CLOUDIMAGE_OPERATIONS.includes(operation);
         });
 
-        var url = _this.generateCloudimageURL(allowedOperations, src.replace(/https?:\/\/scaleflex.ultrafast.io\//, ""));
+        var url = _this.generateCloudimageURL(allowedOperations, src.replace(/https?:\/\/scaleflex.ultrafast.io\//, ''));
 
         if (uploadCloudimageImage) {
           var _request = new XMLHttpRequest();
 
           _request.addEventListener("load", _this.onFileLoad);
 
-          _request.open("POST", [baseAPI, "upload?dir=".concat(dir)].join(""));
+          _request.open("POST", [baseAPI, "upload?dir=".concat(dir)].join(''));
 
           _request.setRequestHeader((0, _utils.getSecretHeaderName)(platform), filerobot.uploadKey);
 
-          _request.setRequestHeader("Content-Type", "application/json");
+          _request.setRequestHeader('Content-Type', 'application/json');
 
           _request.send(JSON.stringify({
             files_urls: [url]
@@ -310,15 +328,16 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
               permalink: url
             }
           });
-          closeOnLoad && onClose();
+          closeOnLoad && onClose(_config.ON_CLOSE_STATUSES.IMAGE_UPLOADED_CLOUDIMAGE);
         }
       }
     });
 
     _defineProperty(_assertThisInitialized(_this), "getResultCanvas", function () {
       var initialZoom = _this.props.initialZoom;
-      var canvasID = initialZoom !== 1 ? "scaleflex-image-edit-box-original" : "scaleflex-image-edit-box";
-      var canvas = (0, _utils.getCanvasNode)(canvasID);
+      var canvasID = initialZoom !== 1 ? _config.ORIGINAL_CANVAS_ID : _config.CANVAS_ID;
+
+      var canvas = _this.getCanvas(canvasID);
 
       _this.mergeCanvases(canvas);
 
@@ -329,7 +348,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var _this$props3 = _this.props,
           roundCrop = _this$props3.roundCrop,
           imageMime = _this$props3.imageMime;
-      return roundCrop ? "image/png" : imageMime;
+      return roundCrop ? 'image/png' : imageMime;
     });
 
     _defineProperty(_assertThisInitialized(_this), "getFinalImageName", function () {
@@ -337,7 +356,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var imageName = _this.state.imageName;
 
       if (roundCrop) {
-        imageName = imageName.replace(imageName.substr(imageName.lastIndexOf(".") + 1), "png");
+        imageName = imageName.replace(imageName.substr(imageName.lastIndexOf('.') + 1), 'png');
       }
 
       return imageName;
@@ -350,7 +369,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
       var imageMime = _this.getFinalImageMime();
 
-      var lnk = document.createElement("a");
+      var lnk = document.createElement('a');
       var e;
       lnk.download = imageName;
       lnk.href = canvas.toDataURL(imageMime, 0.8);
@@ -375,10 +394,10 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var _data$srcElement = data.srcElement,
           srcElement = _data$srcElement === void 0 ? {} : _data$srcElement;
       var _srcElement$response = srcElement.response,
-          response = _srcElement$response === void 0 ? "{}" : _srcElement$response;
+          response = _srcElement$response === void 0 ? '{}' : _srcElement$response;
       var responseData = JSON.parse(response) || {};
 
-      if (responseData.status === "success") {
+      if (responseData.status === 'success') {
         var _responseData$file = responseData.file,
             file = _responseData$file === void 0 ? {} : _responseData$file;
         var publicURL = (0, _utils.getPubliclink)(file);
@@ -388,14 +407,14 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           isHideCanvas: false
         });
         onComplete(publicURL, file);
-        closeOnLoad && onClose();
+        closeOnLoad && onClose(_config.ON_CLOSE_STATUSES.IMAGE_UPLOADED_FILEROBOT);
       } else {
         updateState({
           isShowSpinner: false,
           isHideCanvas: false
         });
         alert(responseData);
-        closeOnLoad && onClose();
+        closeOnLoad && onClose(_config.ON_CLOSE_STATUSES.IMAGE_UPLOADING_FAIL_FILEROBOT);
       }
     });
 
@@ -411,61 +430,61 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           cloudimage = _config$cloudimage === void 0 ? {} : _config$cloudimage,
           _config$filerobot2 = config.filerobot,
           filerobot = _config$filerobot2 === void 0 ? {} : _config$filerobot2;
-      var cloudUrl = processWithCloudimage && cloudimage.token + ".cloudimg.io/" + (cloudimage.version ? "".concat(cloudimage.version, "/") : "v7/");
-      var filerobotURL = processWithFilerobot && filerobot.token + ".filerobot.com/" + (filerobot.version ? "".concat(filerobot.version, "/") : "");
+      var cloudUrl = processWithCloudimage && cloudimage.token + '.cloudimg.io/' + (cloudimage.version ? "".concat(cloudimage.version, "/") : 'v7/');
+      var filerobotURL = processWithFilerobot && filerobot.token + '.filerobot.com/' + (filerobot.version ? "".concat(filerobot.version, "/") : '');
       var doNotPrefixURL = filerobotURL ? filerobot.doNotPrefixURL : cloudimage.doNotPrefixURL;
-      var url = filerobotURL || cloudUrl || "";
-      url = (url ? "https://" : "") + url;
-      var baseURL = doNotPrefixURL ? "" : url;
+      var url = filerobotURL || cloudUrl || '';
+      url = (url ? 'https://' : '') + url;
+      var baseURL = doNotPrefixURL ? '' : url;
 
-      var cropOperation = _this.isOperationExist(operations, "crop");
+      var cropOperation = _this.isOperationExist(operations, 'crop');
 
-      var resizeOperation = _this.isOperationExist(operations, "resize");
+      var resizeOperation = _this.isOperationExist(operations, 'resize');
 
-      var orientationOperation = _this.isOperationExist(operations, "rotate");
+      var orientationOperation = _this.isOperationExist(operations, 'rotate');
 
-      var focusPointOperation = _this.isOperationExist(operations, "focus_point");
+      var focusPointOperation = _this.isOperationExist(operations, 'focus_point');
 
       var watermarkOperation = watermark && logoImage && watermark.applyByDefault;
       var isProcessImage = cropOperation || resizeOperation || orientationOperation || watermarkOperation || focusPointOperation;
-      var cropQuery = "";
-      var resizeQuery = "";
-      var orientationQuery = "";
-      var watermarkQuery = "";
-      var focusPointQuery = "";
+      var cropQuery = '';
+      var resizeQuery = '';
+      var orientationQuery = '';
+      var watermarkQuery = '';
+      var focusPointQuery = '';
 
       if (cropOperation) {
         cropQuery = _this.getCropArguments(cropOperation.props);
       }
 
       if (resizeOperation) {
-        resizeQuery = (cropQuery ? "&" : "") + _this.getResizeArguments(resizeOperation.props);
+        resizeQuery = (cropQuery ? '&' : '') + _this.getResizeArguments(resizeOperation.props);
       }
 
       if (orientationOperation) {
-        orientationQuery = (cropQuery || resizeQuery ? "&" : "") + _this.getOrientationArguments(orientationOperation.props);
+        orientationQuery = (cropQuery || resizeQuery ? '&' : '') + _this.getOrientationArguments(orientationOperation.props);
       }
 
       if (watermarkOperation) {
-        watermarkQuery = (cropQuery || resizeQuery || orientationQuery ? "&" : "") + _this.getWatermarkArguments();
+        watermarkQuery = (cropQuery || resizeQuery || orientationQuery ? '&' : '') + _this.getWatermarkArguments();
       }
 
       if (focusPointOperation) {
-        focusPointQuery = (cropQuery || resizeQuery || orientationQuery || watermarkQuery ? "&" : "") + _this.getFocusPointArguments(focusPointOperation.props);
+        focusPointQuery = (cropQuery || resizeQuery || orientationQuery || watermarkQuery ? '&' : '') + _this.getFocusPointArguments(focusPointOperation.props);
       }
 
-      original = original.split("?")[0]; // remove quesry string from original url
+      original = original.split('?')[0]; // remove quesry string from original url
 
-      original = original.replace(baseURL, ""); // remove duplication in case when original url already include cdn prefix
+      original = original.replace(baseURL, ''); // remove duplication in case when original url already include cdn prefix
 
       var paramsStr = cropQuery + resizeQuery + orientationQuery + watermarkQuery + focusPointQuery;
 
       if (imageSealing.enabled) {
-        paramsStr = (0, _utils.getImageSealingParams)(paramsStr, imageSealing, original.replace(url, "") // always remove cdn url, to support already cdnized links and doNotPrefixURL param
+        paramsStr = (0, _utils.getImageSealingParams)(paramsStr, imageSealing, original.replace(url, '') // always remove cdn url, to support already cdnized links and doNotPrefixURL param
         );
       }
 
-      return baseURL + original + (paramsStr ? "?" : "") + paramsStr;
+      return baseURL + original + (paramsStr ? '?' : '') + paramsStr;
     });
 
     _defineProperty(_assertThisInitialized(_this), "initFiltersOrEffects", function () {});
@@ -525,17 +544,17 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         if (initialZoom !== 1) {
           _this.CamanInstanceOriginal.revert(false);
 
-          if (brightness.toString() !== "0") _this.CamanInstanceOriginal.brightness(parseInt(brightness || "0"));
-          if (contrast.toString() !== "0") _this.CamanInstanceOriginal.contrast(parseInt(contrast || "0"));
-          if (saturation.toString() !== "0") _this.CamanInstanceOriginal.saturation(parseInt(saturation || "0"));
-          if (exposure.toString() !== "0") _this.CamanInstanceOriginal.exposure(parseInt(exposure || "0"));
+          if (brightness.toString() !== '0') _this.CamanInstanceOriginal.brightness(parseInt(brightness || '0'));
+          if (contrast.toString() !== '0') _this.CamanInstanceOriginal.contrast(parseInt(contrast || '0'));
+          if (saturation.toString() !== '0') _this.CamanInstanceOriginal.saturation(parseInt(saturation || '0'));
+          if (exposure.toString() !== '0') _this.CamanInstanceOriginal.exposure(parseInt(exposure || '0'));
 
           _this.CamanInstanceOriginal.render(function () {
             updateState({
               adjust: _objectSpread({}, resetProps)
             }, function () {
               _this.makeCanvasSnapshot({
-                operation: "adjust"
+                operation: 'adjust'
               }, callback);
             });
           });
@@ -544,7 +563,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
             adjust: _objectSpread({}, resetProps)
           }, function () {
             _this.makeCanvasSnapshot({
-              operation: "adjust"
+              operation: 'adjust'
             }, callback);
           });
         }
@@ -564,7 +583,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       if (processWithCloudService && currentOperations.length >= 1) {
         var prevCropIndex = currentOperations.findIndex(function (_ref2) {
           var operation = _ref2.operation;
-          return operation === "rotate";
+          return operation === 'rotate';
         });
 
         if (prevCropIndex > -1) {
@@ -598,8 +617,8 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         if (initialZoom !== 1) {
           _this.CamanInstanceZoomed.reset();
 
-          if (flipX) _this.CamanInstanceZoomed.flip("x");
-          if (flipY) _this.CamanInstanceZoomed.flip("y");
+          if (flipX) _this.CamanInstanceZoomed.flip('x');
+          if (flipY) _this.CamanInstanceZoomed.flip('y');
           if (nextRotateValue || correctionDegree) _this.CamanInstanceZoomed.rotate((nextRotateValue || 0) + (correctionDegree || 0));
 
           _this.CamanInstanceZoomed.render(function () {
@@ -611,8 +630,8 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         } else {
           _this.CamanInstance.reset();
 
-          if (flipX) _this.CamanInstance.flip("x");
-          if (flipY) _this.CamanInstance.flip("y");
+          if (flipX) _this.CamanInstance.flip('x');
+          if (flipY) _this.CamanInstance.flip('y');
           if (nextRotateValue || correctionDegree) _this.CamanInstance.rotate((nextRotateValue || 0) + (correctionDegree || 0));
 
           _this.CamanInstance.render(function () {
@@ -643,8 +662,8 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         if (initialZoom !== 1) {
           _this.CamanInstanceOriginal.reset();
 
-          if (flipX) _this.CamanInstanceOriginal.flip("x");
-          if (flipY) _this.CamanInstanceOriginal.flip("y");
+          if (flipX) _this.CamanInstanceOriginal.flip('x');
+          if (flipY) _this.CamanInstanceOriginal.flip('y');
           if (rotate || correctionDegree) _this.CamanInstanceOriginal.rotate(nextRotate);
 
           _this.CamanInstanceOriginal.render(function () {
@@ -655,7 +674,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
               correctionDegree: 0
             }, function () {
               _this.makeCanvasSnapshot({
-                operation: "rotate",
+                operation: 'rotate',
                 props: {
                   rotate: nextRotate
                 }
@@ -670,7 +689,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
             correctionDegree: 0
           }, function () {
             _this.makeCanvasSnapshot({
-              operation: "rotate",
+              operation: 'rotate',
               props: {
                 rotate: nextRotate
               }
@@ -709,7 +728,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       if (processWithCloudService && currentOperations.length >= 1) {
         var prevCropIndex = currentOperations.findIndex(function (_ref4) {
           var operation = _ref4.operation;
-          return operation === "crop";
+          return operation === 'crop';
         });
 
         if (prevCropIndex > -1) {
@@ -727,38 +746,34 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "onInitCrop", function () {
       var _this$props12 = _this.props,
           updateState = _this$props12.updateState,
-          _this$props12$config$ = _this$props12.config.beginCropArea,
-          beginCropArea = _this$props12$config$ === void 0 ? 1 : _this$props12$config$;
+          _this$props12$config = _this$props12.config,
+          _this$props12$config$ = _this$props12$config.beginCropArea,
+          beginCropArea = _this$props12$config$ === void 0 ? 1 : _this$props12$config$,
+          minCropAreaWidth = _this$props12$config.minCropAreaWidth,
+          minCropAreaHeight = _this$props12$config.minCropAreaHeight;
       updateState({
         isHideCanvas: true,
         isShowSpinner: true
       }, function () {
-        var canvas = (0, _utils.getCanvasNode)();
+        var canvas = _this.getCanvas();
+
         var rect = canvas.getBoundingClientRect();
         var zoom = canvas.width / rect.width;
         _this.cropper = new _cropperjs.default(canvas, {
           viewMode: 1,
-          initialAspectRatio: 1,
           modal: false,
           background: false,
           rotatable: false,
           scalable: false,
-          zoomable: true,
+          zoomable: false,
           movable: false,
           autoCropArea: beginCropArea,
-          dragCrop: false,
-          cropBoxResizable: false,
-          dragMode: "none",
+          minCropBoxWidth: minCropAreaWidth,
+          minCropBoxHeight: minCropAreaHeight,
           crop: function crop(event) {
             _this.props.updateState({
               cropDetails: event.detail
             });
-          },
-          zoom: function zoom(event) {
-            if (event.detail.ratio > 1) {
-              event.preventDefault();
-              window.scaleflexPlugins.cropperjs.zoomTo(1);
-            }
           }
         });
         window.scaleflexPlugins = window.scaleflexPlugins || {};
@@ -808,7 +823,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         }
 
         _this.makeCanvasSnapshot({
-          operation: "crop",
+          operation: 'crop',
           props: {
             width: resultSize[0],
             height: resultSize[1],
@@ -836,7 +851,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       if (previewCanvas) {
         var lastOperationIndex = (isZoomed ? operationsZoomed : operations).indexOf(currentOperation) + 1;
 
-        var zoomedCanvas = _this.cloneCanvas((0, _utils.getCanvasNode)("scaleflex-image-edit-box"));
+        var zoomedCanvas = _this.cloneCanvas(_this.getCanvas());
 
         var nextOperation = _objectSpread(_objectSpread({}, operation), {}, {
           previewCanvas: true,
@@ -852,7 +867,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         if (isZoomed) {
           stateObj.operationsZoomed = [].concat(_toConsumableArray(operationsZoomed.slice(0, lastOperationIndex)), [nextOperation]);
           stateObj.operationsOriginal = [].concat(_toConsumableArray(operationsOriginal.slice(0, lastOperationIndex)), [_objectSpread(_objectSpread({}, nextOperation), {}, {
-            canvas: _this.cloneCanvas((0, _utils.getCanvasNode)("scaleflex-image-edit-box-original"))
+            canvas: _this.cloneCanvas(_this.getCanvas(null, true))
           })]);
           stateObj.isHideCanvasOriginal = false;
           stateObj.isShowSpinnerOriginal = false;
@@ -868,10 +883,10 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         var _lastOperationIndex = operationsZoomed.indexOf(currentOperation) + 1;
 
         _this.CamanInstanceOriginal.render(function () {
-          var canvasOriginal = _this.replaceWithNewCanvas("scaleflex-image-edit-box-original", roundCrop);
+          var canvasOriginal = _this.replaceWithNewCanvas(_config.ORIGINAL_CANVAS_ID, roundCrop);
 
           var nextOperation = _objectSpread(_objectSpread({}, operation), {}, {
-            canvas: _this.cloneCanvas((0, _utils.getCanvasNode)("scaleflex-image-edit-box-original"))
+            canvas: _this.cloneCanvas(_this.getCanvas(null, true))
           });
 
           _this.CamanInstanceOriginal = new window.Caman(canvasOriginal, function () {
@@ -883,11 +898,13 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           });
         });
 
+        var getCanvas = _this.getCanvas;
+
         _this.CamanInstanceZoomed.render(function () {
-          var canvasZoomed = _this.replaceWithNewCanvas("scaleflex-image-edit-box", roundCrop);
+          var canvasZoomed = _this.replaceWithNewCanvas(_config.CANVAS_ID, roundCrop);
 
           var nextOperation = _objectSpread(_objectSpread({}, operation), {}, {
-            canvas: _this.cloneCanvas((0, _utils.getCanvasNode)("scaleflex-image-edit-box"))
+            canvas: _this.cloneCanvas(getCanvas())
           });
 
           _this.CamanInstanceZoomed = new window.Caman(canvasZoomed, function () {
@@ -902,11 +919,13 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       } else {
         var _lastOperationIndex2 = operations.indexOf(currentOperation) + 1;
 
+        var _getCanvas = _this.getCanvas;
+
         _this.CamanInstance.render(function () {
-          var canvas = _this.replaceWithNewCanvas("scaleflex-image-edit-box", roundCrop);
+          var canvas = _this.replaceWithNewCanvas(_config.CANVAS_ID, roundCrop);
 
           var nextOperation = _objectSpread(_objectSpread({}, operation), {}, {
-            canvas: _this.cloneCanvas((0, _utils.getCanvasNode)("scaleflex-image-edit-box"))
+            canvas: _this.cloneCanvas(_getCanvas())
           });
 
           _this.CamanInstance = new window.Caman(canvas, function () {
@@ -933,14 +952,16 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           y = _ref5.y,
           roundCrop = _ref5.roundCrop;
 
-      return "tl_px=".concat(Math.round(x), ",").concat(Math.round(y), "&br_px=").concat(Math.round(x + width), ",").concat(Math.round(y + height)).concat(roundCrop ? "&radius=".concat(Math.round(Math.max(width, height)), "&force_format=png") : "");
+      return "tl_px=".concat(Math.round(x), ",").concat(Math.round(y), "&br_px=").concat(Math.round(x + width), ",").concat(Math.round(y + height)).concat(roundCrop ? "&radius=".concat(Math.round(Math.max(width, height)), "&force_format=png") : '');
     });
 
     _defineProperty(_assertThisInitialized(_this), "initResize", function () {
       var _this$props15 = _this.props,
           initialZoom = _this$props15.initialZoom,
           updateState = _this$props15.updateState;
-      var canvas = (0, _utils.getCanvasNode)(initialZoom !== 1 ? "scaleflex-image-edit-box-original" : "scaleflex-image-edit-box");
+
+      var canvas = _this.getCanvas(initialZoom !== 1 ? _config.ORIGINAL_CANVAS_ID : _config.CANVAS_ID);
+
       var nextCanvasDimensions = {
         width: canvas.width,
         height: canvas.height,
@@ -963,11 +984,11 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         isHideCanvas: true,
         isShowSpinner: true,
         operationsOriginal: [].concat(_toConsumableArray(operationsOriginal), [{
-          operation: "resize",
+          operation: 'resize',
           props: canvasDimensions
         }]),
         operations: [].concat(_toConsumableArray(operations), [{
-          operation: "resize",
+          operation: 'resize',
           props: canvasDimensions
         }])
       }, function () {
@@ -1049,11 +1070,11 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       _this.tempFocusPoint = focusPoint;
       updateState({
         operationsOriginal: [].concat(_toConsumableArray(operationsOriginal), [{
-          operation: "focus_point",
+          operation: 'focus_point',
           props: focusPoint
         }]),
         operations: [].concat(_toConsumableArray(operations), [{
-          operation: "focus_point",
+          operation: 'focus_point',
           props: focusPoint
         }])
       });
@@ -1069,7 +1090,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         selectedShape: {}
       }, function () {
         _this.makeCanvasSnapshot({
-          operation: "shape",
+          operation: 'shape',
           props: {
             shapes: _this.props.shapes
           }
@@ -1123,7 +1144,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
         if (!shapesReplacedWith) {
           var allShapeOperations = (isZoomed ? operationsZoomed : operations).filter(function (op, index) {
-            return op.operation === "shape" && index < operationObject.index;
+            return op.operation === 'shape' && index < operationObject.index;
           });
           shapesReplacedWith = allShapeOperations.length > 0 ? allShapeOperations[allShapeOperations.length - 1].props.shapes : [];
         }
@@ -1159,7 +1180,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           canvas: _this.cloneCanvas(canvasZoomed)
         };
 
-        var canvasZoomedNext = _this.replaceCanvas(_nextOperation.canvas, "scaleflex-image-edit-box");
+        var canvasZoomedNext = _this.replaceCanvas(_nextOperation.canvas, _config.CANVAS_ID);
 
         _this.CamanInstanceZoomed = new window.Caman(canvasZoomedNext, function () {
           updateState(_objectSpread(_objectSpread({}, INITIAL_PARAMS), {}, {
@@ -1172,7 +1193,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           canvas: _this.cloneCanvas(canvasOriginal)
         };
 
-        var canvasNext = _this.replaceCanvas(nextOperationOriginal.canvas, "scaleflex-image-edit-box-original");
+        var canvasNext = _this.replaceCanvas(nextOperationOriginal.canvas, _config.ORIGINAL_CANVAS_ID);
 
         _this.CamanInstanceOriginal = new window.Caman(canvasNext, function () {});
       } else {
@@ -1180,7 +1201,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           canvas: _this.cloneCanvas(canvasOriginal)
         };
 
-        var canvas = _this.replaceCanvas(nextOperationSimple.canvas, "scaleflex-image-edit-box");
+        var canvas = _this.replaceCanvas(nextOperationSimple.canvas, _config.CANVAS_ID);
 
         _this.CamanInstance = new window.Caman(canvas, function () {
           updateState(_objectSpread(_objectSpread({}, INITIAL_PARAMS), {}, {
@@ -1200,7 +1221,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getOperationQuery", function (isCrop, isResize) {
-      if (isCrop) return "crop_px";else if (isResize) return "width";else return "cdn";
+      if (isCrop) return 'crop_px';else if (isResize) return 'width';else return 'cdn';
     });
 
     _defineProperty(_assertThisInitialized(_this), "destroyAll", function () {});
@@ -1234,10 +1255,10 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
         if (effect) _this.CamanInstanceZoomed[(0, _utils.getEffectHandlerName)(effect)]();
         if (filter) _this.CamanInstanceZoomed[(0, _utils.getEffectHandlerName)(filter)]();
-        if (brightness.toString() !== "0") _this.CamanInstanceZoomed.brightness(parseInt(brightness || "0"));
-        if (contrast.toString() !== "0") _this.CamanInstanceZoomed.contrast(parseInt(contrast || "0"));
-        if (saturation.toString() !== "0") _this.CamanInstanceZoomed.saturation(parseInt(saturation || "0"));
-        if (exposure.toString() !== "0") _this.CamanInstanceZoomed.exposure(parseInt(exposure || "0"));
+        if (brightness.toString() !== '0') _this.CamanInstanceZoomed.brightness(parseInt(brightness || '0'));
+        if (contrast.toString() !== '0') _this.CamanInstanceZoomed.contrast(parseInt(contrast || '0'));
+        if (saturation.toString() !== '0') _this.CamanInstanceZoomed.saturation(parseInt(saturation || '0'));
+        if (exposure.toString() !== '0') _this.CamanInstanceZoomed.exposure(parseInt(exposure || '0'));
 
         _this.CamanInstanceZoomed.render(callback);
       } else {
@@ -1245,10 +1266,10 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
         if (effect) _this.CamanInstance[(0, _utils.getEffectHandlerName)(effect)]();
         if (filter) _this.CamanInstance[(0, _utils.getEffectHandlerName)(filter)]();
-        if (brightness.toString() !== "0") _this.CamanInstance.brightness(parseInt(brightness || "0"));
-        if (contrast.toString() !== "0") _this.CamanInstance.contrast(parseInt(contrast || "0"));
-        if (saturation.toString() !== "0") _this.CamanInstance.saturation(parseInt(saturation || "0"));
-        if (exposure.toString() !== "0") _this.CamanInstance.exposure(parseInt(exposure || "0"));
+        if (brightness.toString() !== '0') _this.CamanInstance.brightness(parseInt(brightness || '0'));
+        if (contrast.toString() !== '0') _this.CamanInstance.contrast(parseInt(contrast || '0'));
+        if (saturation.toString() !== '0') _this.CamanInstance.saturation(parseInt(saturation || '0'));
+        if (exposure.toString() !== '0') _this.CamanInstance.exposure(parseInt(exposure || '0'));
 
         _this.CamanInstance.render(callback);
       }
@@ -1267,15 +1288,15 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
       var initialZoom = _this.props.initialZoom;
 
-      if (activeTab === "crop") {
+      if (activeTab === 'crop') {
         _this.destroyCrop();
       }
 
-      if (activeTab === "watermark") {
+      if (activeTab === 'watermark') {
         _this.cancelWatermark();
       }
 
-      if (["shapes", "image", "text"].includes(activeTab)) {
+      if (['shapes', 'image', 'text'].includes(activeTab)) {
         _this.cancelAddedShapes();
       }
 
@@ -1302,10 +1323,6 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var _this$props22 = _this.props,
           watermark = _this$props22.watermark,
           updateState = _this$props22.updateState;
-
-      _this.setState({
-        tempWatermark: watermark && (0, _utils.deepCopy)(watermark)
-      });
 
       if (!watermark.applyByDefault) {
         updateState({
@@ -1334,7 +1351,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       });
 
       _this.makeCanvasSnapshot({
-        operation: "shape",
+        operation: 'shape',
         props: {
           shapes: [watermarkLayer]
         }
@@ -1358,8 +1375,8 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           isShowSpinner: true
         });
         logoImage = new Image();
-        logoImage.setAttribute("crossOrigin", "Anonymous");
-        logoImage.src = tempWatermark.url + "?" + new Date().getTime();
+        logoImage.setAttribute('crossOrigin', 'Anonymous');
+        logoImage.src = tempWatermark.url + '?' + new Date().getTime();
 
         logoImage.onload = function () {
           shapeOperations.updateShape({
@@ -1386,78 +1403,81 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
       var _this$props25 = _this.props,
           processWithCloudimage = _this$props25.config.processWithCloudimage,
           shapeOperations = _this$props25.shapeOperations;
-
-      var _shapeOperations$getS = shapeOperations.getShape({
+      var watermarkObj = shapeOperations.getShape({
         key: _config.WATERMARK_UNIQUE_KEY
-      }),
-          x = _shapeOperations$getS.x,
-          y = _shapeOperations$getS.y,
-          opacity = _shapeOperations$getS.opacity,
-          watermark = _objectWithoutProperties(_shapeOperations$getS, ["x", "y", "opacity"]);
+      });
+
+      if (!watermarkObj) {
+        return '';
+      }
+
+      var x = watermarkObj.x,
+          y = watermarkObj.y,
+          opacity = watermarkObj.opacity,
+          watermark = _objectWithoutProperties(watermarkObj, ["x", "y", "opacity"]);
 
       var _this$state$original = _this.state.original;
       _this$state$original = _this$state$original === void 0 ? {} : _this$state$original;
       var imgWidth = _this$state$original.width,
           imgHeight = _this$state$original.height;
 
-      var _getCanvasNode = (0, _utils.getCanvasNode)(_config.PREVIEW_CANVAS_ID),
-          canvasWidth = _getCanvasNode.width,
-          canvasHeight = _getCanvasNode.height;
+      var _this$getCanvas = _this.getCanvas(_config.PREVIEW_CANVAS_ID),
+          canvasWidth = _this$getCanvas.width,
+          canvasHeight = _this$getCanvas.height;
 
-      var xWatPad = Math.round(x.map(0, canvasWidth, 0, imgWidth));
-      var yWatPad = Math.round(y.map(0, canvasHeight, 0, imgHeight));
+      var xWatPad = Math.round(x.mapNumber(0, canvasWidth, 0, imgWidth));
+      var yWatPad = Math.round(y.mapNumber(0, canvasHeight, 0, imgHeight));
       var gravityQuery = "&wat_gravity=northwest&wat_pad=".concat(xWatPad, ",").concat(yWatPad);
       var queryUrl = "wat=1&wat_opacity=".concat(opacity, "&wat_scale=31p").concat(gravityQuery);
-      console.log(gravityQuery);
-      queryUrl += processWithCloudimage && watermark.text ? "&wat_text=".concat(watermark.text, "&wat_font=").concat(watermark.textFont, "&wat_fontsize=").concat(watermark.textSize, "&wat_colour=").concat(watermark.color.replace("#", "")) : "&wat_url=".concat(watermark.img.src.split("?")[0]);
+      queryUrl += processWithCloudimage && watermark.text ? "&wat_text=".concat(watermark.text, "&wat_font=").concat(watermark.textFont, "&wat_fontsize=").concat(watermark.textSize, "&wat_colour=").concat(watermark.color.replace('#', '')) : "&wat_url=".concat(watermark.img.src.split('?')[0]);
       return queryUrl;
     });
 
     _defineProperty(_assertThisInitialized(_this), "applyChanges", function (activeTab, callback) {
       switch (activeTab) {
-        case "adjust":
+        case 'adjust':
           _this.applyAdjust(callback);
 
           break;
 
-        case "effects":
-          _this.applyFilterOrEffect("effect", callback);
+        case 'effects':
+          _this.applyFilterOrEffect('effect', callback);
 
           break;
 
-        case "filters":
-          _this.applyFilterOrEffect("filter", callback);
+        case 'filters':
+          _this.applyFilterOrEffect('filter', callback);
 
           break;
 
-        case "crop":
+        case 'crop':
           _this.applyCrop(callback);
 
           break;
 
-        case "resize":
+        case 'resize':
           _this.applyResize();
 
           break;
 
-        case "rotate":
+        case 'rotate':
           _this.applyOrientation(callback);
 
           break;
 
-        case "watermark":
+        case 'watermark':
           _this.applyWatermark(callback);
 
           break;
 
-        case "focus_point":
+        case 'focus_point':
           _this.applyFocusPoint(callback);
 
           break;
 
-        case "shapes":
-        case "image":
-        case "text":
+        case 'shapes':
+        case 'image':
+        case 'text':
           _this.applyShapes(callback);
 
           break;
@@ -1469,38 +1489,38 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "changeTab", function (name) {
       switch (name) {
-        case "effects":
-        case "filters":
+        case 'effects':
+        case 'filters':
           _this.initFiltersOrEffects();
 
           break;
 
-        case "adjust":
+        case 'adjust':
           _this.initAdjust();
 
           break;
 
-        case "crop":
+        case 'crop':
           _this.initCrop();
 
           break;
 
-        case "resize":
+        case 'resize':
           _this.initResize();
 
           break;
 
-        case "rotate":
+        case 'rotate':
           _this.initOrientation();
 
           break;
 
-        case "watermark":
+        case 'watermark':
           _this.initWatermark();
 
           break;
 
-        case "focus_point":
+        case 'focus_point':
           _this.initFocusPoint();
 
           break;
@@ -1513,27 +1533,27 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "destroyMode", function (name) {
       switch (name) {
-        case "effects":
+        case 'effects':
           break;
 
-        case "filters":
+        case 'filters':
           break;
 
-        case "adjust":
+        case 'adjust':
           break;
 
-        case "crop":
+        case 'crop':
           _this.destroyCrop();
 
           break;
 
-        case "resize":
+        case 'resize':
           break;
 
-        case "rotate":
+        case 'rotate':
           break;
 
-        case "focus_point":
+        case 'focus_point':
           _this.destroyFocusPoint();
 
           break;
@@ -1544,7 +1564,8 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
     });
 
     _this.state = {
-      canvas: null
+      canvas: null,
+      self: _assertThisInitialized(_this)
     };
     _this.CamanInstance = null;
     _this.CamanInstanceOriginal = null;
@@ -1556,30 +1577,6 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
     key: "shouldComponentUpdate",
     value: function shouldComponentUpdate() {
       return false;
-    }
-  }, {
-    key: "UNSAFE_componentWillReceiveProps",
-    value: function UNSAFE_componentWillReceiveProps(nextProps) {
-      var updateState = nextProps.updateState,
-          activeTab = nextProps.activeTab,
-          isShowSpinner = nextProps.isShowSpinner,
-          initialTab = nextProps.initialTab;
-
-      if (activeTab !== this.props.activeTab) {
-        if (this.props.activeTab) this.destroyMode(this.props.activeTab);
-        this.changeTab(activeTab);
-      }
-
-      if (!isShowSpinner && initialTab && !initialTab.isUsed) {
-        updateState({
-          initialTab: _objectSpread(_objectSpread({}, initialTab), {}, {
-            isUsed: true
-          }),
-          activeTab: initialTab.name
-        });
-      }
-
-      this.setState(_objectSpread({}, nextProps));
     }
   }, {
     key: "componentDidMount",
@@ -1606,8 +1603,9 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
         restoreAll: this.restoreAll,
         cancelLastOperation: this.cancelLastOperation
       }, function () {
-        var canvas = (0, _utils.getCanvasNode)("scaleflex-image-edit-box");
-        var ctx = canvas.getContext("2d");
+        var canvas = _this2.getCanvas();
+
+        var ctx = canvas.getContext('2d');
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0, img.width, img.height);
@@ -1628,7 +1626,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
               height: preCanvasDimensions.height
             });
             this.render(function () {
-              var resizedCanvas = that.replaceWithNewCanvas("scaleflex-image-edit-box");
+              var resizedCanvas = that.replaceWithNewCanvas(_config.CANVAS_ID);
               var original = {
                 height: resizedCanvas.height,
                 width: resizedCanvas.width,
@@ -1651,11 +1649,31 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var editorWrapperId = this.props.config.elementId;
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styledComponents.Canvas, {
-        id: "scaleflex-image-edit-box-original"
+        id: "".concat(editorWrapperId, "_").concat(_config.ORIGINAL_CANVAS_ID),
+        className: "filerobot-original-canvas"
       }), /*#__PURE__*/_react.default.createElement(_styledComponents.Canvas, {
-        id: "scaleflex-image-edit-box"
+        id: "".concat(editorWrapperId, "_").concat(_config.CANVAS_ID),
+        className: "filerobot-edit-canvas"
       }));
+    }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(nextProps, prevState) {
+      var additionalState = {};
+
+      if (nextProps.activeTab !== prevState.activeTab) {
+        if (prevState.activeTab) prevState.self.destroyMode(prevState.activeTab);
+
+        if (nextProps.activeTab === 'watermark') {
+          additionalState.tempWatermark = nextProps.watermark && (0, _utils.deepCopy)(nextProps.watermark);
+        }
+
+        prevState.self.changeTab(nextProps.activeTab);
+      }
+
+      return _objectSpread(_objectSpread({}, additionalState), nextProps);
     }
   }]);
 
@@ -1663,16 +1681,3 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 exports.default = ImageManipulator;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(INITIAL_PARAMS, "INITIAL_PARAMS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Preview/ImageManipulator.js");
-
-  __REACT_HOT_LOADER__.register(ImageManipulator, "ImageManipulator", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Preview/ImageManipulator.js");
-}();
-
-;

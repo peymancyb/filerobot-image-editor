@@ -9,12 +9,3 @@ Caman.Filter.register("edgeDetect", function () {
 Caman.Filter.register("emboss", function () {
   return this.processKernel("Emboss", [-2, -1, 0, -1, 1, 1, 0, 1, 2]);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

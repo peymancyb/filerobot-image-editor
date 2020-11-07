@@ -163,14 +163,3 @@ var Image = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 exports.default = Image;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Image, "Image", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Image.js");
-}();
-
-;

@@ -8,12 +8,3 @@ Caman.Filter.register("sinCity", function () {
   this.clip(30);
   return this.greyscale();
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

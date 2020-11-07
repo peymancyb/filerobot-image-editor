@@ -26,12 +26,3 @@ Caman.Filter.register("glowingSun", function (vignette) {
     return this.vignette("45%", 20);
   }
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

@@ -104,14 +104,3 @@ var Event = /*#__PURE__*/function () {
 
 Event.initClass();
 Caman.Event = Event;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Event, "Event", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/event.js");
-}();
-
-;

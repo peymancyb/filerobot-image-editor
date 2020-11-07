@@ -23,12 +23,3 @@ Caman.Filter.register("hemingway", function () {
   });
   return this.exposure(15);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

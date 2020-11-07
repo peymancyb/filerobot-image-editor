@@ -12,12 +12,3 @@ Caman.Filter.register("oldBoot", function () {
   this.curves('rgb', [0, 0], [80, 50], [128, 230], [255, 255]);
   return this.vignette("60%", 30);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

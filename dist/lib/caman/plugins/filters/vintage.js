@@ -20,12 +20,3 @@ Caman.Filter.register("vintage", function (vignette) {
     return this.vignette("40%", 30);
   }
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

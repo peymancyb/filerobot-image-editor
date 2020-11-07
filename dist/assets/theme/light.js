@@ -1,7 +1,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true,
+  value: true
 });
 exports.default = void 0;
 var _default = {
@@ -18,20 +18,8 @@ var _default = {
     accent: "#4eb1ba",
     border: "#aeaeae",
     borderLight: "#e1e1e1",
-    disabledBg: "rgba(255, 0, 0, 0.1)",
+    disabledBg: "rgba(255, 0, 0, 0.1)"
   },
-  fonts: {},
+  fonts: {}
 };
-var _default2 = _default;
-exports.default = _default2;
-var _temp = (function () {
-  if (typeof __REACT_HOT_LOADER__ === "undefined") {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(
-    _default,
-    "default",
-    "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/assets/theme/light.js"
-  );
-})();
+exports.default = _default;

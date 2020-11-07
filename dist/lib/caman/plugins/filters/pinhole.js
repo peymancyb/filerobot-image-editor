@@ -7,12 +7,3 @@ Caman.Filter.register("pinhole", function () {
   this.contrast(15);
   return this.vignette("60%", 35);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

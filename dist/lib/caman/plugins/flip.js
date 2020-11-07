@@ -26,12 +26,3 @@ Caman.Plugin.register('flip', function (axis) {
 Caman.Filter.register('flip', function () {
   return this.processPlugin('flip', arguments);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

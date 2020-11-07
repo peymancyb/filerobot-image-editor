@@ -130,18 +130,4 @@ function FocusPointPreview(_ref) {
 }
 
 var _default = FocusPointPreview;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(FocusPointPreview, "FocusPointPreview", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Preview/FocusPointPreview.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Preview/FocusPointPreview.js");
-}();
-
-;
+exports.default = _default;

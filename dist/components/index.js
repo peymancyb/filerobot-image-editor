@@ -53,13 +53,3 @@ var _Tool = _interopRequireDefault(require("./Toolbar/Tool"));
 var _Header = _interopRequireDefault(require("./Header/Header"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

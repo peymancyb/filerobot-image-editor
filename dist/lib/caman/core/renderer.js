@@ -339,18 +339,4 @@ var Renderer = /*#__PURE__*/function () {
 
 Renderer.initClass();
 var _default = Renderer;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Renderer, "Renderer", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/renderer.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/renderer.js");
-}();
-
-;
+exports.default = _default;

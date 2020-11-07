@@ -34,12 +34,3 @@ Caman.Filter.register("hazyDays", function () {
   this.curves('b', [20, 0], [128, 108], [128, 128], [235, 255]);
   return this.vignette("45%", 20);
 });
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

@@ -85,13 +85,3 @@ _blander.default.register("darken", function (rgbaLayer, rgbaParent) {
     b: rgbaParent.b > rgbaLayer.b ? rgbaLayer.b : rgbaParent.b
   };
 });
-
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;

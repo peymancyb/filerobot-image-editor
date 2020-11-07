@@ -86,21 +86,3 @@ function getSealingParams(paramsStr, originalUrl, salt, charCount) {
     return i;
   }).join('&');
 }
-
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(getImageSealingParams, "getImageSealingParams", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-image-sealing-params.js");
-
-  __REACT_HOT_LOADER__.register(encodeBase64, "encodeBase64", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-image-sealing-params.js");
-
-  __REACT_HOT_LOADER__.register(getSha1, "getSha1", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-image-sealing-params.js");
-
-  __REACT_HOT_LOADER__.register(getSealingParams, "getSealingParams", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-image-sealing-params.js");
-}();
-
-;

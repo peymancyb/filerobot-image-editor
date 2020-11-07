@@ -44,14 +44,3 @@ var CloseBtn = _styledComponents.default.span.attrs(function () {
 });
 
 exports.CloseBtn = CloseBtn;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(CloseBtn, "CloseBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/CloseBtn.js");
-}();
-
-;

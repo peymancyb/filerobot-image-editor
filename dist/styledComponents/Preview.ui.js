@@ -44,7 +44,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  display: inline-block;\n  max-height: 100%;\n  max-width: 100%;\n  /*width: 100%;*/\n  height: 100%;\n  vertical-align: middle;\n\n  ", "\n\n  /* Limit image width to avoid overflow the container */\n  img {\n    max-width: 100% !important; /* This rule is very important, please do not ignore this! */\n  }\n\n  #scaleflex-image-edit-box {\n    display: ", ";\n    max-height: 100%;\n    max-width: 100%;\n    vertical-align: middle;\n  }\n\n   ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: inline-block;\n  max-height: 100%;\n  max-width: 100%;\n  /*width: 100%;*/\n  height: 100%;\n  vertical-align: middle;\n\n  ", "\n\n  /* Limit image width to avoid overflow the container */\n  img {\n    max-width: 100% !important; /* This rule is very important, please do not ignore this! */\n  }\n\n  .filerobot-edit-canvas {\n    display: ", ";\n    max-height: 100%;\n    max-width: 100%;\n    vertical-align: middle;\n  }\n\n   ", "\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -203,30 +203,3 @@ var Canvas = _styledComponents.default.canvas.attrs(function () {
 });
 
 exports.Canvas = Canvas;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(PreviewWrapper, "PreviewWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(PreResizeBox, "PreResizeBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(PreviewImgBox, "PreviewImgBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(PreviewCanvas, "PreviewCanvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(FocusPointWrap, "FocusPointWrap", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(FocusPointContainer, "FocusPointContainer", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(FocusPoint, "FocusPoint", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(FocusPointImg, "FocusPointImg", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-
-  __REACT_HOT_LOADER__.register(Canvas, "Canvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
-}();
-
-;

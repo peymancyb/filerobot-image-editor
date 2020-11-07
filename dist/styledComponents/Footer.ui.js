@@ -226,39 +226,3 @@ exports.Switcher = Switcher;
 function getActionIconStyle(props) {
   return "\n    display: inline-block;\n    height: 34px;\n    width: 34px;\n    cursor: ".concat(props.muted ? 'not-allowed' : 'pointer', ";\n    text-align: center;\n    line-height: 34px;\n    border-right: 1px solid ").concat(props.theme.colors.border, ";\n    \n    :hover {\n      background: ").concat(props.muted ? 'inherit' : props.theme.colors.secondaryBgHover, ";\n    }\n  ");
 }
-
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Footer, "Footer", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(PreviousBtn, "PreviousBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(NextBtn, "NextBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(ResetBtn, "ResetBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(SwitcherWrapper, "SwitcherWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(SwitcherInput, "SwitcherInput", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(SwitcherLabel, "SwitcherLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(SwitcherInner, "SwitcherInner", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(SwitcherSwitch, "SwitcherSwitch", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(SwitcherBlock, "SwitcherBlock", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(SwitcherText, "SwitcherText", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(Switcher, "Switcher", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-
-  __REACT_HOT_LOADER__.register(getActionIconStyle, "getActionIconStyle", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Footer.ui.js");
-}();
-
-;

@@ -989,18 +989,4 @@ var Caman = /*#__PURE__*/function (_Module) {
 Caman.initClass();
 window.Caman = Caman;
 var _default = Caman;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Caman, "Caman", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/index.js");
-
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/index.js");
-}();
-
-;
+exports.default = _default;

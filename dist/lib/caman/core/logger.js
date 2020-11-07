@@ -37,16 +37,3 @@ function Logger() {
 
 var Log = new Logger();
 exports.Log = Log;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Logger, "Logger", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/logger.js");
-
-  __REACT_HOT_LOADER__.register(Log, "Log", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/logger.js");
-}();
-
-;

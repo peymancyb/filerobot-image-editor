@@ -162,7 +162,7 @@ var Add = /*#__PURE__*/function (_Component) {
             key: "text-group-fields"
           }, /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Text"), /*#__PURE__*/_react.default.createElement(_styledComponents.FieldInput, {
             id: "text",
-            value: selectedShape.text || 'Text',
+            value: selectedShape.text || 'Poghos',
             name: "text",
             style: {
               minWidth: 111
@@ -186,7 +186,7 @@ var Add = /*#__PURE__*/function (_Component) {
             },
             color: "text-font",
             notRelativePosition: true
-          })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Font size"), /*#__PURE__*/_react.default.createElement(_styledComponents.FieldInput, {
+          })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Font hello"), /*#__PURE__*/_react.default.createElement(_styledComponents.FieldInput, {
             value: selectedShape.textSize,
             type: "number",
             style: {
@@ -198,6 +198,7 @@ var Add = /*#__PURE__*/function (_Component) {
           })));
 
           shownSettings.unshift(textFontField, commonSettings);
+          console.log('textFontField', textFontField);
           break;
 
         case _config.SHAPES_VARIANTS.IMAGE:
@@ -260,14 +261,3 @@ var Add = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 exports.default = Add;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(Add, "Add", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Shapes.js");
-}();
-
-;

@@ -10,14 +10,3 @@ var deepCopy = function deepCopy(object) {
 };
 
 exports.deepCopy = deepCopy;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(deepCopy, "deepCopy", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/deep-copy.js");
-}();
-
-;

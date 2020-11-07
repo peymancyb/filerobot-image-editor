@@ -56,15 +56,3 @@ Caman.Filter.register("rotate", function () {
 function toDegrees(angle) {
   return angle * (Math.PI / 180);
 }
-
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(toDegrees, "toDegrees", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/rotate.js");
-}();
-
-;
