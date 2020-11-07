@@ -188,7 +188,7 @@ export default class ImageManipulator extends Component {
                 function () {
                   that.CamanInstanceOriginal = new window.Caman(
                     getCanvasNode("scaleflex-image-edit-box-original"),
-                    function () {}
+                    function () { }
                   );
                   updateState({
                     isShowSpinner: false,
@@ -492,13 +492,13 @@ export default class ImageManipulator extends Component {
     const cloudUrl =
       processWithCloudimage &&
       cloudimage.token +
-        ".cloudimg.io/" +
-        (cloudimage.version ? `${cloudimage.version}/` : "v7/");
+      ".cloudimg.io/" +
+      (cloudimage.version ? `${cloudimage.version}/` : "v7/");
     const filerobotURL =
       processWithFilerobot &&
       filerobot.token +
-        ".filerobot.com/" +
-        (filerobot.version ? `${filerobot.version}/` : "");
+      ".filerobot.com/" +
+      (filerobot.version ? `${filerobot.version}/` : "");
     const doNotPrefixURL = filerobotURL
       ? filerobot.doNotPrefixURL
       : cloudimage.doNotPrefixURL;
@@ -578,9 +578,9 @@ export default class ImageManipulator extends Component {
 
   /* Filters and Effects */
 
-  initFiltersOrEffects = () => {};
+  initFiltersOrEffects = () => { };
 
-  applyFilterOrEffect = (type, callback = () => {}) => {
+  applyFilterOrEffect = (type, callback = () => { }) => {
     const { updateState, initialZoom } = this.props;
 
     if (!this.props[type]) return;
@@ -604,7 +604,7 @@ export default class ImageManipulator extends Component {
     });
   };
 
-  applyAdjust = (callback = () => {}) => {
+  applyAdjust = (callback = () => { }) => {
     const { updateState, initialZoom, adjust } = this.props;
     const { brightness, contrast, saturation, exposure } = adjust;
     const resetProps = {
@@ -661,7 +661,7 @@ export default class ImageManipulator extends Component {
       if (prevCropIndex > -1) {
         redoOperation({
           operationIndex: prevCropIndex - 1,
-          callback: () => {},
+          callback: () => { },
           resetActiveTab: false,
         });
       }
@@ -718,7 +718,7 @@ export default class ImageManipulator extends Component {
     );
   };
 
-  applyOrientation = (callback = () => {}) => {
+  applyOrientation = (callback = () => { }) => {
     const {
       updateState,
       initialZoom,
@@ -821,11 +821,11 @@ export default class ImageManipulator extends Component {
         rotatable: false,
         scalable: false,
         zoomable: true,
-        movable: false,
+        movable: true,
         autoCropArea: beginCropArea,
         dragCrop: false,
         cropBoxResizable: false,
-        dragMode: "none",
+        dragMode: "move",
         crop: (event) => {
           this.props.updateState({ cropDetails: event.detail });
         },
@@ -845,7 +845,7 @@ export default class ImageManipulator extends Component {
     });
   };
 
-  applyCrop = (callback = () => {}) => {
+  applyCrop = (callback = () => { }) => {
     const { initialZoom, updateState, cropDetails, roundCrop } = this.props;
     const { width, height, x, y } = cropDetails;
 
@@ -880,7 +880,7 @@ export default class ImageManipulator extends Component {
 
   makeCanvasSnapshot = (
     operation,
-    callback = () => {},
+    callback = () => { },
     previewCanvas = false
   ) => {
     const {
@@ -1032,10 +1032,9 @@ export default class ImageManipulator extends Component {
   getCropArguments = ({ width, height, x, y, roundCrop } = {}) =>
     `tl_px=${Math.round(x)},${Math.round(y)}&br_px=${Math.round(
       x + width
-    )},${Math.round(y + height)}${
-      roundCrop
-        ? `&radius=${Math.round(Math.max(width, height))}&force_format=png`
-        : ""
+    )},${Math.round(y + height)}${roundCrop
+      ? `&radius=${Math.round(Math.max(width, height))}&force_format=png`
+      : ""
     }`;
 
   /* Resize */
@@ -1101,7 +1100,7 @@ export default class ImageManipulator extends Component {
 
   /* Adjust */
 
-  initAdjust = () => {};
+  initAdjust = () => { };
 
   onAdjust = (handler, value) => {
     const { updateState, adjust } = this.props;
@@ -1144,7 +1143,7 @@ export default class ImageManipulator extends Component {
     });
   };
 
-  applyFocusPoint = (callback = () => {}) => {
+  applyFocusPoint = (callback = () => { }) => {
     const {
       updateState,
       operations,
@@ -1166,7 +1165,7 @@ export default class ImageManipulator extends Component {
     callback();
   };
 
-  applyShapes = (callback = () => {}) => {
+  applyShapes = (callback = () => { }) => {
     const { shapeOperations } = this.props;
 
     shapeOperations.updateShapes(
@@ -1312,7 +1311,7 @@ export default class ImageManipulator extends Component {
         "scaleflex-image-edit-box-original"
       );
 
-      this.CamanInstanceOriginal = new window.Caman(canvasNext, () => {});
+      this.CamanInstanceOriginal = new window.Caman(canvasNext, () => { });
     } else {
       const nextOperationSimple = hasMoreOperations
         ? operations[operationIndex]
@@ -1342,7 +1341,7 @@ export default class ImageManipulator extends Component {
     else return "cdn";
   };
 
-  destroyAll = () => {};
+  destroyAll = () => { };
 
   resetAll = (callback) => {
     const { activeTab } = this.props;
@@ -1356,7 +1355,7 @@ export default class ImageManipulator extends Component {
     }
   };
 
-  applyCorrections = (callback = () => {}) => {
+  applyCorrections = (callback = () => { }) => {
     const { initialZoom, effect, filter, adjust } = this.props;
     const { brightness, contrast, saturation, exposure } = adjust;
 
@@ -1399,7 +1398,7 @@ export default class ImageManipulator extends Component {
     shapeOperations.deleteShapes({ all: true }, { selectedShape: {} });
   };
 
-  cancelLastOperation = (activeTab, callback = () => {}) => {
+  cancelLastOperation = (activeTab, callback = () => { }) => {
     const { initialZoom } = this.props;
 
     if (activeTab === "crop") {
@@ -1443,7 +1442,7 @@ export default class ImageManipulator extends Component {
     }
   };
 
-  applyWatermark = (callback = () => {}) => {
+  applyWatermark = (callback = () => { }) => {
     const { updateState, shapeOperations } = this.props;
     const watermarkLayer = (
       shapeOperations.getShape({ key: WATERMARK_UNIQUE_KEY }) || {}
@@ -1518,11 +1517,9 @@ export default class ImageManipulator extends Component {
 
     queryUrl +=
       processWithCloudimage && watermark.text
-        ? `&wat_text=${watermark.text}&wat_font=${
-            watermark.textFont
-          }&wat_fontsize=${
-            watermark.textSize
-          }&wat_colour=${watermark.color.replace("#", "")}`
+        ? `&wat_text=${watermark.text}&wat_font=${watermark.textFont
+        }&wat_fontsize=${watermark.textSize
+        }&wat_colour=${watermark.color.replace("#", "")}`
         : `&wat_url=${watermark.img.src.split("?")[0]}`;
 
     return queryUrl;

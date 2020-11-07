@@ -6,13 +6,13 @@ import Range from '../Range';
 import Select from '../Shared/Select';
 
 export default class Add extends Component {
-  
+
   renderSettings = (selectedShape) => {
     const { shapeOperations, t } = this.props;
     const { variant, opacity, color, stroke = {} } = selectedShape;
 
     const updateOpacity = (newVal) => shapeOperations.updateShape({ opacity: newVal });
-    const updateStroke = (property, value) => shapeOperations.updateShape({ stroke: { ...stroke, [property]: value }});
+    const updateStroke = (property, value) => shapeOperations.updateShape({ stroke: { ...stroke, [property]: value } });
     const updatePropertyFromEvent = (e) => shapeOperations.updateShape({ [e.target.name]: e.target.value });
 
     const defaultSettings = (
@@ -64,8 +64,8 @@ export default class Add extends Component {
     );
 
     const shownSettings = [defaultSettings];
-
-    switch(variant) {
+    
+    switch (variant) {
       case SHAPES_VARIANTS.RECT:
       case SHAPES_VARIANTS.SQUARE:
       case SHAPES_VARIANTS.CIRCLE:
@@ -78,7 +78,7 @@ export default class Add extends Component {
               <FieldCustomLabel>Text</FieldCustomLabel>
               <FieldInput
                 id="text"
-                value={selectedShape.text || 'Text'}
+                value={selectedShape.text || 'Poghos'}
                 name="text"
                 style={{ minWidth: 111 }}
                 onChange={updatePropertyFromEvent}
@@ -86,19 +86,19 @@ export default class Add extends Component {
             </FieldGroup>
             <FieldGroup>
               <FieldCustomLabel>Font family</FieldCustomLabel>
-            <Select
+              <Select
                 list={STANDARD_FONTS}
                 valueProp="value"
                 id="textFont"
                 value={selectedShape.textFont || 'Arial'}
                 style={{ width: 111 }}
-                onChange={(value) => updatePropertyFromEvent({ target: { name: 'textFont', value }})}
+                onChange={(value) => updatePropertyFromEvent({ target: { name: 'textFont', value } })}
                 color="text-font"
                 notRelativePosition
               />
             </FieldGroup>
             <FieldGroup>
-              <FieldCustomLabel>Font size</FieldCustomLabel>
+              <FieldCustomLabel>Font hello</FieldCustomLabel>
               <FieldInput
                 value={selectedShape.textSize}
                 type="number"
@@ -111,6 +111,7 @@ export default class Add extends Component {
           </React.Fragment>
         );
         shownSettings.unshift(textFontField, commonSettings);
+        console.log('textFontField', textFontField)
         break;
       case SHAPES_VARIANTS.IMAGE:
         const urlField = (
@@ -141,29 +142,29 @@ export default class Add extends Component {
     return (
       <AddWrapper>
         {isShapeSelected === 0 ? (
-        <ItemsWrapper>
-          {availableShapes.map((
-            { label, content, iconStyles, drawFn, iconUrl }
+          <ItemsWrapper>
+            {availableShapes.map((
+              { label, content, iconStyles, drawFn, iconUrl }
             ) => (
-              <ItemGroup key={label} onClick={() => drawFn()}>
-                <ItemIcon style={iconStyles} isIconNotProvided={!Boolean(content || iconUrl || iconStyles)}>
-                  {content
-                    || (iconUrl
+                <ItemGroup key={label} onClick={() => drawFn()}>
+                  <ItemIcon style={iconStyles} isIconNotProvided={!Boolean(content || iconUrl || iconStyles)}>
+                    {content
+                      || (iconUrl
                         &&
                         <img src={iconUrl} alt={`${label} icon`} />
                       )
-                  }
-                </ItemIcon>
-                <label>{label}</label>
-              </ItemGroup>
+                    }
+                  </ItemIcon>
+                  <label>{label}</label>
+                </ItemGroup>
               )
             )
-          }
-        </ItemsWrapper>
+            }
+          </ItemsWrapper>
         ) : (
-          <SettingsWrapper>
-            {this.renderSettings(selectedShape)}
-          </SettingsWrapper>
+            <SettingsWrapper>
+              {this.renderSettings(selectedShape)}
+            </SettingsWrapper>
           )
         }
       </AddWrapper>
