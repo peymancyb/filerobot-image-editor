@@ -1,13 +1,13 @@
 {
-  "name": "filerobot-image-editor",
-  "version": "3.10.1",
+  "name": "@peymanghazvini/filerobot-image-beta",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "description": "Edit, resize, and filter any image!",
   "author": "scaleflex",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/scaleflex/filerobot-image-editor"
+    "url": "git+https://github.com/scaleflex/filerobot-image-editor.git"
   },
   "homepage": "https://github.com/scaleflex/filerobot-image-editor#readme",
   "keywords": [
@@ -74,5 +74,11 @@
     "dist": "npm run clean-dist && npx babel projects/react --out-dir dist --copy-files",
     "deploy": "gh-pages -d examples/js/dist",
     "publish-demo": "npm run build-demo-js && npm run deploy"
+  },
+  "bugs": {
+    "url": "https://github.com/scaleflex/filerobot-image-editor/issues"
+  },
+  "directories": {
+    "example": "examples"
   }
 }
