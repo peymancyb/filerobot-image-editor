@@ -13,7 +13,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(isServerSide, "isServerSide", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/is-server-side.js");
+  __REACT_HOT_LOADER__.register(isServerSide, "isServerSide", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/is-server-side.js");
 }();
 
 ;

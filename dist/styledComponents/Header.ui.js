@@ -160,23 +160,23 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(HeaderWrapper, "HeaderWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(HeaderWrapper, "HeaderWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(HeaderTop, "HeaderTop", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(HeaderTop, "HeaderTop", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(Title, "Title", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(Title, "Title", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(ActionsWrapper, "ActionsWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(ActionsWrapper, "ActionsWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(Actions, "Actions", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(Actions, "Actions", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(CancelBtn, "CancelBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(CancelBtn, "CancelBtn", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(LeftActions, "LeftActions", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(LeftActions, "LeftActions", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(RightActions, "RightActions", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(RightActions, "RightActions", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 
-  __REACT_HOT_LOADER__.register(ToolbarWrapper, "ToolbarWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
+  __REACT_HOT_LOADER__.register(ToolbarWrapper, "ToolbarWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Header.ui.js");
 }();
 
 ;

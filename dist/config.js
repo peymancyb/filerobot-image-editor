@@ -281,39 +281,39 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(MODAL_ID, "MODAL_ID", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(MODAL_ID, "MODAL_ID", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(PREVIEW_CANVAS_ID, "PREVIEW_CANVAS_ID", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(PREVIEW_CANVAS_ID, "PREVIEW_CANVAS_ID", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(TOOLS, "TOOLS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(TOOLS, "TOOLS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(EFFECTS, "EFFECTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(EFFECTS, "EFFECTS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(FILTERS, "FILTERS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(FILTERS, "FILTERS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(CLOUDIMAGE_OPERATIONS, "CLOUDIMAGE_OPERATIONS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(CLOUDIMAGE_OPERATIONS, "CLOUDIMAGE_OPERATIONS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(WATERMARK_POSITIONS, "WATERMARK_POSITIONS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(WATERMARK_POSITIONS, "WATERMARK_POSITIONS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(WATERMARK_POSITIONS_PRESET, "WATERMARK_POSITIONS_PRESET", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(WATERMARK_POSITIONS_PRESET, "WATERMARK_POSITIONS_PRESET", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(DEFAULT_WATERMARK, "DEFAULT_WATERMARK", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(DEFAULT_WATERMARK, "DEFAULT_WATERMARK", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(WATERMARK_UNIQUE_KEY, "WATERMARK_UNIQUE_KEY", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(WATERMARK_UNIQUE_KEY, "WATERMARK_UNIQUE_KEY", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(cropPresets, "cropPresets", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(cropPresets, "cropPresets", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(resizePresets, "resizePresets", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(resizePresets, "resizePresets", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(STANDARD_FONTS, "STANDARD_FONTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(STANDARD_FONTS, "STANDARD_FONTS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(WATERMARK_CLOUDIMAGE_FONTS, "WATERMARK_CLOUDIMAGE_FONTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(WATERMARK_CLOUDIMAGE_FONTS, "WATERMARK_CLOUDIMAGE_FONTS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(SHAPES_VARIANTS, "SHAPES_VARIANTS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(SHAPES_VARIANTS, "SHAPES_VARIANTS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(DEFAULT_IMG_URL, "DEFAULT_IMG_URL", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(DEFAULT_IMG_URL, "DEFAULT_IMG_URL", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 
-  __REACT_HOT_LOADER__.register(UPLOADER, "UPLOADER", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/config.js");
+  __REACT_HOT_LOADER__.register(UPLOADER, "UPLOADER", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/config.js");
 }();
 
 ;

@@ -119,19 +119,19 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(AddWrapper, "AddWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
+  __REACT_HOT_LOADER__.register(AddWrapper, "AddWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
 
-  __REACT_HOT_LOADER__.register(ItemsWrapper, "ItemsWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
+  __REACT_HOT_LOADER__.register(ItemsWrapper, "ItemsWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
 
-  __REACT_HOT_LOADER__.register(SettingsWrapper, "SettingsWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
+  __REACT_HOT_LOADER__.register(SettingsWrapper, "SettingsWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
 
-  __REACT_HOT_LOADER__.register(ItemGroup, "ItemGroup", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
+  __REACT_HOT_LOADER__.register(ItemGroup, "ItemGroup", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
 
-  __REACT_HOT_LOADER__.register(ItemIcon, "ItemIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
+  __REACT_HOT_LOADER__.register(ItemIcon, "ItemIcon", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
 
-  __REACT_HOT_LOADER__.register(FieldGroup, "FieldGroup", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
+  __REACT_HOT_LOADER__.register(FieldGroup, "FieldGroup", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
 
-  __REACT_HOT_LOADER__.register(FieldCustomLabel, "FieldCustomLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
+  __REACT_HOT_LOADER__.register(FieldCustomLabel, "FieldCustomLabel", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Shapes.ui.js");
 }();
 
 ;

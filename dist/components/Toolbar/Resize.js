@@ -175,7 +175,7 @@ var _temp2 = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Resize.js");
+  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Toolbar/Resize.js");
 }();
 
 ;

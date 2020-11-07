@@ -47,7 +47,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(getWatermarkPosition, "getWatermarkPosition", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-watermark-position.js");
+  __REACT_HOT_LOADER__.register(getWatermarkPosition, "getWatermarkPosition", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/get-watermark-position.js");
 }();
 
 ;

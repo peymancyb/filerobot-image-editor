@@ -210,23 +210,23 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(PreviewWrapper, "PreviewWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreviewWrapper, "PreviewWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreResizeBox, "PreResizeBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreResizeBox, "PreResizeBox", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreviewImgBox, "PreviewImgBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreviewImgBox, "PreviewImgBox", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreviewCanvas, "PreviewCanvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreviewCanvas, "PreviewCanvas", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPointWrap, "FocusPointWrap", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPointWrap, "FocusPointWrap", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPointContainer, "FocusPointContainer", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPointContainer, "FocusPointContainer", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPoint, "FocusPoint", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPoint, "FocusPoint", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPointImg, "FocusPointImg", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPointImg, "FocusPointImg", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(Canvas, "Canvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(Canvas, "Canvas", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 }();
 
 ;

@@ -185,27 +185,27 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(WatermarkWrapper, "WatermarkWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WatermarkWrapper, "WatermarkWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(WrapperForURL, "WrapperForURL", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WrapperForURL, "WrapperForURL", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(WrapperForControls, "WrapperForControls", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WrapperForControls, "WrapperForControls", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(WrapperForOpacity, "WrapperForOpacity", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WrapperForOpacity, "WrapperForOpacity", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(WatermarkInputs, "WatermarkInputs", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WatermarkInputs, "WatermarkInputs", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(WatermarkPositionWrapper, "WatermarkPositionWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WatermarkPositionWrapper, "WatermarkPositionWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(WatermarkInputTypes, "WatermarkInputTypes", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WatermarkInputTypes, "WatermarkInputTypes", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(PositionSquare, "PositionSquare", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(PositionSquare, "PositionSquare", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(SelectWatermarkLabel, "SelectWatermarkLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(SelectWatermarkLabel, "SelectWatermarkLabel", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(Watermarks, "Watermarks", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(Watermarks, "Watermarks", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 
-  __REACT_HOT_LOADER__.register(WatermarkIcon, "WatermarkIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
+  __REACT_HOT_LOADER__.register(WatermarkIcon, "WatermarkIcon", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Watermark.ui.js");
 }();
 
 ;

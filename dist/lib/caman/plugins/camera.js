@@ -195,7 +195,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(vignetteFilters, "vignetteFilters", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/camera.js");
+  __REACT_HOT_LOADER__.register(vignetteFilters, "vignetteFilters", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/plugins/camera.js");
 }();
 
 ;

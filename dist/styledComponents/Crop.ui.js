@@ -308,41 +308,41 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(CropWrapper, "CropWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(CropWrapper, "CropWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(PresetsWrapper, "PresetsWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(PresetsWrapper, "PresetsWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(CustomLabel, "CustomLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(CustomLabel, "CustomLabel", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(FieldSet, "FieldSet", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(FieldSet, "FieldSet", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(FieldLabel, "FieldLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(FieldLabel, "FieldLabel", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(FieldInput, "FieldInput", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(FieldInput, "FieldInput", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(FileInput, "FileInput", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(FileInput, "FileInput", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(BlockRatioWrapper, "BlockRatioWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(BlockRatioWrapper, "BlockRatioWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(BlockRatioBtn, "BlockRatioBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(BlockRatioBtn, "BlockRatioBtn", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(BlockRatioIcon, "BlockRatioIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(BlockRatioIcon, "BlockRatioIcon", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(CropBox, "CropBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(CropBox, "CropBox", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(CropBoxInner, "CropBoxInner", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(CropBoxInner, "CropBoxInner", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(CropShape, "CropShape", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(CropShape, "CropShape", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(CropShapeWrapper, "CropShapeWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(CropShapeWrapper, "CropShapeWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(ShapeAligner, "ShapeAligner", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(ShapeAligner, "ShapeAligner", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(CropLabel, "CropLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(CropLabel, "CropLabel", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(getWidthOfShape, "getWidthOfShape", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(getWidthOfShape, "getWidthOfShape", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 
-  __REACT_HOT_LOADER__.register(getHeightOfShape, "getHeightOfShape", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
+  __REACT_HOT_LOADER__.register(getHeightOfShape, "getHeightOfShape", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Crop.ui.js");
 }();
 
 ;

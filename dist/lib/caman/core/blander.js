@@ -56,9 +56,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Blender, "Blender", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/blander.js");
+  __REACT_HOT_LOADER__.register(Blender, "Blender", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/blander.js");
 
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/blander.js");
+  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/blander.js");
 }();
 
 ;

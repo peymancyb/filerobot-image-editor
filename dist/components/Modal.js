@@ -202,15 +202,15 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(ModalOverlay, "ModalOverlay", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
+  __REACT_HOT_LOADER__.register(ModalOverlay, "ModalOverlay", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Modal.js");
 
-  __REACT_HOT_LOADER__.register(ModalContent, "ModalContent", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
+  __REACT_HOT_LOADER__.register(ModalContent, "ModalContent", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Modal.js");
 
-  __REACT_HOT_LOADER__.register(ModalFullScreen, "ModalFullScreen", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
+  __REACT_HOT_LOADER__.register(ModalFullScreen, "ModalFullScreen", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Modal.js");
 
-  __REACT_HOT_LOADER__.register(getSmallModalStyle, "getSmallModalStyle", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
+  __REACT_HOT_LOADER__.register(getSmallModalStyle, "getSmallModalStyle", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Modal.js");
 
-  __REACT_HOT_LOADER__.register(Modal, "Modal", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Modal.js");
+  __REACT_HOT_LOADER__.register(Modal, "Modal", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Modal.js");
 }();
 
 ;

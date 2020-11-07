@@ -18,7 +18,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    width: 200px;\n    height: 200px;\n    margin: auto;\n    padding: 40px;\n    border-radius: 50%;\n    background: ", ";\n    \n    .svg-spin-icon {\n      fill: ", ";\n    }\n    \n    p {\n      color: ", ";\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 150px;\n  height: 150px;\n  margin: auto;\n  padding: 40px;\n  border-radius: 50%;\n  background: #ff8f57;\n\n  .svg-spin-icon {\n    fill: ", ";\n  }\n\n  p {\n    color: ", ";\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -40,16 +40,14 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var SpinnerOverlay = _styledComponents.default.div(_templateObject(), function (props) {
-  return props.fullScreen ? 'fixed' : 'absolute';
+  return props.fullScreen ? "fixed" : "absolute";
 }, function (props) {
-  return props.overlay ? 'rgba(10,10,10,0.26)' : 'transparent';
+  return props.overlay ? "rgba(10,10,10,0.26)" : "transparent";
 }, function (props) {
-  return props.overlay ? '0.25' : '0';
+  return props.overlay ? "0.25" : "0";
 });
 
-var IconWrapper = (0, _styledComponents.default)('div')(_templateObject2(), function (p) {
-  return p.theme.colors.secondaryBgOpacity;
-}, function (p) {
+var IconWrapper = (0, _styledComponents.default)("div")(_templateObject2(), function (p) {
   return p.theme.colors.text;
 }, function (p) {
   return p.theme.colors.text;
@@ -67,7 +65,7 @@ var Spinner = function Spinner(props) {
     y: "0px",
     viewBox: "0 0 150 150",
     style: {
-      enableBackground: 'new 0 0 150 150'
+      enableBackground: "new 0 0 150 150"
     }
   }, /*#__PURE__*/_react.default.createElement("path", {
     className: "svg-spin-icon",
@@ -89,7 +87,7 @@ var Spinner = function Spinner(props) {
     d: "M74.8,67.9c-0.2-1.3-1.1-5.7-1.5-7C71.4,54,59.7,44.3,54.3,39c-0.7-0.7-1.3-1.5-1.8-2.5 c7.1,3.4,14.4,6.1,22.6,6.1c8.2,0,15.5-2.6,22.4-6.2c0.1,0.1,0.2,0.2,0.3,0.3c-0.5,0.6-0.9,1.2-1.4,1.8c-4.5,4.5-18.7,15.5-20,22.4 c-0.2,0.8-1,6.2-1.2,7C75.1,67.9,75,67.9,74.8,67.9z"
   }), /*#__PURE__*/_react.default.createElement("g", null)), /*#__PURE__*/_react.default.createElement("p", {
     style: {
-      textAlign: 'center'
+      textAlign: "center"
     }
   }, props.label)));
 };
@@ -102,11 +100,11 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(SpinnerOverlay, "SpinnerOverlay", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
+  __REACT_HOT_LOADER__.register(SpinnerOverlay, "SpinnerOverlay", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
 
-  __REACT_HOT_LOADER__.register(IconWrapper, "IconWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
+  __REACT_HOT_LOADER__.register(IconWrapper, "IconWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
 
-  __REACT_HOT_LOADER__.register(Spinner, "Spinner", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
+  __REACT_HOT_LOADER__.register(Spinner, "Spinner", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
 }();
 
 ;

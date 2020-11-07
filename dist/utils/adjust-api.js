@@ -25,9 +25,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(getPermalink, "getPermalink", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/adjust-api.js");
+  __REACT_HOT_LOADER__.register(getPermalink, "getPermalink", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/adjust-api.js");
 
-  __REACT_HOT_LOADER__.register(getPubliclink, "getPubliclink", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/adjust-api.js");
+  __REACT_HOT_LOADER__.register(getPubliclink, "getPubliclink", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/adjust-api.js");
 }();
 
 ;

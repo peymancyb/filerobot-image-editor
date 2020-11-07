@@ -52,9 +52,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Container, "Container", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/ImageEditor.ui.js");
+  __REACT_HOT_LOADER__.register(Container, "Container", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/ImageEditor.ui.js");
 
-  __REACT_HOT_LOADER__.register(Wrapper, "Wrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/ImageEditor.ui.js");
+  __REACT_HOT_LOADER__.register(Wrapper, "Wrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/ImageEditor.ui.js");
 }();
 
 ;

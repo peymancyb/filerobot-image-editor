@@ -67,6 +67,11 @@ var Text = /*#__PURE__*/function (_Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
+    _defineProperty(_assertThisInitialized(_this), "addNewText", function () {
+      var shapeOperations = _this.props.shapeOperations;
+      shapeOperations.addText();
+    });
+
     _defineProperty(_assertThisInitialized(_this), "updateOpacity", function (newVal) {
       return _this.props.shapeOperations.updateShape({
         opacity: newVal
@@ -125,7 +130,18 @@ var Text = /*#__PURE__*/function (_Component) {
           minWidth: 111
         },
         onChange: this.updatePropertyFromEvent
-      })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Font family"), /*#__PURE__*/_react.default.createElement(_Select.default, {
+      })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Add New Text"), /*#__PURE__*/_react.default.createElement(_styledComponents.Button, {
+        id: "addText",
+        name: "addText",
+        style: {
+          width: 30,
+          background: 'transparent',
+          color: '#fff',
+          margin: '2px auto',
+          padding: '3px 12px'
+        },
+        onClick: this.addNewText
+      }, "+")), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Font family"), /*#__PURE__*/_react.default.createElement(_Select.default, {
         list: _config.STANDARD_FONTS,
         valueProp: "value",
         id: "textFont",
@@ -213,7 +229,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Text, "Text", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Text.js");
+  __REACT_HOT_LOADER__.register(Text, "Text", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Toolbar/Text.js");
 }();
 
 ;
