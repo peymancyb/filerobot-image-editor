@@ -1,6 +1,6 @@
 > Repository includes React version and Vanilla JS adapter for standalone usage
 
-[![Release](https://img.shields.io/badge/release-v3.10.1-blue.svg)](https://github.com/scaleflex/filerobot-image-editor/releases)
+[![Release](https://img.shields.io/badge/release-v3.12.2-blue.svg)](https://github.com/scaleflex/filerobot-image-editor/releases)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)](#contributing)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Scaleflex team](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-the%20Scaleflex%20team-6986fa.svg)](https://www.scaleflex.it/en/home)
@@ -30,7 +30,7 @@
 		•
 		<a href="https://scaleflex.github.io/filerobot-image-editor/" target="_blank">Demo</a>
 		•
-		<a href="https://codesandbox.io/s/beautiful-sutherland-4tgdv" target="_blank">CodeSandbox</a>
+		<a href="https://codesandbox.io/s/holy-resonance-j0n5z" target="_blank">CodeSandbox</a>
 		•
 		<a href="https://www.youtube.com/watch?v=4VdPXvFr4V0" target="_blank">Video tutorial</a>
 	</strong>
@@ -145,7 +145,7 @@ or use your custom color scheme
 Use the latest CDNized plugin version:
 
 ```html
-<script src="https://cdn.scaleflex.it/plugins/filerobot-image-editor/3.10.1/filerobot-image-editor.min.js"></script>
+<script src="https://cdn.scaleflex.it/plugins/filerobot-image-editor/3.12.2/filerobot-image-editor.min.js"></script>
 ```
 
 ### <a name="quick_start"></a>Quick start
@@ -161,8 +161,7 @@ We provide an easy way to integrate the image editor in your applications:
   );
 </script>
 ```
-
-<a href="https://codesandbox.io/s/88jpkv2m09"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="edeit on codesandbox"/></a>
+<a href="https://codesandbox.io/s/black-pond-n96yk"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="edeit on codesandbox"/></a>
 
 ### <a name="methods"></a>Methods
 
@@ -176,7 +175,18 @@ Initialization of Filerobot Image Editor plugin.
 
 **`callbacks.onComplete(url: string, file: object)`**: function - triggered on completion and returnes the URL of the edited image
 
-**`callbacks.onClose()`**: function - triggered when modal is closed
+**callbacks.onClose({ status })**: function - is triggered when modal is closed
+##### status: the behavior/way the modal closed through
+one of the following values would be returned depending on the case,
+'close-button-clicked' => When modal is closed through clicking over the close button.
+'toolbar-cancel-button-clicked' => When modal is closed through clicking over cancel button of toolbar (if shown).
+'esc-key-pressed' => When modal is closed through pressing escape key.
+'modal-overlay-clicked' => When modal is closed through clicking over the modal's overlay.
+'image-edits-completed' => When modal is closed after finishing the edits of the image and not downloaded or uploaded.
+'image-downloaded' => When modal is closed after the image is downloaded.
+'image-uploaded-filerobot' => When modal is closed after uploading the image to Filerobot.
+'image-uploaded-cloudimage'=> When modal is closed after uploading the image to Cloudimage.
+'image-uploading-fail-filerobot' => When modal is closed after failing the uploading to Filerobot.
 
 #### `ImageEditor.open(url)`: function
 
@@ -238,8 +248,7 @@ const App = () => {
 
 render(<App />, document.getElementById("app"));
 ```
-
-<a href="https://codesandbox.io/s/k3q9vrk707"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="edeit on codesandbox"/></a>
+<a href="https://codesandbox.io/s/hopeful-knuth-zytic"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="edeit on codesandbox"/></a>
 
 ### <a name="methods_react"></a>Methods/Properties
 
@@ -357,11 +366,18 @@ Add watermark on the image after applying image transformations.
 
 ##### `watermark.imageFilter`: function - default is null, pass a function that gets the image resource before draw and return a manipulated image (pass some fancy filter on the watermark)
 
+##### `watermark.defaultText`: string - the default text that would be added as a text watermark
+
+##### `watermark.fonts`: array - the fonts that would be shown & used in text watermark
+example: [{ label: 'Arial', value: 'Arial' }]
+
+
 ```
 config.watermark = {
     url: 'https://jolipage002-global.api.airstore.io/v1/get/_/04e725a5-8605-57d5-bf9b-b161745e7720/6d3f41ddc2c1271cb4fede2b7cc8323bec97a3c69f89fd1dd881c5bb9460d9c6.png',
     position: 'center',
-    opacity: 0.7
+    opacity: 0.7,
+    defaultText: 'Filerobot.....'
   };
 ```
 
@@ -392,7 +408,15 @@ config.theme = {
 
     border: '#161e23',
     borderLight: '#70777f'
-  }
+  },
+  fonts: [
+    { label: 'Arial', value: 'Arial' },
+    { label: 'Tahoma', value: 'Tahoma' },
+    { label: 'Times New Roman', value: 'Times New Roman'},
+    { label: 'Courier', value: 'Courier' },
+    { label: 'Courier New', value: 'Courier New' },
+    { label: 'Verdana', value: 'Verdana' }
+  ]
 };
 ```
 
@@ -408,11 +432,36 @@ Add custom resize templates. [See the example here](https://github.com/scaleflex
 
 The crop area size shown/used automatically on starting crop.
 
+### `minCropAreaWidth`: number | default: undefined (no minimum)
+The minimum size in pixels for crop area's width custom resizing, the user won't be able to resize the crop area width less than that size unless the crop area is resized through some crop preset.
+
+### `minCropAreaHeight`: number | default: undefined (no minimum)
+The minimum size in pixels for crop area's height custom resizing, the user won't be able to resize the crop area height less than that size unless the crop area is resized through some crop preset.
+
 ### `showGoBackBtn`: bool
 
 **default**: false
 
-Display back button all the time, duplication of cross button
+Display back button all the time, duplication of cross button.
+
+### `showInModal`: bool
+
+**default**: true
+
+Show the editor in modal `true`,
+or in an element of the page if the value is `false` in that case for `JS version` the value of `elementId` prop would be used to show the editor inside that element if the element isn't found it would be created and appended at the end of the page's body, For `React version` the editor would be shown in the place where the component is called.
+
+### `elementId`: string (JS version)
+
+**default**: filerobot-image-editor (|-cloudimage (in case of using cloudimage) |-uploader (in case of using filerobot uploader)
+
+The id used for the editor's wrapper element whether it's inside a modal or an element if it's not found on the page it's created and appended to body, please note the appending of -[cloudimage/uploader] string to filerobot-image-editor if you are using any of the services without assigning your own elementId.
+
+### `noCapitalStrs`: bool
+
+**default**: false
+
+Disabling the auto capitalizing of first letter of strings using (text-transform) css property
 
 ## <a name="filerobot_integration"></a>Filerobot Integration
 

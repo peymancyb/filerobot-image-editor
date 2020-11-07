@@ -3,7 +3,7 @@ import ImageEditor from './ImageEditor';
 import { Container } from './styledComponents';
 import { ThemeProvider } from 'styled-components';
 import { Modal } from './components/Modal';
-import { CLOUDIMAGE_OPERATIONS, TOOLS, UPLOADER } from './config';
+import { CLOUDIMAGE_OPERATIONS, TOOLS, UPLOADER, ON_CLOSE_STATUSES, STANDARD_FONTS } from './config';
 import './assets/fonts/filerobot-font.css';
 import translations from './assets/i18n';
 import dark from './assets/theme/dark';
@@ -32,7 +32,7 @@ class ImageEditorWrapper extends Component {
     config.language = (config.translations[config.language] || translations[config.language]) ? config.language : 'en';
     config.theme = config.theme || {};
     config.theme.colors = config.theme.colors || {};
-    config.theme.fonts = config.theme.fonts || {};
+    config.theme.fonts = config.theme.fonts || STANDARD_FONTS;
     config.colorScheme = config.colorScheme || 'dark';
     config.platform = config.platform || 'filerobot';
     config.initialTab = getActiveTab(config.tools, config.initialTab);
@@ -53,10 +53,7 @@ class ImageEditorWrapper extends Component {
           ...(config.colorScheme === 'light' ? light : dark).colors,
           ...config.theme.colors
         },
-        fonts: {
-          ...(config.colorScheme === 'light' ? light : dark).fonts,
-          ...config.theme.fonts
-        }
+        fonts: config.theme.fonts
       }
     }
   }
@@ -100,19 +97,21 @@ class ImageEditorWrapper extends Component {
     }
   }
 
-  close = () => {
+  close = (closingStatus = ON_CLOSE_STATUSES.CLOSE_BTN_CLICKED) => {
     const { onClose } = this.props;
+    const status = typeof closingStatus === 'object' ? ON_CLOSE_STATUSES.CLOSE_BTN_CLICKED : closingStatus;
 
     if (this._isMounted) {
       this.setState({ isVisible: false }, () => {
-        if (onClose) onClose();
+        if (onClose) onClose({ status });
       });
     }
   }
 
   render() {
     const { isVisible, src, config, t, theme } = this.state;
-    const { onComplete = () => {}, onBeforeComplete, closeOnLoad, showInModal = true } = this.props;
+    const { onComplete = () => {}, onBeforeComplete, closeOnLoad } = this.props;
+    const { showInModal = true } = config;
 
     if (!src || !isVisible || isServerSide) return null;
 
@@ -141,6 +140,7 @@ class ImageEditorWrapper extends Component {
             isHideCloseBtn={true}
             style={{ borderRadius: 5 }}
             onClose={this.close}
+            configModalId={config.elementId}
           >
             {Inner}
           </Modal> : Inner}

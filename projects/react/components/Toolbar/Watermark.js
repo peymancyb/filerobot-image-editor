@@ -16,7 +16,13 @@ import {
 import { debounce } from 'throttle-debounce';
 import Range from '../Range';
 import Select from '../Shared/Select';
-import { WATERMARK_POSITIONS, WATERMARK_POSITIONS_PRESET, STANDARD_FONTS, WATERMARK_CLOUDIMAGE_FONTS, WATERMARK_UNIQUE_KEY, SHAPES_VARIANTS } from '../../config';
+import {
+  WATERMARK_POSITIONS,
+  WATERMARK_POSITIONS_PRESET,
+  WATERMARK_CLOUDIMAGE_FONTS,
+  WATERMARK_UNIQUE_KEY,
+  SHAPES_VARIANTS
+} from '../../config';
 import { getWatermarkPosition, getCanvasNode } from '../../utils';
 
 
@@ -70,7 +76,7 @@ export default class extends Component {
       opacity: opacity || 0.7,
       handleOpacity: typeof handleOpacity === 'boolean' ? handleOpacity : true,
       position: activePosition,
-      url: url || urls && urls.length > 1 ? urls[0] && urls[0].url : '',
+      url: url || (urls && urls.length > 1 ? urls[0] && urls[0].url : ''),
       urls: urls || [],
       activePositions: setActivePositions,
       isWatermarkList: urls && urls.length > 1,
@@ -81,16 +87,17 @@ export default class extends Component {
       color: '#000000',
       textSize: 62,
       textFont: 'Arial',
-      fonts: fonts || STANDARD_FONTS,
+      fonts: fonts || this.props.config.theme.fonts,
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
+    const nextProps = this.props;
     // check if position has ben modified and update
     if (nextProps.watermark.position !== this.state.position) {
       this.onPositionChange(this.state.position);
     }
-    if (nextProps.watermark.applyByDefault !== this.props.watermark.applyByDefault) {
+    if (nextProps.watermark.applyByDefault !== prevProps.watermark.applyByDefault) {
       if (this.getWatermarkLayer()) {
         this.updateWatermarkProperty(
           { applyByDefault: false },
@@ -124,18 +131,13 @@ export default class extends Component {
     if (!shapeData) { shapeData = data }
     if (!watermarkObjectData) { watermarkObjectData = data }
 
-    const watermark = this.getWatermarkLayer();
+    const watermark = this.getWatermarkLayer() || {};
     this.setState(data, () => {
-      shapeOperations.addOrUpdate({ ...shapeData, key: WATERMARK_UNIQUE_KEY, index: watermark.index },
+      shapeOperations.addOrUpdate({ ...shapeData, key: WATERMARK_UNIQUE_KEY, index: watermark.index, tab: 'watermark' },
       {
         watermark: {
           ...this.props.watermark,
           ...watermarkObjectData
-        },
-        selectedShape: {
-          ...this.props.selectedShape,
-          ...shapeData,
-          // resizingBox: true
         }
       });
     });
@@ -146,7 +148,7 @@ export default class extends Component {
     return shapeOperations.getShape({ key: WATERMARK_UNIQUE_KEY });
   }
 
-  changeURL = (event) => {
+  changeURL = (event, shapeData = {}) => {
     const nextValue = event.target.value;
 
     if (this.props.watermark.text) {
@@ -154,7 +156,7 @@ export default class extends Component {
       return;
     }
 
-    this.updateWatermarkProperty({ url: nextValue }, { img: nextValue }, { url: '', text: false })
+    this.updateWatermarkProperty({ url: nextValue }, { img: nextValue, ...shapeData }, { url: '', text: false })
   }
 
   changeTextProperty = (event) => {
@@ -194,7 +196,7 @@ export default class extends Component {
     if (input.files && input.files[0]) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.changeURL({ target: { value: e.target.result } });
+        this.changeURL({ target: { value: e.target.result } }, { variant: SHAPES_VARIANTS.IMAGE });
       }
       reader.readAsDataURL(input.files[0]);
     }
@@ -202,7 +204,7 @@ export default class extends Component {
 
   onPositionChange = value => {
     const { width, height } = this.getWatermarkLayer();
-    const [x, y] = getWatermarkPosition(value, getCanvasNode(), width, height);
+    const [x, y] = getWatermarkPosition(value, getCanvasNode(this.props.config.elementId), width, height);
     this.updateWatermarkProperty({ position: value }, { x, y }, { position: value, x, y });
   }
 
@@ -257,6 +259,8 @@ export default class extends Component {
       } else {
         logoImage.src = url;
       }
+    } else {
+      updateState({ isShowSpinner: false });
     }
   });
 
@@ -274,7 +278,7 @@ export default class extends Component {
   }
 
   handleInputTypeChange = ({ target }) => {
-    const { updateState } = this.props;
+    const { updateState, config } = this.props;
     updateState({ isShowSpinner: true });
 
     this.setState({ selectedInputType: target.value });
@@ -282,7 +286,7 @@ export default class extends Component {
       this.changeTextProperty({
         target: {
           name: 'text',
-          value: 'Filerobot'
+          value: (config.watermark || {}).defaultText || 'Your text'
         }
       })
       updateState({ isShowSpinner: false })
@@ -372,7 +376,7 @@ export default class extends Component {
                 id="gallery"
                 value={url}
                 style={{ width: 'calc(100% - 120px)' }}
-                onChange={(url) => { console.log('chosen', url); this.changeURL({ target: { value: url } }) }}
+                onChange={(url) => { this.changeURL({ target: { value: url } }) }}
               />
             </>)}
             {urlInput && (<>
@@ -397,7 +401,7 @@ export default class extends Component {
               <FieldInput
                 id="text"
                 value={text}
-                style={{ width: 'calc(65% - 135px)' }}
+                style={{ width: 'calc(65% - 135px)', minWidth: 120 }}
                 name="text"
                 onChange={this.changeTextProperty}
               />
@@ -428,7 +432,7 @@ export default class extends Component {
           <WrapperForControls switcherPosition={handleOpacity ? 'right' : 'left'}>
             {handleOpacity &&
             <WrapperForOpacity>
-              <label htmlFor="opacity">Opacity</label>
+              <label htmlFor="opacity" style={{ minWidth: 80 }}>Opacity</label>
               <Range
                 label={t['common.opacity']}
                 min={0}

@@ -75,8 +75,6 @@ export default class extends Component {
     this.setState({ aspectRatio });
   };
 
-  getCanvasNode = () => document.getElementById("preview-img-box");
-
   changeRatio = (box) => {
     const { aspectRatio } = this.state;
     const {

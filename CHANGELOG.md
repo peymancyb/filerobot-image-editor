@@ -26,6 +26,69 @@ Types of changes:
 
 -------------
 
+## 3.12.2 - 2020-10-22
+### Fixed
+- Showing shapes borders in light color scheme.
+
+### Added
+- Watermark fonts for using those fonts in text watermark fonts field.
+- Theme fonts for supporting those fonts in text & text watermark fonts field (if no fonts provided for watermark object).
+
+## 3.12.1 - 2020-10-09
+### Fixed
+- Removing hot loader build paths from the complied library files.
+
+### Improved
+- Decreasing the library size a bit.
+
+## 3.12.0 - 2020-10-07
+### Fixed
+- Watermark or added images quality is not destroyed and it would be relative to the edited image.
+- The UI of font family field's dropdown while adding text through phone.
+- Importing watermark/image through URL.
+
+### Added
+- noCapitalStrs prop for disabling the capitalization of strings.
+- minCropAreaWidth & minCropAreaHeight props for limiting/fixing the customized crop area with minimum values.
+
+### Improved
+- Objects (Watermark/shapes...etc) on the image while editing became more accurate to the same positions & looking in produced/saved image which means after saving you will get the same looking (from position & quality of objects) as you are editing.
+- Customizing the default element id regarding the used service by appending the used service to the id [|-cloudimage|-uploader].
+- Replacing all used unsafe deprecated methods (UNSAFE_*).
+
+## 3.11.5 - 2020-10-05
+### Fixed
+- bug with modal id. Added using modal id from config
+
+## 3.11.4 - 2020-10-02
+### Fixed
+- Add classes for modal overlay and modal root container on purpose to manage plugin in external projects
+
+## 3.11.3 - 2020-09-22
+### Fixed
+- Objects drag & drop error 
+
+## 3.11.2 - 2020-09-21
+### Fixed
+- Watermark issue when no urls provided in the configurations
+
+### Added
+- Touch support for moving objects' places
+
+## 3.11.1 - 2020-09-16
+### Fixed
+- Watermark spinner is always shown if no watermark urls provided
+- Watermark image upload issue
+
+## 3.11.0 - 2020-09-03
+### Fixed
+- Text watermark design
+- Problem of image saving without adding watermark in upload & modify modes
+
+### Added
+- showInModal & watermark.defaultText props
+- onClose method's status
+
 ## 3.10.1 - 2020-08-12
 ### Changed
 - update fonts

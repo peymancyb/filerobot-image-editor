@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 import { CloseBtn } from './CloseBtn';
 import { variables } from '../styledComponents/styleUtils';
-import { MODAL_ID } from '../config';
+import { MODAL_ID, ON_CLOSE_STATUSES } from '../config';
 
 
 const ModalOverlay = styled.div`
@@ -129,11 +129,15 @@ function getSmallModalStyle() {
 }
 
 export class Modal extends Component {
-  UNSAFE_componentWillMount() {
-    const { closeOnOutsideClick = true } =  this.props;
+  constructor(props) {
+    super(props);
+    
     this.root = document.createElement('div');
-    document.body.appendChild(this.root);
+    this.root.classList.add('filerobot-image-editor-root');
 
+    document.body.appendChild(this.root);
+    
+    const { closeOnOutsideClick = true } =  this.props;
     if (closeOnOutsideClick) {
       document.addEventListener('keydown', this.handleOutsideMouseClick);
     }
@@ -153,17 +157,17 @@ export class Modal extends Component {
 
     if (event.keyCode === 27) {
       event.stopPropagation();
-      onClose();
+      onClose(ON_CLOSE_STATUSES.ESC_KEY_PRESSED);
     }
   }
 
   render() {
-    let { onClose = () => {}, isHideCloseBtn, ...otherProps } = this.props;
+    let { onClose = () => {}, isHideCloseBtn, configModalId, ...otherProps } = this.props;
 
     return createPortal(
       <Fragment>
-        <ModalOverlay onClick={onClose}/>
-        <ModalFullScreen id={MODAL_ID} {...this.props}>
+        <ModalOverlay className="modal-overlay" onClick={() => onClose(ON_CLOSE_STATUSES.MODAL_OVERLAY_CLICKED)}/>
+        <ModalFullScreen id={configModalId || MODAL_ID} {...this.props}>
           {!isHideCloseBtn && <CloseBtn onClick={onClose}/>}
           <ModalContent h="100%" {...otherProps}>
             {this.props.children}

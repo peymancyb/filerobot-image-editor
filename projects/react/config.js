@@ -1,8 +1,10 @@
 // The library modal ID.
-const MODAL_ID = 'filerobot-image-editor';
+const MODAL_ID = 'filerobot-image-editor-modal';
 
 // ID for preview canvas (canvas contains watermark, shapes...etc).
-const PREVIEW_CANVAS_ID = 'scaleflex-filerobot-shapes-edit-box';
+const PREVIEW_CANVAS_ID = 'filerobot-shapes-edit-box';
+const CANVAS_ID = 'filerobot-image-edit-box';
+const ORIGINAL_CANVAS_ID = 'filerobot-image-edit-box-original';
 
 // 'effects', 'filters', 'adjust', 'crop', 'resize', 'rotate'
 const TOOLS = [
@@ -177,4 +179,34 @@ const UPLOADER = {
   resizePresets
 }
 
-export { MODAL_ID, PREVIEW_CANVAS_ID, TOOLS, EFFECTS, FILTERS, UPLOADER, CLOUDIMAGE_OPERATIONS, WATERMARK_POSITIONS, WATERMARK_UNIQUE_KEY, WATERMARK_POSITIONS_PRESET, STANDARD_FONTS, WATERMARK_CLOUDIMAGE_FONTS, SHAPES_VARIANTS, DEFAULT_IMG_URL };
+const ON_CLOSE_STATUSES = {
+  CLOSE_BTN_CLICKED: 'close-button-clicked',
+  TOOLBAR_CANCEL_BTN_CLICKED: 'toolbar-cancel-button-clicked',
+  ESC_KEY_PRESSED: 'esc-key-pressed',
+  MODAL_OVERLAY_CLICKED: 'modal-overlay-clicked',
+  IMAGE_EDITS_COMPLETED: 'image-edits-completed',
+  IMAGE_DOWNLOADED: 'image-downloaded',
+  IMAGE_UPLOADED_FILEROBOT: 'image-uploaded-filerobot',
+  IMAGE_UPLOADED_CLOUDIMAGE: 'image-uploaded-cloudimage',
+  IMAGE_UPLOADING_FAIL_FILEROBOT: 'image-uploading-fail-filerobot',
+}
+
+export {
+  MODAL_ID,
+  PREVIEW_CANVAS_ID,
+  TOOLS,
+  EFFECTS,
+  FILTERS,
+  UPLOADER,
+  CLOUDIMAGE_OPERATIONS,
+  WATERMARK_POSITIONS,
+  WATERMARK_UNIQUE_KEY,
+  WATERMARK_POSITIONS_PRESET,
+  STANDARD_FONTS,
+  WATERMARK_CLOUDIMAGE_FONTS,
+  SHAPES_VARIANTS,
+  DEFAULT_IMG_URL,
+  ON_CLOSE_STATUSES,
+  CANVAS_ID,
+  ORIGINAL_CANVAS_ID
+};

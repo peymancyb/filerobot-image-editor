@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled('div')`
   height: 100%;
+  width: 100%;
   overflow-y: auto;
 
   *, *:after, *:before, *::after, *::before {
@@ -82,7 +83,7 @@ const Wrapper = styled.div`
   overflow-y: auto;
   font-size: 12px;
   
-  #scaleflex-image-edit-box-original {
+  .filerobot-original-canvas {
     visibility: hidden;
     position: absolute;
     left: -99999px;

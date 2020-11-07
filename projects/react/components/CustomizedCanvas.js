@@ -25,6 +25,7 @@ export default class CustomizedCanvas extends Component {
 
     this.state = {
       resizeControlTarget: null,
+      originalCanvasDimensions: null
     }
   }
 
@@ -34,30 +35,28 @@ export default class CustomizedCanvas extends Component {
       this._canvas.addEventListener('mousedown', this.onSelect);
       this._context = this._canvas.getContext('2d');
 
+      const border = `1px solid ${this.props.colorScheme === 'light' ? '#000' : '#fff'}`;
       const availableShapes = [
         {
           label: 'Rectangle',
           variant: SHAPES_VARIANTS.RECT,
-          iconStyles: { height: 50, width: 100, border: '1px solid #fff' },
+          iconStyles: { height: 50, width: 100, border },
           drawFn: this.addRect,
         },
         {
           label: 'Square',
           variant: SHAPES_VARIANTS.SQUARE,
-          iconStyles: { border: '1px solid #fff' },
+          iconStyles: { border },
           drawFn: (props) => this.addSquare({ width: 75, height: 75, ...props }),
           // iconUrl: undefined,
         },
         {
           label: 'Circle',
           variant: SHAPES_VARIANTS.CIRCLE,
-          iconStyles: { border: '1px solid #fff', borderRadius: '50%' },
+          iconStyles: { border, borderRadius: '50%' },
           drawFn: this.addCircle
           // iconUrl: undefined,
         },
-        // TODO: Giving the consumer the chance to add more shapes with its draw fns. from props.
-        // TODO: Supporting the shapes for expanding & Add expandShapes to readme.
-        ...this.props.expandShapes
       ]
 
       this.props.updateState({
@@ -74,11 +73,16 @@ export default class CustomizedCanvas extends Component {
           deleteShapes: this.deleteAllShapesOrByTypeOrIndicies,
           setShapeVisibility: this.setShapeVisibilityByKeyOrIndex,
           getShape: this.getShapeByKeyOrIndex,
-          getShapesIndicies: this.getShapesIndexByAnyProp
+          getShapesIndicies: this.getShapesIndexByAnyProp,
+          prepareFinalCanvas: this.prepareFinalCanvas
         },
         availableShapes
       });
     }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    return { ...state, originalCanvasDimensions: props.originalCanvasDimensions };
   }
 
   componentWillUnmount() {
@@ -89,6 +93,38 @@ export default class CustomizedCanvas extends Component {
     if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
       this.redrawShape()
     }
+  }
+
+  prepareFinalCanvas = () => {
+    const { shapes } = this.props;
+    const newCanvas = document.createElement('canvas');
+    const { width, height } = this.state.originalCanvasDimensions;
+    newCanvas.width = width;
+    newCanvas.height = height;
+
+    this._canvas.parentNode.insertBefore(newCanvas, this._canvas);
+
+    const oldCanvas = this._canvas;
+
+    this._canvas = newCanvas;
+    this._context = newCanvas.getContext('2d');
+
+    shapes.map((shape) => {
+      // Mapping both (X & WIDTH), (Y & HEIGHT) of shape from old to new canvas with final dimnesions.
+      shape.x = shape.x.mapNumber(0, oldCanvas.width, 0, width);
+      shape.y = shape.y.mapNumber(0, oldCanvas.height, 0, height);
+      
+      if (shape.variant !== SHAPES_VARIANTS.TEXT) {
+        shape.width = shape.width.mapNumber(0, oldCanvas.width, 0, width);
+        shape.height = shape.height.mapNumber(0, oldCanvas.height, 0, height);
+      } else {
+        shape.textSize = parseInt(shape.textSize).mapNumber(0, oldCanvas.width, 0, width);
+      }
+
+      this.drawShapeThroughVariant(shape);
+    });
+
+    return this._canvas;
   }
 
   updateState = (data, callback = () => {}) => {
@@ -153,7 +189,9 @@ export default class CustomizedCanvas extends Component {
             this.activateResizingActions();
             this._canvas.addEventListener('keyup', this.activateShapeDeleting);
             this._canvas.addEventListener('mousemove', this.startDragging);
+            this._canvas.addEventListener('touchmove', this.startDragging);
             document.addEventListener('mouseup', this.endDragging);
+            document.addEventListener('touchend', this.endDragging);
           }
       }
     );
@@ -164,7 +202,9 @@ export default class CustomizedCanvas extends Component {
       this.disableResizingActions();
       this._canvas.removeEventListener('keyup', this.activateShapeDeleting);
       this._canvas.removeEventListener('mousemove', this.startDragging);
+      this._canvas.removeEventListener('touchmove', this.startDragging);
       document.removeEventListener('mouseup', this.endDragging);
+      document.removeEventListener('touchend', this.endDragging);
     }
   }
 
@@ -192,7 +232,9 @@ export default class CustomizedCanvas extends Component {
   trackShapeResize = ({ target }) => {
     this.setState({ resizeControlTarget: target });
     document.addEventListener('mousemove', this.handleShapeResizing);
+    document.addEventListener('touchmove', this.handleShapeResizing);
     document.addEventListener('mouseup', this.disableResizingActions);
+    document.addEventListener('touchend', this.disableResizingActions);
   }
 
   handleShapeResizing = ({ movementX, movementY, shiftKey }) => {
@@ -319,6 +361,14 @@ export default class CustomizedCanvas extends Component {
   }
 
   startDragging = (event) => {
+    if (event.targetTouches && event.targetTouches[0]) {
+      event.preventDefault();
+      const { clientX, clientY } = event.targetTouches[0];
+      const { x, y } = this._canvas.getBoundingClientRect();
+      event.offsetX = clientX - x;
+      event.offsetY = clientY - y;
+    }
+    
     const { selectedShape } = this.props;
     const { startEdgeOffset = {}, width, height, index } = selectedShape;
 
@@ -453,8 +503,8 @@ export default class CustomizedCanvas extends Component {
   getTextWidthAndHeight = ({ text, textSize, textFont }) => {
     this.setTextStyle({ textSize, textFont });
     const metrics = this._context.measureText(text);
-    const { width } = metrics;
-    const height = width === 0 ? 0 : metrics.actualBoundingBoxDescent - metrics.actualBoundingBoxAscent;
+    let { width } = metrics;
+    let height = width === 0 ? 0 : metrics.actualBoundingBoxDescent - metrics.actualBoundingBoxAscent;
 
     return [width, height];
   }
@@ -472,7 +522,8 @@ export default class CustomizedCanvas extends Component {
   // TODO: add other shapes variants...
 
   addRect = ({ x, y, width = 100, height = 75, stroke = {}, color = '#000000',
-    opacity = 1.0, variant = SHAPES_VARIANTS.RECT, tab = 'shapes', ...others } = {}) => {
+    opacity = 1.0, variant = SHAPES_VARIANTS.RECT, tab = 'shapes', ...others } = {}
+  ) => {
     const [centerX, centerY] = this.getCanvasCenter(width / 2, height / 2);
 
     const drawingArgs = { x: x || centerX, y: y || centerY, width, height, stroke, opacity, color };
@@ -497,7 +548,8 @@ export default class CustomizedCanvas extends Component {
   }
 
   addCircle = ({ x, y, radius = 50, stroke = {}, color = '#000000',
-    opacity = 1.0, tab = 'shapes', ...others } = {}) => {
+    opacity = 1.0, tab = 'shapes', ...others } = {}
+  ) => {
     const [centerX, centerY] = this.getCanvasCenter(radius, radius);
     const widthAndHeight = radius * 2;
 
@@ -521,8 +573,8 @@ export default class CustomizedCanvas extends Component {
   ) => {
     if(img) {
       const addIt = () => {
-        const width = img.width;
-        const height = img.height;
+        const [width, height] = this.getSuitableImgDiemensions(img);
+
         const [centerX, centerY] = this.getCanvasCenter(width / 2, height / 2);
 
         const drawingArgs = {
@@ -559,8 +611,9 @@ export default class CustomizedCanvas extends Component {
     text = 'Text', textSize = 62, color = "#000000", textFont = 'Arial', x = undefined, y = undefined,
     stroke = {}, opacity = 1.0, tab = 'text', otherStates, ...others
   } = {}) => {
-    // Set text style here for measuring the text's widht & hegiht before drawing.
     const [width, height] = this.getTextWidthAndHeight({ text, textSize, textFont });
+    
+    // Set text style here for measuring the text's width & hegiht before drawing.
     const [centerX, centerY] = this.getCanvasCenter(width / 2, height / 2);
 
     if (text) {
@@ -610,6 +663,25 @@ export default class CustomizedCanvas extends Component {
       default:
         return;
     }
+  }
+
+  getSuitableImgDiemensions = (img) => {
+    let width = img.width;
+    let height = img.height;
+
+    // Scaling down the image if it's bigger than the canvas
+    if (width > this._canvas.width) {
+      width = width / (width / this._canvas.width)
+    }
+
+    if (height > this._canvas.height) {
+      height = height / (height / this._canvas.height)
+    }
+
+    width = this.fromoriginalCanvasDimensionsValue(width, 'width');
+    height = this.fromoriginalCanvasDimensionsValue(height, 'height');
+
+    return [width, height];
   }
 
   getShapeByKeyOrIndex = ({ key: shapeKey, index: shapeIndex }) => {
@@ -715,6 +787,10 @@ export default class CustomizedCanvas extends Component {
           updatedData.width = updates.selectedShape.width = width;
           updatedData.height = updates.selectedShape.height = height;
           updatedData.text = updates.selectedShape.text = updatedData.text || targetShape.text;
+        }
+      } else {
+        if (updatedData.width && updatedData.height) {
+          updates.selectedShape = { ...selectedShape, width: updatedData.width, height: updatedData.height }
         }
       }
 
@@ -822,12 +898,23 @@ export default class CustomizedCanvas extends Component {
     this.updateState({ isShowSpinner: true });
 
     const img = new Image();
-    img.setAttribute('crossOrigin', 'Anonymous');
-    img.src = src;
+
+    img.crossOrigin = 'Anonymous';
+    img.src = `${src}?v=${Math.random()}`;
+
     img.onload = () =>  {
-      dataObject ? fn(dataObject,...args) : fn(...args);
+      if (dataObject) {
+        const [width, height] = this.getSuitableImgDiemensions(img);
+        dataObject.width = dataObject.originalWidth = width;
+        dataObject.height = dataObject.originalHeight = height;
+        fn(dataObject,...args);
+      } else {
+        fn(...args);
+      }
+      
       this.updateState({ isShowSpinner: false });
     }
+
     img.onerror = () => {
       this.updateState({ isShowSpinner: false });
       console.error('Error loading the image...');
@@ -835,6 +922,15 @@ export default class CustomizedCanvas extends Component {
 
     if (dataObject){ dataObject.img = img }
     return img;
+  }
+
+  fromoriginalCanvasDimensionsValue = (number, property) => {
+    if (this._canvas && this.state.originalCanvasDimensions) {
+      // property = width/height
+      return number.mapNumber(0, this.state.originalCanvasDimensions[property], 0, this._canvas[property]);
+    }
+    
+    return number;
   }
 
 
@@ -848,7 +944,8 @@ export default class CustomizedCanvas extends Component {
         x = 0,
         y = 0,
         resizingBox = false
-      }
+      },
+      wrapperId
     } = this.props
     const resizingBoxLines = ['e', 'n', 'w', 's'];
     const resizingBoxPoints = ['e', 'n', 'w', 's', 'ne', 'nw', 'sw', 'se'];
@@ -860,7 +957,7 @@ export default class CustomizedCanvas extends Component {
       <>
         <PreviewCanvas
           ref={this.canvasRef}
-          id={PREVIEW_CANVAS_ID}
+          id={`${wrapperId}_${PREVIEW_CANVAS_ID}`}
           width={parentCanvasWidth}
           height={parentCanvasHeight}
           tabIndex={1}
