@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AddWrapper, SettingsWrapper, FieldGroup, FieldCustomLabel } from '../../styledComponents/Shapes.ui';
-import { FieldInput } from '../../styledComponents';
+import { FieldInput, Button } from '../../styledComponents';
 import Range from '../Range';
 import Select from '../Shared/Select';
 

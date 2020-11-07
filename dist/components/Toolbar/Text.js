@@ -129,7 +129,7 @@ var Text = /*#__PURE__*/function (_Component) {
           minWidth: 111
         },
         onChange: this.updatePropertyFromEvent
-      })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Add New Text"), /*#__PURE__*/_react.default.createElement(Button, {
+      })), /*#__PURE__*/_react.default.createElement(_Shapes.FieldGroup, null, /*#__PURE__*/_react.default.createElement(_Shapes.FieldCustomLabel, null, "Add New Text"), /*#__PURE__*/_react.default.createElement(_styledComponents.Button, {
         id: "addText",
         name: "addText",
         style: {
