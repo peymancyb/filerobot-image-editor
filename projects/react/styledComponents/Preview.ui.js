@@ -83,6 +83,7 @@ const PreviewCanvas = styled('canvas')`
   right: 0;
   margin: auto;
   outline: 0;
+  padding:2px;
 `;
 
 const FocusPointWrap = styled(
@@ -137,7 +138,7 @@ const FocusPoint = styled(
   },
 }));
 
-const FocusPointImg = styled(({visible, ...rest}) => <img {...rest} />)(({visible}) => ({
+const FocusPointImg = styled(({visible, ...rest }) => <img {...rest} />)(({ visible }) => ({
   visibility: visible ? 'visible' : 'hidden',
   maxWidth: '100%',
   maxHeight: '100%'
