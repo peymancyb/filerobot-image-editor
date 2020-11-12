@@ -155,7 +155,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(CamanParser, "CamanParser", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/autoload.js");
+  __REACT_HOT_LOADER__.register(CamanParser, "CamanParser", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/autoload.js");
 }();
 
 ;

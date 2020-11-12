@@ -227,11 +227,11 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(BlurStack, "BlurStack", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
+  __REACT_HOT_LOADER__.register(BlurStack, "BlurStack", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
 
-  __REACT_HOT_LOADER__.register(mul_table, "mul_table", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
+  __REACT_HOT_LOADER__.register(mul_table, "mul_table", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
 
-  __REACT_HOT_LOADER__.register(shg_table, "shg_table", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
+  __REACT_HOT_LOADER__.register(shg_table, "shg_table", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/stackBlur.js");
 }();
 
 ;

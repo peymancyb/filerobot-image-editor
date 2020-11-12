@@ -33,7 +33,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(AdjustWrapper, "AdjustWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Adjust.ui.js");
+  __REACT_HOT_LOADER__.register(AdjustWrapper, "AdjustWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Adjust.ui.js");
 }();
 
 ;

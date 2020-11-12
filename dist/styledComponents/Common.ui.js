@@ -43,9 +43,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(NoClickOverlay, "NoClickOverlay", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Common.ui.js");
+  __REACT_HOT_LOADER__.register(NoClickOverlay, "NoClickOverlay", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Common.ui.js");
 
-  __REACT_HOT_LOADER__.register(NoClickToolbar, "NoClickToolbar", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Common.ui.js");
+  __REACT_HOT_LOADER__.register(NoClickToolbar, "NoClickToolbar", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Common.ui.js");
 }();
 
 ;

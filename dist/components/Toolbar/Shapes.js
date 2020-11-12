@@ -268,7 +268,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Add, "Add", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Toolbar/Shapes.js");
+  __REACT_HOT_LOADER__.register(Add, "Add", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Toolbar/Shapes.js");
 }();
 
 ;

@@ -64,7 +64,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(toDegrees, "toDegrees", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/plugins/rotate.js");
+  __REACT_HOT_LOADER__.register(toDegrees, "toDegrees", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/plugins/rotate.js");
 }();
 
 ;

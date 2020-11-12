@@ -34,7 +34,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  width: ", "px;\n  height: ", "px;\n  display: inline-block;\n  max-height: 100%;\n  max-width: 100%;\n  vertical-align: middle;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  outline: 0;\n"]);
+  var data = _taggedTemplateLiteral(["\n  width: ", "px;\n  height: ", "px;\n  display: inline-block;\n  max-height: 100%;\n  max-width: 100%;\n  vertical-align: middle;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  outline: 0;\n  padding:2px;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -210,23 +210,23 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(PreviewWrapper, "PreviewWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreviewWrapper, "PreviewWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreResizeBox, "PreResizeBox", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreResizeBox, "PreResizeBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreviewImgBox, "PreviewImgBox", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreviewImgBox, "PreviewImgBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreviewCanvas, "PreviewCanvas", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(PreviewCanvas, "PreviewCanvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPointWrap, "FocusPointWrap", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPointWrap, "FocusPointWrap", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPointContainer, "FocusPointContainer", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPointContainer, "FocusPointContainer", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPoint, "FocusPoint", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPoint, "FocusPoint", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(FocusPointImg, "FocusPointImg", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(FocusPointImg, "FocusPointImg", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 
-  __REACT_HOT_LOADER__.register(Canvas, "Canvas", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
+  __REACT_HOT_LOADER__.register(Canvas, "Canvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Preview.ui.js");
 }();
 
 ;

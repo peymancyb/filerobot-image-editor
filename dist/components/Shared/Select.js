@@ -357,23 +357,23 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Select, "Select", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(Select, "Select", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(SelectWrapper, "SelectWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(SelectWrapper, "SelectWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(SelectedItem, "SelectedItem", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(SelectedItem, "SelectedItem", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(SelectDropdown, "SelectDropdown", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(SelectDropdown, "SelectDropdown", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(SelectDropdownItem, "SelectDropdownItem", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(SelectDropdownItem, "SelectDropdownItem", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(getItemStyles, "getItemStyles", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(getItemStyles, "getItemStyles", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(ItemName, "ItemName", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(ItemName, "ItemName", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(ItemIcon, "ItemIcon", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(ItemIcon, "ItemIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Shared/Select.js");
+  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Shared/Select.js");
 }();
 
 ;

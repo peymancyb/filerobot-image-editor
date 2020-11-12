@@ -191,7 +191,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Pixel, "Pixel", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/pixel.js");
+  __REACT_HOT_LOADER__.register(Pixel, "Pixel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/pixel.js");
 }();
 
 ;

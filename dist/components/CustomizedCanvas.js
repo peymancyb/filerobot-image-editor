@@ -1403,21 +1403,7 @@ var CustomizedCanvas = /*#__PURE__*/function (_Component) {
           top: top,
           pointerEvents: 'none'
         }
-      }, resizingBoxLines.map(function (l) {
-        return /*#__PURE__*/_react.default.createElement("span", {
-          key: l,
-          className: "cropper-line line-".concat(l, " shape-resizing-control"),
-          "data-direction": l,
-          style: mutualStyles
-        });
-      }), resizingBoxPoints.map(function (p) {
-        return /*#__PURE__*/_react.default.createElement("span", {
-          key: p,
-          className: "cropper-point point-".concat(p, " shape-resizing-control"),
-          "data-direction": p,
-          style: mutualStyles
-        });
-      })));
+      }));
     }
   }]);
 
@@ -1432,7 +1418,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(CustomizedCanvas, "CustomizedCanvas", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/CustomizedCanvas.js");
+  __REACT_HOT_LOADER__.register(CustomizedCanvas, "CustomizedCanvas", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/CustomizedCanvas.js");
 }();
 
 ;

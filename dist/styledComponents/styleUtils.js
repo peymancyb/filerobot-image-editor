@@ -375,31 +375,31 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(commonTheme, "commonTheme", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(commonTheme, "commonTheme", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(variables, "variables", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(variables, "variables", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getModalWidth, "getModalWidth", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getModalWidth, "getModalWidth", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getFieldColorStyles, "getFieldColorStyles", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getFieldColorStyles, "getFieldColorStyles", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getIconStyles, "getIconStyles", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getIconStyles, "getIconStyles", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(shadeBlendConvert, "shadeBlendConvert", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(shadeBlendConvert, "shadeBlendConvert", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(isHex, "isHex", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(isHex, "isHex", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(hexToRgb, "hexToRgb", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(hexToRgb, "hexToRgb", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getHoverColor, "getHoverColor", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getHoverColor, "getHoverColor", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getWithOpacity, "getWithOpacity", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getWithOpacity, "getWithOpacity", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getElementStylesBySize, "getElementStylesBySize", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getElementStylesBySize, "getElementStylesBySize", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getColor, "getColor", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getColor, "getColor", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 
-  __REACT_HOT_LOADER__.register(getIconByName, "getIconByName", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
+  __REACT_HOT_LOADER__.register(getIconByName, "getIconByName", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/styleUtils.js");
 }();
 
 ;

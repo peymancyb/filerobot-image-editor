@@ -18,7 +18,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(getCanvasNode, "getCanvasNode", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/get-canvas-node.js");
+  __REACT_HOT_LOADER__.register(getCanvasNode, "getCanvasNode", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-canvas-node.js");
 }();
 
 ;

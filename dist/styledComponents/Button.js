@@ -84,17 +84,17 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Button, "Button", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Button.js");
+  __REACT_HOT_LOADER__.register(Button, "Button", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Button.js");
 
-  __REACT_HOT_LOADER__.register(getElementStylesBySize, "getElementStylesBySize", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Button.js");
+  __REACT_HOT_LOADER__.register(getElementStylesBySize, "getElementStylesBySize", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Button.js");
 
-  __REACT_HOT_LOADER__.register(isDisabled, "isDisabled", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Button.js");
+  __REACT_HOT_LOADER__.register(isDisabled, "isDisabled", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Button.js");
 
-  __REACT_HOT_LOADER__.register(getButtonStyles, "getButtonStyles", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Button.js");
+  __REACT_HOT_LOADER__.register(getButtonStyles, "getButtonStyles", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Button.js");
 
-  __REACT_HOT_LOADER__.register(getColor, "getColor", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Button.js");
+  __REACT_HOT_LOADER__.register(getColor, "getColor", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Button.js");
 
-  __REACT_HOT_LOADER__.register(getLinkColor, "getLinkColor", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Button.js");
+  __REACT_HOT_LOADER__.register(getLinkColor, "getLinkColor", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Button.js");
 }();
 
 ;

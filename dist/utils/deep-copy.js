@@ -17,7 +17,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(deepCopy, "deepCopy", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/deep-copy.js");
+  __REACT_HOT_LOADER__.register(deepCopy, "deepCopy", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/deep-copy.js");
 }();
 
 ;

@@ -163,11 +163,11 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Range, "Range", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Range.js");
+  __REACT_HOT_LOADER__.register(Range, "Range", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Range.js");
 
-  __REACT_HOT_LOADER__.register(Wrapper, "Wrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Range.js");
+  __REACT_HOT_LOADER__.register(Wrapper, "Wrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Range.js");
 
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Range.js");
+  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Range.js");
 }();
 
 ;

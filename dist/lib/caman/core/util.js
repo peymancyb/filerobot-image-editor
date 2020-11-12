@@ -151,11 +151,11 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register($, "$", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/util.js");
+  __REACT_HOT_LOADER__.register($, "$", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/util.js");
 
-  __REACT_HOT_LOADER__.register(__extends, "__extends", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/util.js");
+  __REACT_HOT_LOADER__.register(__extends, "__extends", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/util.js");
 
-  __REACT_HOT_LOADER__.register(Util, "Util", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/util.js");
+  __REACT_HOT_LOADER__.register(Util, "Util", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/util.js");
 }();
 
 ;

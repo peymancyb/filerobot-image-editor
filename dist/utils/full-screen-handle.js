@@ -30,7 +30,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(toggleModalFullscreen, "toggleModalFullscreen", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/full-screen-handle.js");
+  __REACT_HOT_LOADER__.register(toggleModalFullscreen, "toggleModalFullscreen", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/full-screen-handle.js");
 }();
 
 ;

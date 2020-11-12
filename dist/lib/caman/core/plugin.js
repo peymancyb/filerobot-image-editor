@@ -40,7 +40,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Plugin, "Plugin", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/plugin.js");
+  __REACT_HOT_LOADER__.register(Plugin, "Plugin", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/plugin.js");
 }();
 
 ;

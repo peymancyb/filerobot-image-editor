@@ -704,9 +704,9 @@ var _temp2 = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(INITIAL_PARAMS, "INITIAL_PARAMS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/ImageEditor.js");
+  __REACT_HOT_LOADER__.register(INITIAL_PARAMS, "INITIAL_PARAMS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/ImageEditor.js");
 
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/ImageEditor.js");
+  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/ImageEditor.js");
 }();
 
 ;

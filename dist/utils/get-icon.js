@@ -100,7 +100,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(getIcon, "getIcon", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/get-icon.js");
+  __REACT_HOT_LOADER__.register(getIcon, "getIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-icon.js");
 }();
 
 ;

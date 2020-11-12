@@ -744,6 +744,7 @@ var ImageManipulator = /*#__PURE__*/function (_Component) {
           rotatable: false,
           scalable: false,
           zoomable: true,
+          cropBoxMovable: false,
           movable: true,
           autoCropArea: beginCropArea,
           dragCrop: false,
@@ -1670,9 +1671,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(INITIAL_PARAMS, "INITIAL_PARAMS", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Preview/ImageManipulator.js");
+  __REACT_HOT_LOADER__.register(INITIAL_PARAMS, "INITIAL_PARAMS", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Preview/ImageManipulator.js");
 
-  __REACT_HOT_LOADER__.register(ImageManipulator, "ImageManipulator", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/components/Preview/ImageManipulator.js");
+  __REACT_HOT_LOADER__.register(ImageManipulator, "ImageManipulator", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/components/Preview/ImageManipulator.js");
 }();
 
 ;

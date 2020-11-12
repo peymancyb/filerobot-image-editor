@@ -86,9 +86,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(colorSchemes, "colorSchemes", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/assets/styles/colorScheme.js");
+  __REACT_HOT_LOADER__.register(colorSchemes, "colorSchemes", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/assets/styles/colorScheme.js");
 
-  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/assets/styles/colorScheme.js");
+  __REACT_HOT_LOADER__.register(_default, "default", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/assets/styles/colorScheme.js");
 }();
 
 ;

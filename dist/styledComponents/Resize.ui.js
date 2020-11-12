@@ -119,19 +119,19 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(ResizeWrapper, "ResizeWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
+  __REACT_HOT_LOADER__.register(ResizeWrapper, "ResizeWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
 
-  __REACT_HOT_LOADER__.register(ResizeBox, "ResizeBox", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
+  __REACT_HOT_LOADER__.register(ResizeBox, "ResizeBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreResizeActions, "PreResizeActions", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
+  __REACT_HOT_LOADER__.register(PreResizeActions, "PreResizeActions", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreResizeWarning, "PreResizeWarning", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
+  __REACT_HOT_LOADER__.register(PreResizeWarning, "PreResizeWarning", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
 
-  __REACT_HOT_LOADER__.register(PreResizeInner, "PreResizeInner", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
+  __REACT_HOT_LOADER__.register(PreResizeInner, "PreResizeInner", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
 
-  __REACT_HOT_LOADER__.register(SuggestionsBox, "SuggestionsBox", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
+  __REACT_HOT_LOADER__.register(SuggestionsBox, "SuggestionsBox", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
 
-  __REACT_HOT_LOADER__.register(SuggestionOption, "SuggestionOption", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
+  __REACT_HOT_LOADER__.register(SuggestionOption, "SuggestionOption", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Resize.ui.js");
 }();
 
 ;

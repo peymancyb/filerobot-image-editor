@@ -18,7 +18,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(getBaseUrl, "getBaseUrl", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/utils/get-base-url.js");
+  __REACT_HOT_LOADER__.register(getBaseUrl, "getBaseUrl", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/utils/get-base-url.js");
 }();
 
 ;

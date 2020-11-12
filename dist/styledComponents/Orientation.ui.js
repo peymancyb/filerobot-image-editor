@@ -127,19 +127,19 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(OrientationWrapper, "OrientationWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
+  __REACT_HOT_LOADER__.register(OrientationWrapper, "OrientationWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
 
-  __REACT_HOT_LOADER__.register(RotateWrapper, "RotateWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
+  __REACT_HOT_LOADER__.register(RotateWrapper, "RotateWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
 
-  __REACT_HOT_LOADER__.register(RotateLabel, "RotateLabel", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
+  __REACT_HOT_LOADER__.register(RotateLabel, "RotateLabel", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
 
-  __REACT_HOT_LOADER__.register(RotateButton, "RotateButton", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
+  __REACT_HOT_LOADER__.register(RotateButton, "RotateButton", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
 
-  __REACT_HOT_LOADER__.register(ButtonGroup, "ButtonGroup", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
+  __REACT_HOT_LOADER__.register(ButtonGroup, "ButtonGroup", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
 
-  __REACT_HOT_LOADER__.register(RotateIcon, "RotateIcon", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
+  __REACT_HOT_LOADER__.register(RotateIcon, "RotateIcon", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
 
-  __REACT_HOT_LOADER__.register(DarkBtn, "DarkBtn", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
+  __REACT_HOT_LOADER__.register(DarkBtn, "DarkBtn", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Orientation.ui.js");
 }();
 
 ;

@@ -100,11 +100,11 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(SpinnerOverlay, "SpinnerOverlay", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
+  __REACT_HOT_LOADER__.register(SpinnerOverlay, "SpinnerOverlay", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
 
-  __REACT_HOT_LOADER__.register(IconWrapper, "IconWrapper", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
+  __REACT_HOT_LOADER__.register(IconWrapper, "IconWrapper", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
 
-  __REACT_HOT_LOADER__.register(Spinner, "Spinner", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
+  __REACT_HOT_LOADER__.register(Spinner, "Spinner", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/styledComponents/Spinner.js");
 }();
 
 ;

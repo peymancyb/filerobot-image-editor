@@ -111,7 +111,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Event, "Event", "/Users/peymanghazvini/Desktop/memo/filerobot-image-editor/projects/react/lib/caman/core/event.js");
+  __REACT_HOT_LOADER__.register(Event, "Event", "/Users/peymanghazvini/Desktop/filerobot-image-editor/projects/react/lib/caman/core/event.js");
 }();
 
 ;
