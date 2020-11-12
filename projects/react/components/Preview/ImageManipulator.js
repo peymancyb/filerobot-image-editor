@@ -821,6 +821,7 @@ export default class ImageManipulator extends Component {
         rotatable: false,
         scalable: false,
         zoomable: true,
+        cropBoxMovable: false,
         movable: true,
         autoCropArea: beginCropArea,
         dragCrop: false,
